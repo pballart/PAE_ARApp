@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */; };
+		5F0D3BC919DEE16600F65CE9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC719DEE16600F65CE9 /* Pods.framework */; };
+		5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */; };
+		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
+		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
+		5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */; };
 		5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5319D1DC6B00A0DB71 /* main.m */; };
 		5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5619D1DC6B00A0DB71 /* AppDelegate.m */; };
 		5FA83C5A19D1DC6B00A0DB71 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5919D1DC6B00A0DB71 /* ViewController.m */; };
@@ -27,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
+		5F0D3BC719DEE16600F65CE9 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods.framework; sourceTree = "<group>"; };
+		5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5FA83C4E19D1DC6B00A0DB71 /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C5219D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA83C5319D1DC6B00A0DB71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */,
+				5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */,
+				5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */,
+				5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */,
+				5F0D3BC919DEE16600F65CE9 /* Pods.framework in Frameworks */,
+				5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +78,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F0D3BC519DEE14E00F65CE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */,
+				5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */,
+				5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */,
+				5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */,
+				5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */,
+				5F0D3BC719DEE16600F65CE9 /* Pods.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		5FA83C4519D1DC6B00A0DB71 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +119,7 @@
 				5FA83C5B19D1DC6B00A0DB71 /* Main.storyboard */,
 				5FA83C5E19D1DC6B00A0DB71 /* Images.xcassets */,
 				5FA83C6019D1DC6B00A0DB71 /* LaunchScreen.xib */,
+				5F0D3BC519DEE14E00F65CE9 /* Frameworks */,
 				5FA83C5119D1DC6B00A0DB71 /* Supporting Files */,
 			);
 			path = ARApp;
@@ -343,6 +375,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ARApp/Frameworks",
+				);
 				INFOPLIST_FILE = ARApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +389,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ARApp/Frameworks",
+				);
 				INFOPLIST_FILE = ARApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +452,7 @@
 				5FA83C7319D1DC6B00A0DB71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FA83C7419D1DC6B00A0DB71 /* Build configuration list for PBXNativeTarget "ARAppTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +461,7 @@
 				5FA83C7619D1DC6B00A0DB71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
