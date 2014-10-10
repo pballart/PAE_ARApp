@@ -1,30 +1,31 @@
 //
-//  ViewController.m
+//  CaptureVC.m
 //  ARApp
 //
-//  Created by Pau Ballart Godoy on 23/09/14.
+//  Created by Pau Ballart Godoy on 10/10/14.
 //  Copyright (c) 2014 SolArt Apps. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CaptureVC.h"
 #import <CatchoomSDK/CatchoomSDK.h>
 #import <CatchoomSDK/CatchoomCloudRecognitionItem.h>
 
-@interface ViewController () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate> {
-    // Catchoom SDK reference
-    CatchoomSDK *_sdk;
-    CatchoomCloudRecognition *_cloudRecognition;
-    __weak IBOutlet UIView *videoPreviewView;
-    __weak IBOutlet UIActivityIndicatorView *activityIndicator;
-}
+@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *scanButton;
+@property (weak, nonatomic) IBOutlet UIView *cameraView;
+
 @end
 
-@implementation ViewController
+CatchoomSDK *_sdk;
+CatchoomCloudRecognition *_cloudRecognition;
+
+@implementation CaptureVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // setup the Catchoom SDK
+    // Setup the Catchoom SDK
     _sdk = [CatchoomSDK sharedCatchoomSDK];
     [_sdk setDelegate:self];
     
@@ -36,17 +37,13 @@
     [super viewWillAppear:animated];
     
     // Start Video Preview for search and tracking
-    [_sdk startCaptureWithView: self->videoPreviewView];
+    [_sdk startCaptureWithView: self.cameraView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (IBAction)searchPressed:(UIButton *)sender {
+- (IBAction)scanButtonPressed:(UIButton *)sender {
     [_cloudRecognition singleShotSearch];
-    [self->videoPreviewView setHidden:YES];
-    [self->activityIndicator startAnimating];
+    [self.cameraView setHidden:YES];
+    [sender setTitle:@"Scaning..." forState:UIControlStateNormal];
 }
 
 #pragma mark - CatchoomSDK Delegate
@@ -59,7 +56,7 @@
 #pragma mark - CatchoomCloudRecognition Delegate
 
 - (void) didGetSearchResults:(NSArray *)resultItems {
-    [self->activityIndicator stopAnimating];
+    [self.scanButton setTitle:@"Scan" forState:UIControlStateNormal];
     if ([resultItems count] == 1) {
         // Found one item !!!
         NSLog(@"Trobat!");
@@ -76,16 +73,22 @@
 }
 
 -(void)didFailWithError:(CatchoomSDKError *)error {
-    [self->activityIndicator stopAnimating];
+    [self.scanButton setTitle:@"Scan" forState:UIControlStateNormal];
     NSLog(@"Error: %@", error);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No trobat..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
 }
 
+-(void)didValidateToken
+{
+    NSLog(@"Token validated");
+}
+
 #pragma mark - UIAlertView Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    self->videoPreviewView.hidden = NO;
+    [self.cameraView setHidden:NO];
     [_sdk unfreezeCapture];
 }
+
 
 @end
