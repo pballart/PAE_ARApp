@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -40,6 +41,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WQu-2O-8Ox"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gMS-Xz-ttX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oD-Ac-bwR">
@@ -95,12 +97,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ob9-e4-Sp6" userLabel="CameraView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-eS-FBi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-eS-FBi">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Scan">
                                     <color key="titleColor" red="0.94049918651580811" green="0.051306329667568207" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <variation key="widthClass=compact"/>
                                 <connections>
                                     <action selector="scanButtonPressed:" destination="yGU-iG-35p" eventType="touchUpInside" id="vcb-pa-lrC"/>
                                 </connections>
@@ -112,7 +115,9 @@
                             <constraint firstItem="ob9-e4-Sp6" firstAttribute="top" secondItem="7WI-zx-NJb" secondAttribute="topMargin" id="RF2-9h-45K"/>
                             <constraint firstItem="ob9-e4-Sp6" firstAttribute="leading" secondItem="7WI-zx-NJb" secondAttribute="leadingMargin" constant="-16" id="VCP-I5-S8T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ob9-e4-Sp6" secondAttribute="trailing" constant="-16" id="h24-eU-9WV"/>
-                            <constraint firstAttribute="centerY" secondItem="fu1-eS-FBi" secondAttribute="centerY" constant="-208" id="iVA-Vw-r0n"/>
+                            <constraint firstAttribute="centerY" secondItem="fu1-eS-FBi" secondAttribute="centerY" constant="-208" id="iVA-Vw-r0n">
+                                <variation key="widthClass=compact" constant="-221"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -120,12 +125,12 @@
                                 <exclude reference="fu1-eS-FBi"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="0hK-lO-h8T"/>
+                                <exclude reference="Caf-fj-olX"/>
+                                <exclude reference="iVA-Vw-r0n"/>
                                 <exclude reference="RF2-9h-45K"/>
                                 <exclude reference="VCP-I5-S8T"/>
                                 <exclude reference="h24-eU-9WV"/>
-                                <exclude reference="Caf-fj-olX"/>
-                                <exclude reference="iVA-Vw-r0n"/>
-                                <exclude reference="0hK-lO-h8T"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -134,12 +139,12 @@
                                 <include reference="fu1-eS-FBi"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="0hK-lO-h8T"/>
+                                <include reference="Caf-fj-olX"/>
+                                <include reference="iVA-Vw-r0n"/>
                                 <include reference="RF2-9h-45K"/>
                                 <include reference="VCP-I5-S8T"/>
                                 <include reference="h24-eU-9WV"/>
-                                <include reference="Caf-fj-olX"/>
-                                <include reference="iVA-Vw-r0n"/>
-                                <include reference="0hK-lO-h8T"/>
                             </mask>
                         </variation>
                     </view>
@@ -161,6 +166,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j7d-AR-AjI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Uud-DR-fLR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZg-EX-cbH">

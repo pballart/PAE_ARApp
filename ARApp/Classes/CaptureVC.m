@@ -42,7 +42,7 @@ CatchoomCloudRecognition *_cloudRecognition;
 
 - (IBAction)scanButtonPressed:(UIButton *)sender {
     [_cloudRecognition singleShotSearch];
-    [self.cameraView setHidden:YES];
+    //[_sdk freezeCapture];
     [sender setTitle:@"Scaning..." forState:UIControlStateNormal];
 }
 
@@ -60,7 +60,7 @@ CatchoomCloudRecognition *_cloudRecognition;
     if ([resultItems count] == 1) {
         // Found one item !!!
         NSLog(@"Trobat!");
-        //CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
+        CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trobat" message:@"Yuju!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
     } else {
@@ -86,7 +86,6 @@ CatchoomCloudRecognition *_cloudRecognition;
 
 #pragma mark - UIAlertView Delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [self.cameraView setHidden:NO];
     [_sdk unfreezeCapture];
 }
 
