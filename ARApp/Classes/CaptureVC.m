@@ -9,8 +9,10 @@
 #import "CaptureVC.h"
 #import <CatchoomSDK/CatchoomSDK.h>
 #import <CatchoomSDK/CatchoomCloudRecognitionItem.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <pop/POP.h>
 
-@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate>
+@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate, POPAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *scanButton;
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
@@ -41,9 +43,29 @@ CatchoomCloudRecognition *_cloudRecognition;
 }
 
 - (IBAction)scanButtonPressed:(UIButton *)sender {
-    [_cloudRecognition singleShotSearch];
-    //[_sdk freezeCapture];
-    [sender setTitle:@"Scaning..." forState:UIControlStateNormal];
+    [_sdk takeSnapshot];
+    [SVProgressHUD show];
+    
+    //animate button
+    POPSpringAnimation *anim = [POPSpringAnimation animation];
+    anim.delegate = self;
+    anim.property = [POPAnimatableProperty propertyWithName:kPOPViewScaleXY];
+    anim.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5, 1.5)];
+    anim.springSpeed = 20;
+    anim.springBounciness = 20;
+    [sender pop_addAnimation:anim forKey:@"scanButton"];
+}
+
+#pragma mark - POPAnimationDelegate
+
+- (void)pop_animationDidReachToValue:(POPAnimation *)anim {
+    //Turn button to original size
+    POPSpringAnimation *animation = [POPSpringAnimation animation];
+    animation.property = [POPAnimatableProperty propertyWithName:kPOPViewScaleXY];
+    animation.toValue = [NSValue valueWithCGSize:CGSizeMake(1, 1)];
+    animation.springSpeed = 20;
+    animation.springBounciness = 20;
+    [self.scanButton pop_addAnimation:animation forKey:@"scanButtonBack"];
 }
 
 #pragma mark - CatchoomSDK Delegate
@@ -53,15 +75,21 @@ CatchoomCloudRecognition *_cloudRecognition;
     [_cloudRecognition setToken:@"cbaf95971df4436c"];
 }
 
+-(void)didGetSnapshot:(UIImage *)snapshot
+{
+    [_cloudRecognition searchWithUIImage:snapshot];
+    
+}
+
 #pragma mark - CatchoomCloudRecognition Delegate
 
 - (void) didGetSearchResults:(NSArray *)resultItems {
-    [self.scanButton setTitle:@"Scan" forState:UIControlStateNormal];
+    [SVProgressHUD dismiss];
     if ([resultItems count] == 1) {
         // Found one item !!!
         NSLog(@"Trobat!");
         CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trobat" message:@"Yuju!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trobat" message:[NSString stringWithFormat:@"ID: %@", item.itemId] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alert show];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] init];
@@ -73,7 +101,6 @@ CatchoomCloudRecognition *_cloudRecognition;
 }
 
 -(void)didFailWithError:(CatchoomSDKError *)error {
-    [self.scanButton setTitle:@"Scan" forState:UIControlStateNormal];
     NSLog(@"Error: %@", error);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No trobat..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
@@ -88,6 +115,7 @@ CatchoomCloudRecognition *_cloudRecognition;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     [_sdk unfreezeCapture];
 }
+
 
 
 @end
