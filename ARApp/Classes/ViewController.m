@@ -45,9 +45,9 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     if ([viewController isKindOfClass:[CaptureVC class]]) {
-        return [self.storyboard instantiateViewControllerWithIdentifier:@"UserVC"];
+        return [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"UserVC"];
     } else if ([viewController isKindOfClass:[RankingVC class]]) {
-        return [self.storyboard instantiateViewControllerWithIdentifier:@"CaptureVC"];
+        return [[UIStoryboard storyboardWithName:@"Ranking" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"CaptureVC"];
     } else {
         return nil;
     }
@@ -56,7 +56,7 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     if ([viewController isKindOfClass:[CaptureVC class]]) {
-        return [self.storyboard instantiateViewControllerWithIdentifier:@"RankingVC"];
+        return [[UIStoryboard storyboardWithName:@"Ranking" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"RankingVC"];
     } else if ([viewController isKindOfClass:[UserVC class]]) {
         return [self.storyboard instantiateViewControllerWithIdentifier:@"CaptureVC"];
     } else {

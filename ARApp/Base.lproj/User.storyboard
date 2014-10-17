@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--UserVC-->
+        <scene sceneID="94Q-xO-ioh">
+            <objects>
+                <viewController storyboardIdentifier="UserVC" id="XVH-2l-gKu" customClass="UserVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fQu-0h-BCO"/>
+                        <viewControllerLayoutGuide type="bottom" id="amh-4L-wJw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xH3-L0-kXX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czk-aH-mFn">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Czk-aH-mFn" secondAttribute="centerY" constant="216.5" id="Ttj-8a-wBV"/>
+                            <constraint firstAttribute="centerX" secondItem="Czk-aH-mFn" secondAttribute="centerX" constant="-16" id="cks-HL-7tc">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Czk-aH-mFn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="cks-HL-7tc"/>
+                                <exclude reference="Ttj-8a-wBV"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Czk-aH-mFn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="cks-HL-7tc"/>
+                                <include reference="Ttj-8a-wBV"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Hy-MR-EGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42" y="792"/>
+        </scene>
+    </scenes>
+</document>

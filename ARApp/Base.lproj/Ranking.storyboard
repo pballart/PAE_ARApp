@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <scenes>
+        <!--RankingVC-->
+        <scene sceneID="Pcj-vX-yfQ">
+            <objects>
+                <viewController storyboardIdentifier="RankingVC" id="cm8-pY-6oX" customClass="RankingVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8fv-bR-RUo"/>
+                        <viewControllerLayoutGuide type="bottom" id="mRk-U8-K7e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hkb-el-GRV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h99-bN-UzU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="h99-bN-UzU" secondAttribute="centerY" constant="215.5" id="22K-Yr-6xL"/>
+                            <constraint firstAttribute="centerX" secondItem="h99-bN-UzU" secondAttribute="centerX" constant="-0.5" id="Rje-dc-Du0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="h99-bN-UzU"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="22K-Yr-6xL"/>
+                                <exclude reference="Rje-dc-Du0"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="h99-bN-UzU"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="22K-Yr-6xL"/>
+                                <include reference="Rje-dc-Du0"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xiw-Rr-MbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="521"/>
+        </scene>
+    </scenes>
+</document>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */; };
+		5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4BC19F14CA300FA9CED /* User.storyboard */; };
 		5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */; };
 		5F0D3BC919DEE16600F65CE9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC719DEE16600F65CE9 /* Pods.framework */; };
 		5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		0B152836EC10FDE2FF426D7E /* Pods-ARApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.release.xcconfig"; sourceTree = "<group>"; };
 		4103B10C444A04CFA4F614B0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5F00B4BA19F14C7A00FA9CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Ranking.storyboard; sourceTree = "<group>"; };
+		5F00B4BD19F14CA300FA9CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/User.storyboard; sourceTree = "<group>"; };
 		5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
 		5F0D3BC719DEE16600F65CE9 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods.framework; sourceTree = "<group>"; };
 		5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -135,6 +139,8 @@
 			children = (
 				5FA83C5B19D1DC6B00A0DB71 /* Main.storyboard */,
 				5F8C1EF219E82ED000BBED83 /* Beer.storyboard */,
+				5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */,
+				5F00B4BC19F14CA300FA9CED /* User.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				5FA83C5D19D1DC6B00A0DB71 /* Main.storyboard in Resources */,
 				5FA83C6219D1DC6B00A0DB71 /* LaunchScreen.xib in Resources */,
 				5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */,
+				5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */,
+				5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +393,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F00B4BA19F14C7A00FA9CED /* Base */,
+			);
+			name = Ranking.storyboard;
+			sourceTree = "<group>";
+		};
+		5F00B4BC19F14CA300FA9CED /* User.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F00B4BD19F14CA300FA9CED /* Base */,
+			);
+			name = User.storyboard;
+			sourceTree = "<group>";
+		};
 		5F8C1EF219E82ED000BBED83 /* Beer.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
