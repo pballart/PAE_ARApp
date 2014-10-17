@@ -11,11 +11,13 @@
 #import <CatchoomSDK/CatchoomCloudRecognitionItem.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <pop/POP.h>
+#import "DataSource.h"
 
 @interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate, POPAnimationDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *scanButton;
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
+@property (nonatomic, strong) DataSource *dataSource;
 
 @end
 
@@ -26,6 +28,9 @@ CatchoomCloudRecognition *_cloudRecognition;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Set the data source
+    self.dataSource = [DataSource sharedDataSource];
 
     // Setup the Catchoom SDK
     _sdk = [CatchoomSDK sharedCatchoomSDK];
@@ -84,13 +89,14 @@ CatchoomCloudRecognition *_cloudRecognition;
 #pragma mark - CatchoomCloudRecognition Delegate
 
 - (void) didGetSearchResults:(NSArray *)resultItems {
-    [SVProgressHUD dismiss];
-    if ([resultItems count] == 1) {
+    if ([resultItems count] >= 1) {
         // Found one item !!!
         NSLog(@"Trobat!");
         CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trobat" message:[NSString stringWithFormat:@"ID: %@", item.itemId] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
+        [self.dataSource getBeerWithIdentifier:item.itemId completion:^(NSDictionary *dict, NSError *error) {
+            NSLog(@"Received response: %@", dict);
+            [SVProgressHUD dismiss];
+        }];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] init];
         [alert setTitle:@"Nothing found"];
@@ -104,6 +110,7 @@ CatchoomCloudRecognition *_cloudRecognition;
     NSLog(@"Error: %@", error);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No trobat..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
+    [SVProgressHUD dismiss];
 }
 
 -(void)didValidateToken
