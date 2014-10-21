@@ -11,6 +11,9 @@
 #import "CaptureVC.h"
 #import "UserVC.h"
 #import "RankingVC.h"
+#import "WelcomeVC.h"
+
+#define kUserLoggedInUserDefaults @"LoggedIn"
 
 @interface ViewController () <UIPageViewControllerDataSource> 
 
@@ -23,6 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:kUserLoggedInUserDefaults]) {
+        WelcomeVC *welcomeVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        [self presentViewController:welcomeVC animated:YES completion:nil];
+    }
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentVC"];
