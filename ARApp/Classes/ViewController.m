@@ -13,11 +13,10 @@
 #import "RankingVC.h"
 #import "WelcomeVC.h"
 
-#define kUserLoggedInUserDefaults @"LoggedIn"
 
 @interface ViewController () <UIPageViewControllerDataSource> 
 
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) PageContentVC *pageViewController;
 @property (nonatomic) NSUInteger pageIndex;
 
 @end
@@ -26,12 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults objectForKey:kUserLoggedInUserDefaults]) {
-        WelcomeVC *welcomeVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        [self presentViewController:welcomeVC animated:YES completion:nil];
-    }
+    [self.navigationController.navigationBar setHidden:YES];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentVC"];

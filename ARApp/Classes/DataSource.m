@@ -23,7 +23,7 @@
     if(self) {
         NSURL *url = [NSURL URLWithString:API_BASE_URL];
         self.operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
-        [self.operationManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+        //[self.operationManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
         [self.operationManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
         __weak DataSource *weakSelf = self;
         _operationManager.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
@@ -60,13 +60,56 @@
     }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    [self.operationManager GET:@"beers.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:@"beers.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         block(dict, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
+}
+
+- (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
+            completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"action",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"login",nil];
     
+    if (email && password) {
+        [keys addObject:@"email"];
+        [objects addObject:email];
+        [keys addObject:@"password"];
+        [objects addObject:password];
+    }
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"users.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+- (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
+            completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"action",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"register",nil];
+    
+    if (email && name && password) {
+        [keys addObject:@"email"];
+        [objects addObject:email];
+        [keys addObject:@"password"];
+        [objects addObject:password];
+        [keys addObject:@"name"];
+        [objects addObject:name];
+    }
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"users.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
 }
 
 #pragma mark - Private methods

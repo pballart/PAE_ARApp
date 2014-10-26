@@ -15,4 +15,10 @@
 - (void)getBeerWithIdentifier:(NSString *)identifier
                 completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
+- (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
+                   completion:(void(^)(NSDictionary *dict, NSError *error))block;
+
+- (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
+             completion:(void(^)(NSDictionary *dict, NSError *error))block;
+
 @end

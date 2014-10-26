@@ -79,6 +79,7 @@
 		5FA83C6719D1DC6B00A0DB71 /* ARAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C6C19D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAppTests.m; sourceTree = "<group>"; };
+		5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARApp-Prefix.pch"; sourceTree = "<group>"; };
 		5FFDE86619F69825002A6720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		5FFDE86919F69C23002A6720 /* WelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
 		5FFDE86A19F69C23002A6720 /* WelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeVC.m; sourceTree = "<group>"; };
@@ -209,6 +210,7 @@
 			children = (
 				5FA83C5219D1DC6B00A0DB71 /* Info.plist */,
 				5FA83C5319D1DC6B00A0DB71 /* main.m */,
+				5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -509,6 +511,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ARApp/ARApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -549,6 +553,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ARApp/ARApp-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

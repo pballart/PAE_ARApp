@@ -9,20 +9,21 @@
 #import "CaptureVC.h"
 #import <CatchoomSDK/CatchoomSDK.h>
 #import <CatchoomSDK/CatchoomCloudRecognitionItem.h>
-#import <SVProgressHUD/SVProgressHUD.h>
 #import <pop/POP.h>
 #import "DataSource.h"
 
-@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate, POPAnimationDelegate>
+@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate, POPAnimationDelegate> {
+    // Catchoom SDK reference
+    CatchoomSDK *_sdk;
+    CatchoomCloudRecognition *_cloudRecognition;
+}
+
 
 @property (weak, nonatomic) IBOutlet UIButton *scanButton;
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
 @property (nonatomic, strong) DataSource *dataSource;
 
 @end
-
-CatchoomSDK *_sdk;
-CatchoomCloudRecognition *_cloudRecognition;
 
 @implementation CaptureVC
 
@@ -35,9 +36,6 @@ CatchoomCloudRecognition *_cloudRecognition;
     // Setup the Catchoom SDK
     _sdk = [CatchoomSDK sharedCatchoomSDK];
     [_sdk setDelegate:self];
-    
-    _cloudRecognition = [_sdk getCloudRecognitionInterface];
-    [_cloudRecognition setDelegate:self];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
@@ -46,6 +44,7 @@ CatchoomCloudRecognition *_cloudRecognition;
     // Start Video Preview for search and tracking
     [_sdk startCaptureWithView: self.cameraView];
 }
+
 
 - (IBAction)scanButtonPressed:(UIButton *)sender {
     [_sdk takeSnapshot];
@@ -77,6 +76,8 @@ CatchoomCloudRecognition *_cloudRecognition;
 
 - (void) didStartCapture {
     // Get the CloudRecognition and set self as delegate to receive search responses
+    _cloudRecognition = [_sdk getCloudRecognitionInterface];
+    [_cloudRecognition setDelegate:self];
     [_cloudRecognition setToken:@"cbaf95971df4436c"];
 }
 

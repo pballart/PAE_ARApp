@@ -17,6 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    UIViewController *startVC;
+    if ([defaults objectForKey:kUserLoggedInUserDefaults]) {
+        startVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    } else {
+        startVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    }
+    self.window.rootViewController = startVC;
+    
+    //Setup visual identity
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    
     return YES;
 }
 
