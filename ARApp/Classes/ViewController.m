@@ -11,10 +11,12 @@
 #import "CaptureVC.h"
 #import "UserVC.h"
 #import "RankingVC.h"
+#import "WelcomeVC.h"
+
 
 @interface ViewController () <UIPageViewControllerDataSource> 
 
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) PageContentVC *pageViewController;
 @property (nonatomic) NSUInteger pageIndex;
 
 @end
@@ -23,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setHidden:YES];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentVC"];

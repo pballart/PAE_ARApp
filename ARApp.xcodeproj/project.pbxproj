@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */; };
 		5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4BC19F14CA300FA9CED /* User.storyboard */; };
+		5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B4C119F15C8F00FA9CED /* DataSource.m */; };
 		5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */; };
-		5F0D3BC919DEE16600F65CE9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC719DEE16600F65CE9 /* Pods.framework */; };
 		5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */; };
 		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
 		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
@@ -27,6 +27,10 @@
 		5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C5E19D1DC6B00A0DB71 /* Images.xcassets */; };
 		5FA83C6219D1DC6B00A0DB71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C6019D1DC6B00A0DB71 /* LaunchScreen.xib */; };
 		5FA83C6E19D1DC6B00A0DB71 /* ARAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */; };
+		5FFDE86719F69825002A6720 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFDE86519F69825002A6720 /* Login.storyboard */; };
+		5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE86A19F69C23002A6720 /* WelcomeVC.m */; };
+		5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE86D19F69C36002A6720 /* SignUpVC.m */; };
+		5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE87019F69C42002A6720 /* LogInVC.m */; };
 		DA71F6495E28F53E7C47431F /* libPods-ARApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD2705BA2D949585CB31B53 /* libPods-ARApp.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,8 @@
 		4103B10C444A04CFA4F614B0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5F00B4BA19F14C7A00FA9CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Ranking.storyboard; sourceTree = "<group>"; };
 		5F00B4BD19F14CA300FA9CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/User.storyboard; sourceTree = "<group>"; };
+		5F00B4C019F15C8F00FA9CED /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		5F00B4C119F15C8F00FA9CED /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
 		5F0D3BC719DEE16600F65CE9 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods.framework; sourceTree = "<group>"; };
 		5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +79,14 @@
 		5FA83C6719D1DC6B00A0DB71 /* ARAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C6C19D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAppTests.m; sourceTree = "<group>"; };
+		5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARApp-Prefix.pch"; sourceTree = "<group>"; };
+		5FFDE86619F69825002A6720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		5FFDE86919F69C23002A6720 /* WelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
+		5FFDE86A19F69C23002A6720 /* WelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeVC.m; sourceTree = "<group>"; };
+		5FFDE86C19F69C36002A6720 /* SignUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpVC.h; sourceTree = "<group>"; };
+		5FFDE86D19F69C36002A6720 /* SignUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpVC.m; sourceTree = "<group>"; };
+		5FFDE86F19F69C42002A6720 /* LogInVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInVC.h; sourceTree = "<group>"; };
+		5FFDE87019F69C42002A6720 /* LogInVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInVC.m; sourceTree = "<group>"; };
 		B29256508DC87AC037B13956 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD2705BA2D949585CB31B53 /* libPods-ARApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ARApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CBA0510F1614C68C8E7553 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +102,6 @@
 				5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */,
 				5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */,
 				5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */,
-				5F0D3BC919DEE16600F65CE9 /* Pods.framework in Frameworks */,
 				5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */,
 				DA71F6495E28F53E7C47431F /* libPods-ARApp.a in Frameworks */,
 			);
@@ -104,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F00B4BF19F15C5A00FA9CED /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5F00B4C019F15C8F00FA9CED /* DataSource.h */,
+				5F00B4C119F15C8F00FA9CED /* DataSource.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
 		5F0D3BC519DEE14E00F65CE9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +142,8 @@
 		5F8C1EDD19E8160600BBED83 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5FFDE86819F69BF8002A6720 /* Login */,
+				5F00B4BF19F15C5A00FA9CED /* DataSource */,
 				5F8C1EE419E8162B00BBED83 /* CaptureVC.h */,
 				5F8C1EE519E8162B00BBED83 /* CaptureVC.m */,
 				5F8C1EE719E8164200BBED83 /* PageContentVC.h */,
@@ -138,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				5FA83C5B19D1DC6B00A0DB71 /* Main.storyboard */,
+				5FFDE86519F69825002A6720 /* Login.storyboard */,
 				5F8C1EF219E82ED000BBED83 /* Beer.storyboard */,
 				5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */,
 				5F00B4BC19F14CA300FA9CED /* User.storyboard */,
@@ -185,6 +210,7 @@
 			children = (
 				5FA83C5219D1DC6B00A0DB71 /* Info.plist */,
 				5FA83C5319D1DC6B00A0DB71 /* main.m */,
+				5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -204,6 +230,19 @@
 				5FA83C6C19D1DC6B00A0DB71 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FFDE86819F69BF8002A6720 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5FFDE86919F69C23002A6720 /* WelcomeVC.h */,
+				5FFDE86A19F69C23002A6720 /* WelcomeVC.m */,
+				5FFDE86C19F69C36002A6720 /* SignUpVC.h */,
+				5FFDE86D19F69C36002A6720 /* SignUpVC.m */,
+				5FFDE86F19F69C42002A6720 /* LogInVC.h */,
+				5FFDE87019F69C42002A6720 /* LogInVC.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		B2048EEC1674ACD664E8801E /* Frameworks */ = {
@@ -310,6 +349,7 @@
 			files = (
 				5F8C1EF419E82ED000BBED83 /* Beer.storyboard in Resources */,
 				5FA83C5D19D1DC6B00A0DB71 /* Main.storyboard in Resources */,
+				5FFDE86719F69825002A6720 /* Login.storyboard in Resources */,
 				5FA83C6219D1DC6B00A0DB71 /* LaunchScreen.xib in Resources */,
 				5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */,
 				5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */,
@@ -364,11 +404,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */,
 				5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */,
 				5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */,
+				5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */,
+				5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */,
 				5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */,
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
 				5F8C1EEC19E8208D00BBED83 /* UserVC.m in Sources */,
+				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,
 				5F8C1EE319E8160600BBED83 /* ViewController.m in Sources */,
 				5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */,
 			);
@@ -433,6 +477,14 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		5FFDE86519F69825002A6720 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FFDE86619F69825002A6720 /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -459,6 +511,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ARApp/ARApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -499,6 +553,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ARApp/ARApp-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
