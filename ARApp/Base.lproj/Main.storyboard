@@ -224,6 +224,7 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="ob9-e4-Sp6" id="8q8-ko-1L3"/>
+                        <outlet property="captureGuideImageView" destination="ibR-s9-qLd" id="Kbg-p9-z4Y"/>
                         <outlet property="dismissHelpButton" destination="iSM-6r-MeV" id="510-Yh-MMw"/>
                         <outlet property="helpButton" destination="z6u-2S-3b5" id="Ziu-ko-lVb"/>
                         <outlet property="helpImageView" destination="Q8e-FW-sIm" id="2Oc-Jy-dYi"/>

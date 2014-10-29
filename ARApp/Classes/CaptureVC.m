@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *helpImageView;
 @property (weak, nonatomic) IBOutlet UIButton *helpButton;
 @property (weak, nonatomic) IBOutlet UIButton *dismissHelpButton;
+@property (weak, nonatomic) IBOutlet UIImageView *captureGuideImageView;
 
 @end
 
@@ -71,12 +72,14 @@
     [self.helpImageView setHidden:NO];
     [self.dismissHelpButton setHidden:NO];
     [self.helpButton setHidden:YES];
+    [self.captureGuideImageView setImage:[UIImage imageNamed:@"capture_guide_shadow"]];
 }
 
 - (IBAction)hideHelp:(UIButton *)sender {
     [self.helpImageView setHidden:YES];
     [self.dismissHelpButton setHidden:YES];
     [self.helpButton setHidden:NO];
+    [self.captureGuideImageView setImage:[UIImage imageNamed:@"capture_guide"]];
 }
 
 #pragma mark - POPAnimationDelegate
