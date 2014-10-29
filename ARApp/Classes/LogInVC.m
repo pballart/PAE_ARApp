@@ -8,7 +8,7 @@
 
 #import "LogInVC.h"
 #import "DataSource.h"
-#import "ViewController.h"
+#import "PageContentVC.h"
 
 @interface LogInVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
@@ -24,8 +24,8 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    self.emailTF.text = @"plus.dimension@plus-dimension.com";
-    self.passwordTF.text = @"1234567";
+    self.emailTF.text = @"proves@coreloparte.com";
+    self.passwordTF.text = @"hoPetem";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +44,7 @@
         [SVProgressHUD dismiss];
         if (!error) {
             NSLog(@"Logged in: %@", dict);
-            [self userDidLogInWithIdentifier:[dict objectForKey:@"id"]];
+            [self userDidLogInWithIdentifier:[[dict objectForKey:@"user"] objectForKey:@"id"]];
         } else {
             NSLog(@"Error logging in: %@", error);
         }
@@ -58,7 +58,7 @@
 -(void)userDidLogInWithIdentifier:(NSString *) identifier {
     [[NSUserDefaults standardUserDefaults] setObject:identifier forKey:kUserLoggedInUserDefaults];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    ViewController *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }
 

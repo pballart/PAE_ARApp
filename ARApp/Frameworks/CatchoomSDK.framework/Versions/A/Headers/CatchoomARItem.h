@@ -36,17 +36,33 @@ extern NSString* CatchoomTrackingARItemObservationContext;
  */
 @interface CatchoomARItem : CatchoomCloudRecognitionItem {
     ///@cond
-    NSData *referenceData;
+    NSString *referenceData;
     int referenceId;
     CatchoomTrackingResult *result;
     Boolean isTracked;
 }
 
-@property (nonatomic, readonly) NSData *referenceData;
+@property (nonatomic, readonly) NSString *referenceData;
 @property (nonatomic, readwrite) int referenceId;
 @property (nonatomic, readwrite) CatchoomTrackingResult *result;
 @property (nonatomic, readwrite) Boolean isTracked;
 ///@endcond
+
+/**
+ * Specifies the translation applied to the item in the rendering scene
+ */
+@property (nonatomic, readwrite) CATransform3D itemTranslation;
+
+/**
+ * Specifies the rotation applied to the item in the rendering scene
+ */
+@property (nonatomic, readwrite) CATransform3D itemRotation;
+
+/**
+ * Specifies whether the item contents have to be drawn in the scene even if the item is not being tracked.
+ * False by default
+ */
+@property (nonatomic, readwrite) Boolean drawOffTracking;
 
 
 /**
@@ -69,9 +85,24 @@ extern NSString* CatchoomTrackingARItemObservationContext;
 -(void) removeContent: (CatchoomTrackingContent *) content;
 
 /**
+ Called by the SDK when the item's tracking starts
+ */
+-(void) trackingStarted;
+
+/**
+ Called by the SDK when the item's tracking is lost
+ */
+-(void) trackingLost;
+
+/**
  Remove all contents for this AR item
  */
 -(NSArray*) allContents;
+
+/**
+ Called by the SDK when tracking events occur, updates the item position with the last result
+ */
+- (void) updateTracking;
 
 /**
  * Set your custom content class for a content of a specified type

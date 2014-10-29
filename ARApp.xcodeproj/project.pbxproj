@@ -15,7 +15,6 @@
 		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
 		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
 		5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */; };
-		5F8C1EE319E8160600BBED83 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE119E8160600BBED83 /* ViewController.m */; };
 		5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE519E8162B00BBED83 /* CaptureVC.m */; };
 		5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE819E8164200BBED83 /* PageContentVC.m */; };
 		5F8C1EEC19E8208D00BBED83 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EEB19E8208D00BBED83 /* UserVC.m */; };
@@ -27,6 +26,8 @@
 		5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C5E19D1DC6B00A0DB71 /* Images.xcassets */; };
 		5FA83C6219D1DC6B00A0DB71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C6019D1DC6B00A0DB71 /* LaunchScreen.xib */; };
 		5FA83C6E19D1DC6B00A0DB71 /* ARAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */; };
+		5FBFA0AB1A015121004B9AAA /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */; };
+		5FBFA0AC1A015121004B9AAA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBFA0AA1A015121004B9AAA /* Pods.framework */; };
 		5FFDE86719F69825002A6720 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFDE86519F69825002A6720 /* Login.storyboard */; };
 		5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE86A19F69C23002A6720 /* WelcomeVC.m */; };
 		5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE86D19F69C36002A6720 /* SignUpVC.m */; };
@@ -52,13 +53,10 @@
 		5F00B4C019F15C8F00FA9CED /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		5F00B4C119F15C8F00FA9CED /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
-		5F0D3BC719DEE16600F65CE9 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods.framework; sourceTree = "<group>"; };
 		5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		5F8C1EE019E8160600BBED83 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5F8C1EE119E8160600BBED83 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5F8C1EE419E8162B00BBED83 /* CaptureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureVC.h; sourceTree = "<group>"; };
 		5F8C1EE519E8162B00BBED83 /* CaptureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureVC.m; sourceTree = "<group>"; };
 		5F8C1EE719E8164200BBED83 /* PageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentVC.h; sourceTree = "<group>"; };
@@ -79,6 +77,8 @@
 		5FA83C6719D1DC6B00A0DB71 /* ARAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C6C19D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAppTests.m; sourceTree = "<group>"; };
+		5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
+		5FBFA0AA1A015121004B9AAA /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods.framework; sourceTree = "<group>"; };
 		5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARApp-Prefix.pch"; sourceTree = "<group>"; };
 		5FFDE86619F69825002A6720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		5FFDE86919F69C23002A6720 /* WelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
@@ -98,8 +98,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FBFA0AC1A015121004B9AAA /* Pods.framework in Frameworks */,
 				5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */,
 				5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */,
+				5FBFA0AB1A015121004B9AAA /* CatchoomSDK.framework in Frameworks */,
 				5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */,
 				5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */,
 				5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */,
@@ -129,12 +131,13 @@
 		5F0D3BC519DEE14E00F65CE9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */,
+				5FBFA0AA1A015121004B9AAA /* Pods.framework */,
 				5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */,
 				5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */,
 				5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */,
 				5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */,
 				5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */,
-				5F0D3BC719DEE16600F65CE9 /* Pods.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -152,8 +155,6 @@
 				5F8C1EEB19E8208D00BBED83 /* UserVC.m */,
 				5F8C1EED19E820DD00BBED83 /* RankingVC.h */,
 				5F8C1EEE19E820DD00BBED83 /* RankingVC.m */,
-				5F8C1EE019E8160600BBED83 /* ViewController.h */,
-				5F8C1EE119E8160600BBED83 /* ViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -413,7 +414,6 @@
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
 				5F8C1EEC19E8208D00BBED83 /* UserVC.m in Sources */,
 				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,
-				5F8C1EE319E8160600BBED83 /* ViewController.m in Sources */,
 				5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

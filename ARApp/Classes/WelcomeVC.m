@@ -7,7 +7,7 @@
 //
 
 #import "WelcomeVC.h"
-#import "ViewController.h"
+#import "PageContentVC.h"
 
 
 @interface WelcomeVC ()
@@ -19,19 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self.navigationController.navigationBar setHidden:YES];
     
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:kUserLoggedInUserDefaults]) {
-        ViewController *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        [self presentViewController:VC animated:NO completion:nil];
-    }
 }
 
 

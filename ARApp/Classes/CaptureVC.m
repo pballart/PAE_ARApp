@@ -12,7 +12,7 @@
 #import <pop/POP.h>
 #import "DataSource.h"
 
-@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, UIAlertViewDelegate, POPAnimationDelegate> {
+@interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, POPAnimationDelegate> {
     // Catchoom SDK reference
     CatchoomSDK *_sdk;
     CatchoomCloudRecognition *_cloudRecognition;
@@ -43,6 +43,8 @@
     
     // Start Video Preview for search and tracking
     [_sdk startCaptureWithView: self.cameraView];
+    [self.view setNeedsLayout];
+    
 }
 
 
@@ -99,19 +101,23 @@
             [SVProgressHUD dismiss];
         }];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] init];
-        [alert setTitle:@"Nothing found"];
-        [alert setDelegate:self];
-        [alert addButtonWithTitle:@"Ok"];
-        [alert show];
+        [SVProgressHUD dismiss];
+        [self showNothingFoundAlert];
     }
 }
 
 -(void)didFailWithError:(CatchoomSDKError *)error {
     NSLog(@"Error: %@", error);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No trobat..." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-    [alert show];
     [SVProgressHUD dismiss];
+    [self showNothingFoundAlert];
+    
+}
+
+-(void)showNothingFoundAlert {
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setTitle:@"Nothing found"];
+    [alert addButtonWithTitle:@"Ok"];
+    [alert show];
 }
 
 -(void)didValidateToken
@@ -119,10 +125,6 @@
     NSLog(@"Token validated");
 }
 
-#pragma mark - UIAlertView Delegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    [_sdk unfreezeCapture];
-}
 
 
 

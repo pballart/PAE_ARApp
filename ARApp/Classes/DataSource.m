@@ -7,9 +7,10 @@
 //
 
 #import "DataSource.h"
-#import <AFNetworking/AFNetworking.h>
+#import <Pods/AFNetworking.h>
 
-#define API_BASE_URL @"http://147.83.39.196/gloop/"
+#define API_BASE_URL2 @"http://147.83.39.196/gloop/"
+#define API_BASE_URL @"http://plusdimension.hol.es/PlusDim/"
 
 @interface DataSource ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager     *operationManager;
@@ -23,7 +24,7 @@
     if(self) {
         NSURL *url = [NSURL URLWithString:API_BASE_URL];
         self.operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
-        //[self.operationManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+        [self.operationManager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
         [self.operationManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
         __weak DataSource *weakSelf = self;
         _operationManager.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
@@ -51,8 +52,8 @@
 
 - (void)getBeerWithIdentifier:(NSString *)identifier
                    completion:(void(^)(NSDictionary *dict, NSError *error))block {
-    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"action",nil];
-    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"get_beer",nil];
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
     if (identifier) {
         [keys addObject:@"id"];
@@ -60,7 +61,7 @@
     }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    [self.operationManager POST:@"beers.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:@"getBirra_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         block(dict, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -70,8 +71,8 @@
 
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
             completion:(void(^)(NSDictionary *dict, NSError *error))block {
-    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"action",nil];
-    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"login",nil];
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
     if (email && password) {
         [keys addObject:@"email"];
@@ -81,7 +82,7 @@
     }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    [self.operationManager POST:@"users.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:@"login_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         block(dict, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -91,8 +92,8 @@
 
 - (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
             completion:(void(^)(NSDictionary *dict, NSError *error))block {
-    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"action",nil];
-    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"register",nil];
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
     if (email && name && password) {
         [keys addObject:@"email"];
@@ -104,7 +105,7 @@
     }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    [self.operationManager POST:@"users.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:@"register_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         block(dict, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

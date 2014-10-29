@@ -7,8 +7,14 @@
 //
 
 #import "PageContentVC.h"
+#import "CaptureVC.h"
+#import "RankingVC.h"
+#import "UserVC.h"
 
-@interface PageContentVC ()
+@interface PageContentVC () <UIPageViewControllerDataSource>
+@property (nonatomic, strong) CaptureVC *captureVC;
+@property (nonatomic, strong) UserVC *userVC;
+@property (nonatomic, strong) RankingVC *rankingVC;
 
 @end
 
@@ -16,22 +22,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Create page view controller
+    self.dataSource = self;
+    
+    self.captureVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"CaptureVC"];
+    self.userVC = [[UIStoryboard storyboardWithName:@"User" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"UserVC"];
+    self.rankingVC = [[UIStoryboard storyboardWithName:@"Ranking" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"RankingVC"];
+    
+    NSArray *viewControllers = @[self.captureVC];
+    [self setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Page View Controller Data Source
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    if ([viewController isKindOfClass:[CaptureVC class]]) {
+        return self.userVC;
+    } else if ([viewController isKindOfClass:[RankingVC class]]) {
+        return self.captureVC;
+    } else {
+        return nil;
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    if ([viewController isKindOfClass:[CaptureVC class]]) {
+        return self.rankingVC;
+    } else if ([viewController isKindOfClass:[UserVC class]]) {
+        return self.captureVC;
+    } else {
+        return nil;
+    }
 }
-*/
+
+
 
 @end

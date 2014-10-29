@@ -236,10 +236,11 @@ enum CatchoomTrackingContetnStatus : NSInteger {
 #pragma mark methods to overload to draw contents
 
 /**
- Wil render the content with the information from  a tracking result.
- @param result Result that contains the matched reference pose in the video frame.
+ Wil render the content in the given position.
+ @param translation Translation applied to the content relative to the scene's center.
+ @param rotation Rotation applied to the content relative to the scene's center.
  */
-- (void) drawWithResult: (CatchoomTrackingResult *) result;
+- (void) drawWithTranslation: (CATransform3D) translation andRotation: (CATransform3D) rotation;
 
 // Content loading. Called by the SDK before rendering the content.
 /**

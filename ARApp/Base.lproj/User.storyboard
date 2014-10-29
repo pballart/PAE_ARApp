@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--UserVC-->
@@ -35,8 +36,8 @@
                                 <exclude reference="Czk-aH-mFn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="cks-HL-7tc"/>
                                 <exclude reference="Ttj-8a-wBV"/>
+                                <exclude reference="cks-HL-7tc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -44,8 +45,8 @@
                                 <include reference="Czk-aH-mFn"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="cks-HL-7tc"/>
                                 <include reference="Ttj-8a-wBV"/>
+                                <include reference="cks-HL-7tc"/>
                             </mask>
                         </variation>
                     </view>
