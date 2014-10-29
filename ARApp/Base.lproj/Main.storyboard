@@ -95,7 +95,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ob9-e4-Sp6"/>
                                 <exclude reference="Ahy-TG-O1I"/>
                             </mask>
                             <mask key="constraints">
