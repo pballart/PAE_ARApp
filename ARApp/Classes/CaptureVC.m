@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *scanButton;
 @property (weak, nonatomic) IBOutlet UIView *cameraView;
 @property (nonatomic, strong) DataSource *dataSource;
+@property (weak, nonatomic) IBOutlet UIImageView *helpImageView;
+@property (weak, nonatomic) IBOutlet UIButton *helpButton;
+@property (weak, nonatomic) IBOutlet UIButton *dismissHelpButton;
 
 @end
 
@@ -60,6 +63,20 @@
     anim.springSpeed = 20;
     anim.springBounciness = 20;
     [sender pop_addAnimation:anim forKey:@"scanButton"];
+}
+
+#pragma mark - Help Methods
+
+- (IBAction)showHelp:(UIButton *)sender {
+    [self.helpImageView setHidden:NO];
+    [self.dismissHelpButton setHidden:NO];
+    [self.helpButton setHidden:YES];
+}
+
+- (IBAction)hideHelp:(UIButton *)sender {
+    [self.helpImageView setHidden:YES];
+    [self.dismissHelpButton setHidden:YES];
+    [self.helpButton setHidden:NO];
 }
 
 #pragma mark - POPAnimationDelegate
@@ -124,7 +141,6 @@
 {
     NSLog(@"Token validated");
 }
-
 
 
 

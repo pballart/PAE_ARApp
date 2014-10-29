@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Page ContentVC-->
@@ -34,7 +35,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="capture_guide" translatesAutoresizingMaskIntoConstraints="NO" id="ibR-s9-qLd">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-eS-FBi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-eS-FBi" userLabel="Button-scan">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" image="captureButton">
@@ -44,12 +45,90 @@
                                             <action selector="scanButtonPressed:" destination="yGU-iG-35p" eventType="touchUpInside" id="vcb-pa-lrC"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enfoque_label" translatesAutoresizingMaskIntoConstraints="NO" id="Q8e-FW-sIm">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="91u-WJ-swR"/>
+                                            <constraint firstAttribute="width" secondItem="Q8e-FW-sIm" secondAttribute="height" multiplier="64:45" id="IWz-Kx-oM3"/>
+                                            <constraint firstAttribute="height" constant="225" id="iCv-Wh-xOR"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="91u-WJ-swR"/>
+                                                <exclude reference="IWz-Kx-oM3"/>
+                                                <exclude reference="iCv-Wh-xOR"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="91u-WJ-swR"/>
+                                                <include reference="IWz-Kx-oM3"/>
+                                                <include reference="iCv-Wh-xOR"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSM-6r-MeV" userLabel="Button-iGetIt">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="HfZ-WV-SaJ"/>
+                                            <constraint firstAttribute="width" constant="86" id="fUZ-e7-ovK"/>
+                                        </constraints>
+                                        <state key="normal" image="I_get_it">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="HfZ-WV-SaJ"/>
+                                                <exclude reference="fUZ-e7-ovK"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="HfZ-WV-SaJ"/>
+                                                <include reference="fUZ-e7-ovK"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="hideHelp:" destination="yGU-iG-35p" eventType="touchUpInside" id="eQs-D3-xeZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6u-2S-3b5" userLabel="Button-help">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="5bp-Yz-YvQ"/>
+                                            <constraint firstAttribute="width" constant="52" id="vUY-no-KOl"/>
+                                        </constraints>
+                                        <state key="normal" image="help_button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5bp-Yz-YvQ"/>
+                                                <exclude reference="vUY-no-KOl"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="5bp-Yz-YvQ"/>
+                                                <include reference="vUY-no-KOl"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="showHelp:" destination="yGU-iG-35p" eventType="touchUpInside" id="2gP-Rx-Fhr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ibR-s9-qLd" secondAttribute="trailing" id="2EN-Df-B9J"/>
+                                    <constraint firstAttribute="centerX" secondItem="Q8e-FW-sIm" secondAttribute="centerX" id="2XQ-Iu-cZh"/>
+                                    <constraint firstAttribute="centerY" secondItem="Q8e-FW-sIm" secondAttribute="centerY" constant="62.5" id="3pz-9i-uzy"/>
+                                    <constraint firstItem="z6u-2S-3b5" firstAttribute="leading" secondItem="Ahy-TG-O1I" secondAttribute="leading" constant="40" id="JDZ-mA-s2R"/>
                                     <constraint firstItem="ibR-s9-qLd" firstAttribute="leading" secondItem="Ahy-TG-O1I" secondAttribute="leading" id="LC5-Oe-3st"/>
                                     <constraint firstAttribute="centerY" secondItem="fu1-eS-FBi" secondAttribute="centerY" constant="-207.5" id="MnW-EZ-dMp"/>
+                                    <constraint firstItem="Q8e-FW-sIm" firstAttribute="centerX" secondItem="iSM-6r-MeV" secondAttribute="centerX" id="TFn-HV-Cjq"/>
                                     <constraint firstItem="ibR-s9-qLd" firstAttribute="top" secondItem="Ahy-TG-O1I" secondAttribute="top" id="aQv-jo-jHU"/>
+                                    <constraint firstItem="iSM-6r-MeV" firstAttribute="centerY" secondItem="z6u-2S-3b5" secondAttribute="centerY" constant="-0.5" id="kWk-E3-vzv"/>
+                                    <constraint firstItem="iSM-6r-MeV" firstAttribute="top" secondItem="Q8e-FW-sIm" secondAttribute="bottom" constant="19" id="oKd-ue-Kwr"/>
                                     <constraint firstAttribute="centerX" secondItem="fu1-eS-FBi" secondAttribute="centerX" id="s8G-qI-Hh2"/>
                                     <constraint firstAttribute="bottom" secondItem="ibR-s9-qLd" secondAttribute="bottom" id="xts-ta-FaP"/>
                                 </constraints>
@@ -57,28 +136,46 @@
                                     <mask key="subviews">
                                         <exclude reference="ibR-s9-qLd"/>
                                         <exclude reference="fu1-eS-FBi"/>
+                                        <exclude reference="Q8e-FW-sIm"/>
+                                        <exclude reference="iSM-6r-MeV"/>
+                                        <exclude reference="z6u-2S-3b5"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="MnW-EZ-dMp"/>
-                                        <exclude reference="s8G-qI-Hh2"/>
                                         <exclude reference="2EN-Df-B9J"/>
                                         <exclude reference="LC5-Oe-3st"/>
                                         <exclude reference="aQv-jo-jHU"/>
                                         <exclude reference="xts-ta-FaP"/>
+                                        <exclude reference="2XQ-Iu-cZh"/>
+                                        <exclude reference="3pz-9i-uzy"/>
+                                        <exclude reference="TFn-HV-Cjq"/>
+                                        <exclude reference="JDZ-mA-s2R"/>
+                                        <exclude reference="kWk-E3-vzv"/>
+                                        <exclude reference="oKd-ue-Kwr"/>
+                                        <exclude reference="MnW-EZ-dMp"/>
+                                        <exclude reference="s8G-qI-Hh2"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="ibR-s9-qLd"/>
                                         <include reference="fu1-eS-FBi"/>
+                                        <include reference="Q8e-FW-sIm"/>
+                                        <include reference="iSM-6r-MeV"/>
+                                        <include reference="z6u-2S-3b5"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="MnW-EZ-dMp"/>
-                                        <include reference="s8G-qI-Hh2"/>
                                         <include reference="2EN-Df-B9J"/>
                                         <include reference="LC5-Oe-3st"/>
                                         <include reference="aQv-jo-jHU"/>
                                         <include reference="xts-ta-FaP"/>
+                                        <include reference="2XQ-Iu-cZh"/>
+                                        <include reference="3pz-9i-uzy"/>
+                                        <include reference="TFn-HV-Cjq"/>
+                                        <include reference="JDZ-mA-s2R"/>
+                                        <include reference="kWk-E3-vzv"/>
+                                        <include reference="oKd-ue-Kwr"/>
+                                        <include reference="MnW-EZ-dMp"/>
+                                        <include reference="s8G-qI-Hh2"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -127,6 +224,9 @@
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="ob9-e4-Sp6" id="8q8-ko-1L3"/>
+                        <outlet property="dismissHelpButton" destination="iSM-6r-MeV" id="510-Yh-MMw"/>
+                        <outlet property="helpButton" destination="z6u-2S-3b5" id="Ziu-ko-lVb"/>
+                        <outlet property="helpImageView" destination="Q8e-FW-sIm" id="2Oc-Jy-dYi"/>
                         <outlet property="scanButton" destination="fu1-eS-FBi" id="Kqx-CD-e7b"/>
                     </connections>
                 </viewController>
@@ -136,7 +236,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="I_get_it" width="90" height="31"/>
         <image name="captureButton" width="66" height="71"/>
         <image name="capture_guide" width="320" height="568"/>
+        <image name="enfoque_label" width="320" height="224"/>
+        <image name="help_button" width="52" height="44"/>
     </resources>
 </document>
