@@ -23,6 +23,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eC-cy-SQS">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -30,26 +36,37 @@
                             <constraint firstAttribute="centerX" secondItem="Czk-aH-mFn" secondAttribute="centerX" constant="-16" id="cks-HL-7tc">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="7eC-cy-SQS" firstAttribute="centerX" secondItem="Czk-aH-mFn" secondAttribute="centerX" id="tIV-lg-8bJ"/>
+                            <constraint firstItem="7eC-cy-SQS" firstAttribute="top" secondItem="Czk-aH-mFn" secondAttribute="bottom" constant="99" id="vO8-iP-Yx0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Czk-aH-mFn"/>
+                                <exclude reference="7eC-cy-SQS"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Ttj-8a-wBV"/>
                                 <exclude reference="cks-HL-7tc"/>
+                                <exclude reference="tIV-lg-8bJ"/>
+                                <exclude reference="vO8-iP-Yx0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Czk-aH-mFn"/>
+                                <include reference="7eC-cy-SQS"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Ttj-8a-wBV"/>
                                 <include reference="cks-HL-7tc"/>
+                                <include reference="tIV-lg-8bJ"/>
+                                <include reference="vO8-iP-Yx0"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="7eC-cy-SQS" id="2OK-jV-97X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hy-MR-EGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

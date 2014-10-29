@@ -7,8 +7,13 @@
 //
 
 #import "UserVC.h"
+#import "User.h"
+#import "AppDelegate.h"
 
 @interface UserVC ()
+
+@property (nonatomic, strong) User *user;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -17,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.user = [(AppDelegate *)[UIApplication sharedApplication].delegate actualUser];
+    self.nameLabel.text = [NSString stringWithFormat:@"Name: %@", self.user.name];
 }
 
 - (void)didReceiveMemoryWarning {

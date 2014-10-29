@@ -9,6 +9,8 @@
 #import "LogInVC.h"
 #import "DataSource.h"
 #import "PageContentVC.h"
+#import "User.h"
+#import "AppDelegate.h"
 
 @interface LogInVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
@@ -40,11 +42,11 @@
 
 - (IBAction)logInButtonPressed:(UIButton *)sender {
     [SVProgressHUD show];
-    [[DataSource sharedDataSource] logInWithEmail:self.emailTF.text andPassword:self.passwordTF.text completion:^(NSDictionary *dict, NSError *error) {
+    [[DataSource sharedDataSource] logInWithEmail:self.emailTF.text andPassword:self.passwordTF.text completion:^(User *user, NSError *error) {
         [SVProgressHUD dismiss];
         if (!error) {
-            NSLog(@"Logged in: %@", dict);
-            [self userDidLogInWithIdentifier:[[dict objectForKey:@"user"] objectForKey:@"id"]];
+            NSLog(@"Logged in!");
+            [self userDidLogIn:user];
         } else {
             NSLog(@"Error logging in: %@", error);
         }
@@ -55,9 +57,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)userDidLogInWithIdentifier:(NSString *) identifier {
-    [[NSUserDefaults standardUserDefaults] setObject:identifier forKey:kUserLoggedInUserDefaults];
+-(void)userDidLogIn:(User *)user {
+    [[NSUserDefaults standardUserDefaults] setObject:user.userId forKey:kUserLoggedInUserDefaults];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate setActualUser:user];
+    
     PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }

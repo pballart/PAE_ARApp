@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
+
 
 @interface DataSource : NSObject
 
@@ -16,7 +18,7 @@
                 completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
-                   completion:(void(^)(NSDictionary *dict, NSError *error))block;
+            completion:(void(^)(User *user, NSError *error))block;
 
 - (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
              completion:(void(^)(NSDictionary *dict, NSError *error))block;

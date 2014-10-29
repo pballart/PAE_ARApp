@@ -70,7 +70,7 @@
 }
 
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
-            completion:(void(^)(NSDictionary *dict, NSError *error))block {
+            completion:(void(^)(User *user, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
@@ -84,7 +84,14 @@
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"login_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            User *user = [[User alloc] initUserWithDictionary:dict];
+            block(user, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];

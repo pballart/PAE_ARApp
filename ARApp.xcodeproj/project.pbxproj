@@ -28,6 +28,8 @@
 		5FA83C6E19D1DC6B00A0DB71 /* ARAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */; };
 		5FBFA0AB1A015121004B9AAA /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */; };
 		5FBFA0AC1A015121004B9AAA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBFA0AA1A015121004B9AAA /* Pods.framework */; };
+		5FBFA0BC1A01A265004B9AAA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBFA0BB1A01A265004B9AAA /* User.m */; };
+		5FBFA0BF1A01A273004B9AAA /* Beer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBFA0BE1A01A273004B9AAA /* Beer.m */; };
 		5FFDE86719F69825002A6720 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFDE86519F69825002A6720 /* Login.storyboard */; };
 		5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE86A19F69C23002A6720 /* WelcomeVC.m */; };
 		5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE86D19F69C36002A6720 /* SignUpVC.m */; };
@@ -79,6 +81,10 @@
 		5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAppTests.m; sourceTree = "<group>"; };
 		5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
 		5FBFA0AA1A015121004B9AAA /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods.framework; sourceTree = "<group>"; };
+		5FBFA0BA1A01A265004B9AAA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5FBFA0BB1A01A265004B9AAA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5FBFA0BD1A01A273004B9AAA /* Beer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beer.h; sourceTree = "<group>"; };
+		5FBFA0BE1A01A273004B9AAA /* Beer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beer.m; sourceTree = "<group>"; };
 		5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARApp-Prefix.pch"; sourceTree = "<group>"; };
 		5FFDE86619F69825002A6720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		5FFDE86919F69C23002A6720 /* WelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			children = (
 				5FFDE86819F69BF8002A6720 /* Login */,
 				5F00B4BF19F15C5A00FA9CED /* DataSource */,
+				5FBFA0B91A01A248004B9AAA /* DataModel */,
 				5F8C1EE419E8162B00BBED83 /* CaptureVC.h */,
 				5F8C1EE519E8162B00BBED83 /* CaptureVC.m */,
 				5F8C1EE719E8164200BBED83 /* PageContentVC.h */,
@@ -231,6 +238,17 @@
 				5FA83C6C19D1DC6B00A0DB71 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FBFA0B91A01A248004B9AAA /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				5FBFA0BA1A01A265004B9AAA /* User.h */,
+				5FBFA0BB1A01A265004B9AAA /* User.m */,
+				5FBFA0BD1A01A273004B9AAA /* Beer.h */,
+				5FBFA0BE1A01A273004B9AAA /* Beer.m */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		5FFDE86819F69BF8002A6720 /* Login */ = {
@@ -408,9 +426,11 @@
 				5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */,
 				5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */,
 				5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */,
+				5FBFA0BF1A01A273004B9AAA /* Beer.m in Sources */,
 				5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */,
 				5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */,
 				5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */,
+				5FBFA0BC1A01A265004B9AAA /* User.m in Sources */,
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
 				5F8C1EEC19E8208D00BBED83 /* UserVC.m in Sources */,
 				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,
