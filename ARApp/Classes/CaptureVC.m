@@ -11,6 +11,8 @@
 #import <CatchoomSDK/CatchoomCloudRecognitionItem.h>
 #import <pop/POP.h>
 #import "DataSource.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+
 
 @interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, POPAnimationDelegate> {
     // Catchoom SDK reference

@@ -68,6 +68,7 @@
 		5F8C1EED19E820DD00BBED83 /* RankingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingVC.h; sourceTree = "<group>"; };
 		5F8C1EEE19E820DD00BBED83 /* RankingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingVC.m; sourceTree = "<group>"; };
 		5F8C1EF319E82ED000BBED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Beer.storyboard; sourceTree = "<group>"; };
+		5F95ADFC1A03CBB3005995E2 /* Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		5FA83C4E19D1DC6B00A0DB71 /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C5219D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA83C5319D1DC6B00A0DB71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		5FBFA0BB1A01A265004B9AAA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5FBFA0BD1A01A273004B9AAA /* Beer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beer.h; sourceTree = "<group>"; };
 		5FBFA0BE1A01A273004B9AAA /* Beer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beer.m; sourceTree = "<group>"; };
-		5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARApp-Prefix.pch"; sourceTree = "<group>"; };
 		5FFDE86619F69825002A6720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		5FFDE86919F69C23002A6720 /* WelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
 		5FFDE86A19F69C23002A6720 /* WelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeVC.m; sourceTree = "<group>"; };
@@ -162,6 +162,7 @@
 				5F8C1EEB19E8208D00BBED83 /* UserVC.m */,
 				5F8C1EED19E820DD00BBED83 /* RankingVC.h */,
 				5F8C1EEE19E820DD00BBED83 /* RankingVC.m */,
+				5F95ADFC1A03CBB3005995E2 /* Configuration.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -218,7 +219,6 @@
 			children = (
 				5FA83C5219D1DC6B00A0DB71 /* Info.plist */,
 				5FA83C5319D1DC6B00A0DB71 /* main.m */,
-				5FEADD4F19FD22290050FCFF /* ARApp-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -597,6 +597,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ARApp/Frameworks",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = ARApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -613,6 +615,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ARApp/Frameworks",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = ARApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

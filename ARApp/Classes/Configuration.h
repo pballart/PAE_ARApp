@@ -9,5 +9,6 @@
 #ifndef ARApp_Configuration_h
 #define ARApp_Configuration_h
 
+#define kUserLoggedInUserDefaults @"LoggedIn"
 
 #endif

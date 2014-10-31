@@ -17,6 +17,9 @@
 - (void)getBeerWithIdentifier:(NSString *)identifier
                 completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
+- (void)getUserWithIdentifier:(NSString *)identifier
+                   completion:(void(^)(User *user, NSError *error))block;
+
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
             completion:(void(^)(User *user, NSError *error))block;
 

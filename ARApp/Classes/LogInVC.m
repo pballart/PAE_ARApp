@@ -11,6 +11,8 @@
 #import "PageContentVC.h"
 #import "User.h"
 #import "AppDelegate.h"
+#import "Configuration.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface LogInVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
@@ -58,9 +60,6 @@
 }
 
 -(void)userDidLogIn:(User *)user {
-    [[NSUserDefaults standardUserDefaults] setObject:user.userId forKey:kUserLoggedInUserDefaults];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     [(AppDelegate *)[UIApplication sharedApplication].delegate setActualUser:user];
     
     PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
