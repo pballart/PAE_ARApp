@@ -45,10 +45,10 @@
                                 <exclude reference="7eC-cy-SQS"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Ttj-8a-wBV"/>
-                                <exclude reference="cks-HL-7tc"/>
                                 <exclude reference="tIV-lg-8bJ"/>
                                 <exclude reference="vO8-iP-Yx0"/>
+                                <exclude reference="Ttj-8a-wBV"/>
+                                <exclude reference="cks-HL-7tc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -57,10 +57,10 @@
                                 <include reference="7eC-cy-SQS"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Ttj-8a-wBV"/>
-                                <include reference="cks-HL-7tc"/>
                                 <include reference="tIV-lg-8bJ"/>
                                 <include reference="vO8-iP-Yx0"/>
+                                <include reference="Ttj-8a-wBV"/>
+                                <include reference="cks-HL-7tc"/>
                             </mask>
                         </variation>
                     </view>
