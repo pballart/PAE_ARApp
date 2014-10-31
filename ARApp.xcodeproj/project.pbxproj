@@ -25,7 +25,6 @@
 		5FA83C5D19D1DC6B00A0DB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C5B19D1DC6B00A0DB71 /* Main.storyboard */; };
 		5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C5E19D1DC6B00A0DB71 /* Images.xcassets */; };
 		5FA83C6219D1DC6B00A0DB71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C6019D1DC6B00A0DB71 /* LaunchScreen.xib */; };
-		5FA83C6E19D1DC6B00A0DB71 /* ARAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */; };
 		5FBFA0AB1A015121004B9AAA /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */; };
 		5FBFA0AC1A015121004B9AAA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FBFA0AA1A015121004B9AAA /* Pods.framework */; };
 		5FBFA0BC1A01A265004B9AAA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBFA0BB1A01A265004B9AAA /* User.m */; };
@@ -36,16 +35,6 @@
 		5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFDE87019F69C42002A6720 /* LogInVC.m */; };
 		DA71F6495E28F53E7C47431F /* libPods-ARApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD2705BA2D949585CB31B53 /* libPods-ARApp.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5FA83C6819D1DC6B00A0DB71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5FA83C4619D1DC6B00A0DB71 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5FA83C4D19D1DC6B00A0DB71;
-			remoteInfo = ARApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B152836EC10FDE2FF426D7E /* Pods-ARApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARApp/Pods-ARApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +66,6 @@
 		5FA83C5C19D1DC6B00A0DB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FA83C5E19D1DC6B00A0DB71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5FA83C6119D1DC6B00A0DB71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5FA83C6719D1DC6B00A0DB71 /* ARAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C6C19D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA83C6D19D1DC6B00A0DB71 /* ARAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAppTests.m; sourceTree = "<group>"; };
 		5FBFA0A91A015121004B9AAA /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
@@ -112,13 +100,6 @@
 				5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */,
 				5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */,
 				DA71F6495E28F53E7C47431F /* libPods-ARApp.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5FA83C6419D1DC6B00A0DB71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				5FA83C4E19D1DC6B00A0DB71 /* ARApp.app */,
-				5FA83C6719D1DC6B00A0DB71 /* ARAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -306,24 +286,6 @@
 			productReference = 5FA83C4E19D1DC6B00A0DB71 /* ARApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5FA83C6619D1DC6B00A0DB71 /* ARAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5FA83C7419D1DC6B00A0DB71 /* Build configuration list for PBXNativeTarget "ARAppTests" */;
-			buildPhases = (
-				5FA83C6319D1DC6B00A0DB71 /* Sources */,
-				5FA83C6419D1DC6B00A0DB71 /* Frameworks */,
-				5FA83C6519D1DC6B00A0DB71 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5FA83C6919D1DC6B00A0DB71 /* PBXTargetDependency */,
-			);
-			name = ARAppTests;
-			productName = ARAppTests;
-			productReference = 5FA83C6719D1DC6B00A0DB71 /* ARAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,10 +297,6 @@
 				TargetAttributes = {
 					5FA83C4D19D1DC6B00A0DB71 = {
 						CreatedOnToolsVersion = 6.0.1;
-					};
-					5FA83C6619D1DC6B00A0DB71 = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 5FA83C4D19D1DC6B00A0DB71;
 					};
 				};
 			};
@@ -356,7 +314,6 @@
 			projectRoot = "";
 			targets = (
 				5FA83C4D19D1DC6B00A0DB71 /* ARApp */,
-				5FA83C6619D1DC6B00A0DB71 /* ARAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -373,13 +330,6 @@
 				5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */,
 				5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */,
 				5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5FA83C6519D1DC6B00A0DB71 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,23 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FA83C6319D1DC6B00A0DB71 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5FA83C6E19D1DC6B00A0DB71 /* ARAppTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5FA83C6919D1DC6B00A0DB71 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5FA83C4D19D1DC6B00A0DB71 /* ARApp */;
-			targetProxy = 5FA83C6819D1DC6B00A0DB71 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */ = {
@@ -593,6 +527,7 @@
 			baseConfigurationReference = FF7FD3FE8FFF2452F51E0EE6 /* Pods-ARApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ARApp/Frameworks",
@@ -611,6 +546,7 @@
 			baseConfigurationReference = 0B152836EC10FDE2FF426D7E /* Pods-ARApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ARApp/Frameworks",
@@ -621,40 +557,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		5FA83C7519D1DC6B00A0DB71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ARAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARApp.app/ARApp";
-			};
-			name = Debug;
-		};
-		5FA83C7619D1DC6B00A0DB71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ARAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARApp.app/ARApp";
 			};
 			name = Release;
 		};
@@ -675,15 +577,6 @@
 			buildConfigurations = (
 				5FA83C7219D1DC6B00A0DB71 /* Debug */,
 				5FA83C7319D1DC6B00A0DB71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5FA83C7419D1DC6B00A0DB71 /* Build configuration list for PBXNativeTarget "ARAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5FA83C7519D1DC6B00A0DB71 /* Debug */,
-				5FA83C7619D1DC6B00A0DB71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
