@@ -24,6 +24,8 @@
     [self.window makeKeyAndVisible];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+#warning TODO: REMOVE
+    [defaults removeObjectForKey:kUserLoggedInUserDefaults];
     UIViewController *startVC;
     NSString *userId = [defaults objectForKey:kUserLoggedInUserDefaults];
     if (userId) {
