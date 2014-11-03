@@ -122,6 +122,9 @@
             NSLog(@"Received response: %@", dict);
             [SVProgressHUD dismiss];
         }];
+        if (item.itemName) {
+            [self showBeerFoundAlertWithName:item.itemName];
+        }
     } else {
         [SVProgressHUD dismiss];
         [self showNothingFoundAlert];
@@ -133,6 +136,13 @@
     [SVProgressHUD dismiss];
     [self showNothingFoundAlert];
     
+}
+
+-(void)showBeerFoundAlertWithName:(NSString *)name {
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setTitle:name];
+    [alert addButtonWithTitle:@"Ok"];
+    [alert show];
 }
 
 -(void)showNothingFoundAlert {
