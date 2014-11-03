@@ -10,7 +10,6 @@
 		5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */; };
 		5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4BC19F14CA300FA9CED /* User.storyboard */; };
 		5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B4C119F15C8F00FA9CED /* DataSource.m */; };
-		5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */; };
 		5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */; };
 		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
 		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
@@ -98,7 +97,6 @@
 				5FBFA0AB1A015121004B9AAA /* CatchoomSDK.framework in Frameworks */,
 				5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */,
 				5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */,
-				5F0D3BC819DEE16600F65CE9 /* CatchoomSDK.framework in Frameworks */,
 				DA71F6495E28F53E7C47431F /* libPods-ARApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +290,7 @@
 		5FA83C4619D1DC6B00A0DB71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "SolArt Apps";
 				TargetAttributes = {
 					5FA83C4D19D1DC6B00A0DB71 = {

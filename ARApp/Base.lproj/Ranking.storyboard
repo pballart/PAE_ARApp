@@ -1,57 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--RankingVC-->
+        <!--Ranking-->
         <scene sceneID="Pcj-vX-yfQ">
             <objects>
-                <viewController storyboardIdentifier="RankingVC" id="cm8-pY-6oX" customClass="RankingVC" sceneMemberID="viewController">
+                <viewController id="cm8-pY-6oX" customClass="RankingVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8fv-bR-RUo"/>
-                        <viewControllerLayoutGuide type="bottom" id="mRk-U8-K7e"/>
+                        <viewControllerLayoutGuide type="top" id="Rje-oA-RFh"/>
+                        <viewControllerLayoutGuide type="bottom" id="fmc-PT-inu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hkb-el-GRV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h99-bN-UzU">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SdS-Up-7xh">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="WfT-RI-ZA6">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WfT-RI-ZA6" id="TsD-BK-T4O">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.92779329489999995" blue="0.022398120180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cm8-pY-6oX" id="fTG-xB-GQY"/>
+                                    <outlet property="delegate" destination="cm8-pY-6oX" id="H6U-tu-6DO"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XUw-Zp-dG5">
+                                <rect key="frame" x="32" y="72" width="257" height="29"/>
+                                <color key="backgroundColor" red="1" green="0.92779329489999995" blue="0.022398120180000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="257" id="Omp-DZ-jBO"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="DAY"/>
+                                    <segment title="WEEK"/>
+                                    <segment title="MONTH"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.6978419683" blue="0.074713444680000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="mySelectorAction:" destination="cm8-pY-6oX" eventType="valueChanged" id="lmX-1E-6j9"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.69784196832792145" blue="0.074713444681388963" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="h99-bN-UzU" secondAttribute="centerY" constant="215.5" id="22K-Yr-6xL"/>
-                            <constraint firstAttribute="centerX" secondItem="h99-bN-UzU" secondAttribute="centerX" constant="-0.5" id="Rje-dc-Du0"/>
+                            <constraint firstItem="fmc-PT-inu" firstAttribute="top" secondItem="SdS-Up-7xh" secondAttribute="bottom" id="8nm-b6-WXG"/>
+                            <constraint firstItem="SdS-Up-7xh" firstAttribute="leading" secondItem="hkb-el-GRV" secondAttribute="leading" id="AqK-Ia-Ggs"/>
+                            <constraint firstItem="XUw-Zp-dG5" firstAttribute="top" secondItem="Rje-oA-RFh" secondAttribute="bottom" constant="8" id="P59-24-eJb"/>
+                            <constraint firstAttribute="centerX" secondItem="XUw-Zp-dG5" secondAttribute="centerX" constant="-0.5" id="jBo-bk-hP1"/>
+                            <constraint firstAttribute="trailing" secondItem="SdS-Up-7xh" secondAttribute="trailing" id="l4G-2w-2ME"/>
+                            <constraint firstItem="SdS-Up-7xh" firstAttribute="top" secondItem="XUw-Zp-dG5" secondAttribute="bottom" constant="8" id="x0h-4C-zQw"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="h99-bN-UzU"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="22K-Yr-6xL"/>
-                                <exclude reference="Rje-dc-Du0"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="h99-bN-UzU"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="22K-Yr-6xL"/>
-                                <include reference="Rje-dc-Du0"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Ranking" id="l1E-5h-AOY"/>
+                    <connections>
+                        <outlet property="mySelector" destination="XUw-Zp-dG5" id="9Zk-6W-ZM0"/>
+                        <outlet property="tableV" destination="SdS-Up-7xh" id="dhC-wD-Wiw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiw-Rr-MbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1147" y="521"/>
+            <point key="canvasLocation" x="1422" y="328"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vne-BO-zSG">
+            <objects>
+                <navigationController storyboardIdentifier="RankingVC" automaticallyAdjustsScrollViewInsets="NO" id="i2y-Vg-8En" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L3V-rt-iMC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.6978419683" blue="0.074713444680000005" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cm8-pY-6oX" kind="relationship" relationship="rootViewController" id="v7b-BS-gkT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwp-hu-Nnx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="328"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <color key="tintColor" red="1" green="0.33658400799999999" blue="0.093042857160000006" alpha="1" colorSpace="calibratedRGB"/>
 </document>
