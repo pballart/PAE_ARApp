@@ -10,13 +10,13 @@
 		5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */; };
 		5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4BC19F14CA300FA9CED /* User.storyboard */; };
 		5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B4C119F15C8F00FA9CED /* DataSource.m */; };
+		5F06111D1A082FCE00973A01 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06111C1A082FCE00973A01 /* UserVC.m */; };
 		5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */; };
 		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
 		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
 		5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */; };
 		5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE519E8162B00BBED83 /* CaptureVC.m */; };
 		5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE819E8164200BBED83 /* PageContentVC.m */; };
-		5F8C1EEC19E8208D00BBED83 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EEB19E8208D00BBED83 /* UserVC.m */; };
 		5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EEE19E820DD00BBED83 /* RankingVC.m */; };
 		5F8C1EF419E82ED000BBED83 /* Beer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C1EF219E82ED000BBED83 /* Beer.storyboard */; };
 		5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5319D1DC6B00A0DB71 /* main.m */; };
@@ -42,6 +42,7 @@
 		5F00B4BD19F14CA300FA9CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/User.storyboard; sourceTree = "<group>"; };
 		5F00B4C019F15C8F00FA9CED /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		5F00B4C119F15C8F00FA9CED /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		5F06111C1A082FCE00973A01 /* UserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
 		5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
 		5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -52,7 +53,6 @@
 		5F8C1EE719E8164200BBED83 /* PageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentVC.h; sourceTree = "<group>"; };
 		5F8C1EE819E8164200BBED83 /* PageContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentVC.m; sourceTree = "<group>"; };
 		5F8C1EEA19E8208D00BBED83 /* UserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
-		5F8C1EEB19E8208D00BBED83 /* UserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
 		5F8C1EED19E820DD00BBED83 /* RankingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingVC.h; sourceTree = "<group>"; };
 		5F8C1EEE19E820DD00BBED83 /* RankingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingVC.m; sourceTree = "<group>"; };
 		5F8C1EF319E82ED000BBED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Beer.storyboard; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 				5F8C1EE719E8164200BBED83 /* PageContentVC.h */,
 				5F8C1EE819E8164200BBED83 /* PageContentVC.m */,
 				5F8C1EEA19E8208D00BBED83 /* UserVC.h */,
-				5F8C1EEB19E8208D00BBED83 /* UserVC.m */,
+				5F06111C1A082FCE00973A01 /* UserVC.m */,
 				5F8C1EED19E820DD00BBED83 /* RankingVC.h */,
 				5F8C1EEE19E820DD00BBED83 /* RankingVC.m */,
 				5F95ADFC1A03CBB3005995E2 /* Configuration.h */,
@@ -375,13 +375,13 @@
 				5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */,
 				5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */,
 				5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */,
+				5F06111D1A082FCE00973A01 /* UserVC.m in Sources */,
 				5FBFA0BF1A01A273004B9AAA /* Beer.m in Sources */,
 				5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */,
 				5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */,
 				5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */,
 				5FBFA0BC1A01A265004B9AAA /* User.m in Sources */,
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
-				5F8C1EEC19E8208D00BBED83 /* UserVC.m in Sources */,
 				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,
 				5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */,
 			);
