@@ -12,7 +12,9 @@
 #import <pop/POP.h>
 #import "DataSource.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-
+#import "PageContentVC.h"
+#import "NoMatchVC.h"
+#import "BeerVC.h"
 
 @interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, POPAnimationDelegate> {
     // Catchoom SDK reference
@@ -49,7 +51,6 @@
     
     // Start Video Preview for search and tracking
     [_sdk startCaptureWithView: self.cameraView];
-    [self.view setNeedsLayout];
     
 }
 
@@ -111,20 +112,44 @@
     
 }
 
+-(NSDictionary *)createTestBeer {
+    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
+    [d setObject:@1 forKey:@"id"];
+    //[d setObject:@1 forKey:@"brand_id"];
+    //[d setObject:@1 forKey:@"brand_name"];
+    //[d setObject:@1 forKey:@"brand_information"];
+    [d setObject:@"Estrella Damm" forKey:@"name"];
+    [d setObject:@"/PlusDim/Imatges/Birres/foto_damm_estrella_1.jpg" forKey:@"img"];
+    [d setObject:@"Mediterraniament..." forKey:@"info"];
+    //[d setObject:@1 forKey:@"points"];
+    [d setObject:@1415546491 forKey:@"lastCheck"];
+    return [d copy];
+}
+
 #pragma mark - CatchoomCloudRecognition Delegate
 
 - (void) didGetSearchResults:(NSArray *)resultItems {
     if ([resultItems count] >= 1) {
         // Found one item !!!
         NSLog(@"Trobat!");
-        CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
-        [self.dataSource getBeerWithIdentifier:item.itemId completion:^(NSDictionary *dict, NSError *error) {
-            NSLog(@"Received response: %@", dict);
-            [SVProgressHUD dismiss];
-        }];
-        if (item.itemName) {
-            [self showBeerFoundAlertWithName:item.itemName];
-        }
+//        CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
+//        [self.dataSource getBeerFromCatchoomWithIdentifier:item.itemId completion:^(NSDictionary *dict, NSError *error) {
+//            if (!error) {
+//                NSLog(@"Received response: %@", dict);
+//                Beer *b = [[Beer alloc] initBeerWithDictionary:dict];
+//                if (b) {
+//                    [self showBeerFoundWithBeer:b];
+//                } else {
+//                    [self showNothingFoundAlert];
+//                }
+//            }
+//            [SVProgressHUD dismiss];
+//        }];
+        // TODO: DELETE <
+        Beer *b = [[Beer alloc] initBeerWithDictionary:[self createTestBeer]];
+        [self  showBeerFoundWithBeer:b];
+        [SVProgressHUD dismiss];
+        // >
     } else {
         [SVProgressHUD dismiss];
         [self showNothingFoundAlert];
@@ -138,18 +163,15 @@
     
 }
 
--(void)showBeerFoundAlertWithName:(NSString *)name {
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    [alert setTitle:name];
-    [alert addButtonWithTitle:@"Ok"];
-    [alert show];
+-(void)showBeerFoundWithBeer:(Beer *)beer {
+    BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    beerVC.beer = beer;
+    [self presentViewController:beerVC animated:YES completion:nil];
 }
 
 -(void)showNothingFoundAlert {
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    [alert setTitle:@"Nothing found"];
-    [alert addButtonWithTitle:@"Ok"];
-    [alert show];
+    NoMatchVC *noMatchVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"noMatch"];
+    [self presentViewController:noMatchVC animated:YES completion:nil];
 }
 
 -(void)didValidateToken
@@ -157,6 +179,16 @@
     NSLog(@"Token validated");
 }
 
+#pragma mark - Navigation
+
+- (IBAction)moveToUser:(UIButton *)sender {
+    [(PageContentVC *)self.parentViewController moveToUser];
+}
+
+- (IBAction)moveToRankings:(UIButton *)sender {
+    [(PageContentVC *)self.parentViewController moveToRanking];
+
+}
 
 
 @end

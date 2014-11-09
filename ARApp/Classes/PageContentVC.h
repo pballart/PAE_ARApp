@@ -10,4 +10,7 @@
 
 @interface PageContentVC : UIPageViewController
 
+-(void) moveToRanking;
+-(void) moveToUser;
+-(void) moveToCameraWithDirectionRight:(BOOL)right;
 @end

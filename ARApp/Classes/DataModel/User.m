@@ -9,7 +9,6 @@
 #import "User.h"
 #import "Beer.h"
 
-
 @implementation User
 
 -(id)initUserWithDictionary:(NSDictionary *)dictionary
@@ -27,6 +26,9 @@
             [array addObject:b];
         }
         self.scannedBeers = [array copy];
+        NSDictionary *leagueDict = [dictionary objectForKey:@"league"];
+        League *l = [[League alloc] initLeagueWithDictionary:leagueDict];
+        self.league = l;
     }
     return self;
 }

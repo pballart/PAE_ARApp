@@ -12,7 +12,7 @@
                 <pageViewController storyboardIdentifier="PageContentVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="8uP-ng-mSM" customClass="PageContentVC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSC-Hi-pgP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570.5" y="136"/>
+            <point key="canvasLocation" x="-148.5" y="-594"/>
         </scene>
         <!--CaptureVC-->
         <scene sceneID="Ktg-of-lP6">
@@ -117,16 +117,40 @@
                                             <action selector="showHelp:" destination="yGU-iG-35p" eventType="touchUpInside" id="2gP-Rx-Fhr"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPB-Gu-cbp">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="User">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moveToUser:" destination="yGU-iG-35p" eventType="touchUpInside" id="vH6-LG-dgJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7c6-ri-NYq">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="Ranking">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moveToRankings:" destination="yGU-iG-35p" eventType="touchUpInside" id="BD0-Ha-HyQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7c6-ri-NYq" secondAttribute="trailing" constant="8" id="1Ic-Ga-x2M"/>
                                     <constraint firstAttribute="trailing" secondItem="ibR-s9-qLd" secondAttribute="trailing" id="2EN-Df-B9J"/>
                                     <constraint firstAttribute="centerX" secondItem="Q8e-FW-sIm" secondAttribute="centerX" id="2XQ-Iu-cZh"/>
                                     <constraint firstAttribute="centerY" secondItem="Q8e-FW-sIm" secondAttribute="centerY" constant="62.5" id="3pz-9i-uzy"/>
+                                    <constraint firstAttribute="bottom" secondItem="YPB-Gu-cbp" secondAttribute="bottom" constant="8" id="9M1-1N-8rd"/>
+                                    <constraint firstAttribute="bottom" secondItem="7c6-ri-NYq" secondAttribute="bottom" constant="8" id="Irq-V0-8oG"/>
                                     <constraint firstItem="z6u-2S-3b5" firstAttribute="leading" secondItem="Ahy-TG-O1I" secondAttribute="leading" constant="40" id="JDZ-mA-s2R"/>
                                     <constraint firstItem="ibR-s9-qLd" firstAttribute="leading" secondItem="Ahy-TG-O1I" secondAttribute="leading" id="LC5-Oe-3st"/>
                                     <constraint firstAttribute="centerY" secondItem="fu1-eS-FBi" secondAttribute="centerY" constant="-207.5" id="MnW-EZ-dMp"/>
                                     <constraint firstItem="Q8e-FW-sIm" firstAttribute="centerX" secondItem="iSM-6r-MeV" secondAttribute="centerX" id="TFn-HV-Cjq"/>
                                     <constraint firstItem="ibR-s9-qLd" firstAttribute="top" secondItem="Ahy-TG-O1I" secondAttribute="top" id="aQv-jo-jHU"/>
+                                    <constraint firstItem="YPB-Gu-cbp" firstAttribute="leading" secondItem="Ahy-TG-O1I" secondAttribute="leading" constant="8" id="g9B-zd-rMS"/>
                                     <constraint firstItem="iSM-6r-MeV" firstAttribute="centerY" secondItem="z6u-2S-3b5" secondAttribute="centerY" constant="-0.5" id="kWk-E3-vzv"/>
                                     <constraint firstItem="iSM-6r-MeV" firstAttribute="top" secondItem="Q8e-FW-sIm" secondAttribute="bottom" constant="19" id="oKd-ue-Kwr"/>
                                     <constraint firstAttribute="centerX" secondItem="fu1-eS-FBi" secondAttribute="centerX" id="s8G-qI-Hh2"/>
@@ -139,20 +163,26 @@
                                         <exclude reference="Q8e-FW-sIm"/>
                                         <exclude reference="iSM-6r-MeV"/>
                                         <exclude reference="z6u-2S-3b5"/>
+                                        <exclude reference="YPB-Gu-cbp"/>
+                                        <exclude reference="7c6-ri-NYq"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="MnW-EZ-dMp"/>
-                                        <exclude reference="s8G-qI-Hh2"/>
-                                        <exclude reference="kWk-E3-vzv"/>
-                                        <exclude reference="oKd-ue-Kwr"/>
-                                        <exclude reference="JDZ-mA-s2R"/>
-                                        <exclude reference="2XQ-Iu-cZh"/>
-                                        <exclude reference="3pz-9i-uzy"/>
-                                        <exclude reference="TFn-HV-Cjq"/>
                                         <exclude reference="2EN-Df-B9J"/>
                                         <exclude reference="LC5-Oe-3st"/>
                                         <exclude reference="aQv-jo-jHU"/>
                                         <exclude reference="xts-ta-FaP"/>
+                                        <exclude reference="2XQ-Iu-cZh"/>
+                                        <exclude reference="3pz-9i-uzy"/>
+                                        <exclude reference="TFn-HV-Cjq"/>
+                                        <exclude reference="JDZ-mA-s2R"/>
+                                        <exclude reference="kWk-E3-vzv"/>
+                                        <exclude reference="oKd-ue-Kwr"/>
+                                        <exclude reference="MnW-EZ-dMp"/>
+                                        <exclude reference="s8G-qI-Hh2"/>
+                                        <exclude reference="9M1-1N-8rd"/>
+                                        <exclude reference="g9B-zd-rMS"/>
+                                        <exclude reference="1Ic-Ga-x2M"/>
+                                        <exclude reference="Irq-V0-8oG"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -162,20 +192,26 @@
                                         <include reference="Q8e-FW-sIm"/>
                                         <include reference="iSM-6r-MeV"/>
                                         <include reference="z6u-2S-3b5"/>
+                                        <include reference="YPB-Gu-cbp"/>
+                                        <include reference="7c6-ri-NYq"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="MnW-EZ-dMp"/>
-                                        <include reference="s8G-qI-Hh2"/>
-                                        <include reference="kWk-E3-vzv"/>
-                                        <include reference="oKd-ue-Kwr"/>
-                                        <include reference="JDZ-mA-s2R"/>
-                                        <include reference="2XQ-Iu-cZh"/>
-                                        <include reference="3pz-9i-uzy"/>
-                                        <include reference="TFn-HV-Cjq"/>
                                         <include reference="2EN-Df-B9J"/>
                                         <include reference="LC5-Oe-3st"/>
                                         <include reference="aQv-jo-jHU"/>
                                         <include reference="xts-ta-FaP"/>
+                                        <include reference="2XQ-Iu-cZh"/>
+                                        <include reference="3pz-9i-uzy"/>
+                                        <include reference="TFn-HV-Cjq"/>
+                                        <include reference="JDZ-mA-s2R"/>
+                                        <include reference="kWk-E3-vzv"/>
+                                        <include reference="oKd-ue-Kwr"/>
+                                        <include reference="MnW-EZ-dMp"/>
+                                        <include reference="s8G-qI-Hh2"/>
+                                        <include reference="9M1-1N-8rd"/>
+                                        <include reference="g9B-zd-rMS"/>
+                                        <include reference="1Ic-Ga-x2M"/>
+                                        <include reference="Irq-V0-8oG"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -233,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYi-wn-yne" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260.5" y="136"/>
+            <point key="canvasLocation" x="541.5" y="-594"/>
         </scene>
     </scenes>
     <resources>

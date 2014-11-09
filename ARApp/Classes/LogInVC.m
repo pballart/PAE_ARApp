@@ -44,11 +44,12 @@
 
 - (IBAction)logInButtonPressed:(UIButton *)sender {
     [SVProgressHUD show];
-    [[DataSource sharedDataSource] logInWithEmail:self.emailTF.text andPassword:self.passwordTF.text completion:^(User *user, NSError *error) {
+    [[DataSource sharedDataSource] logInWithEmail:self.emailTF.text andPassword:self.passwordTF.text completion:^(NSDictionary *dict, NSError *error) {
         [SVProgressHUD dismiss];
         if (!error) {
-            NSLog(@"Logged in!");
+            User *user = [[User alloc] initUserWithDictionary:dict];
             [self userDidLogIn:user];
+            NSLog(@"Logged in!");
         } else {
             NSLog(@"Error logging in: %@", error);
         }

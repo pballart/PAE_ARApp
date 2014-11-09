@@ -30,8 +30,9 @@
     NSString *userId = [defaults objectForKey:kUserLoggedInUserDefaults];
     if (userId) {
         startVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        [[DataSource sharedDataSource] getUserWithIdentifier:userId completion:^(User *user, NSError *error) {
-            if (user && !error) {
+        [[DataSource sharedDataSource] getUserWithIdentifier:userId completion:^(NSDictionary *dict, NSError *error) {
+            if (dict && !error) {
+                User *user = [[User alloc] initUserWithDictionary:dict];
                 self.actualUser = user;
             }
         }];

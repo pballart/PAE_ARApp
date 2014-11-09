@@ -7,21 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
 
 
 @interface DataSource : NSObject
 
 + (DataSource *)sharedDataSource;
 
-- (void)getBeerWithIdentifier:(NSString *)identifier
+- (void)getBeerFromCatchoomWithIdentifier:(NSString *)identifier
                 completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)getUserWithIdentifier:(NSString *)identifier
-                   completion:(void(^)(User *user, NSError *error))block;
+                   completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
-            completion:(void(^)(User *user, NSError *error))block;
+            completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
              completion:(void(^)(NSDictionary *dict, NSError *error))block;

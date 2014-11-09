@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "League.h"
 
 @interface User : NSObject
 
@@ -14,6 +15,8 @@
 @property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *experiencePoints;
 @property (nonatomic, strong) NSArray *scannedBeers;
+@property (nonatomic, strong) League *league;
+
 
 -(id)initUserWithDictionary:(NSDictionary *)dictionary;
 

@@ -7,6 +7,7 @@
 //
 
 #import "RankingVC.h"
+#import "PageContentVC.h"
 
 @interface RankingVC ()
 
@@ -130,13 +131,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }}
 
 - (IBAction)back:(id)sender {
-    
-   // NSString *a = [self.Coses objectAtIndex:indexPath.row];
-    
-    UIViewController *c = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    
-    //c.passo = a;
-    
-    [self presentViewController:c animated:false completion:nil];
+    [(PageContentVC*)self.navigationController.parentViewController moveToCameraWithDirectionRight:NO];
 }
 @end

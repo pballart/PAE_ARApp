@@ -40,8 +40,12 @@
 {
     if ([viewController isKindOfClass:[CaptureVC class]]) {
         return self.userVC;
-    } else if ([viewController isKindOfClass:[RankingVC class]]) {
-        return self.captureVC;
+    } else if ([viewController isKindOfClass:[UINavigationController class]]) {
+        if ([[((UINavigationController*)viewController).viewControllers firstObject] isKindOfClass:[RankingVC class]]) {
+            return self.captureVC;
+        } else {
+            return nil;
+        }
     } else {
         return nil;
     }
@@ -51,10 +55,30 @@
 {
     if ([viewController isKindOfClass:[CaptureVC class]]) {
         return self.rankingVC;
-    } else if ([viewController isKindOfClass:[UserVC class]]) {
-        return self.captureVC;
+    } else if ([viewController isKindOfClass:[UINavigationController class]]) {
+        if ([[((UINavigationController*)viewController).viewControllers firstObject] isKindOfClass:[UserVC class]]) {
+            return self.captureVC;
+        } else {
+            return nil;
+        }
     } else {
         return nil;
+    }
+}
+
+-(void) moveToRanking {
+    [self setViewControllers:@[self.rankingVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+}
+
+-(void) moveToUser {
+    [self setViewControllers:@[self.userVC] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+}
+
+-(void) moveToCameraWithDirectionRight:(BOOL)right {
+    if (right) {
+        [self setViewControllers:@[self.captureVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    } else {
+        [self setViewControllers:@[self.captureVC] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
     }
 }
 

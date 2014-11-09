@@ -73,10 +73,11 @@
             
             /// Un altre métode
             
-            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(User *user, NSError *error) {
+            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error) {
                 [SVProgressHUD dismiss];
                 if (!error) {
                     NSLog(@"Logged in!");
+                    User *user = [[User alloc] initUserWithDictionary:dict];
                     [self userDidLogIn:user];
                 } else {
                     NSLog(@"Error logging in: %@", error);

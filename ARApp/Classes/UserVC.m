@@ -9,7 +9,8 @@
 #import "UserVC.h"
 #import "User.h"
 #import "AppDelegate.h"
-//#import <QuartzCore/QuartzCore.h>
+#import "PageContentVC.h"
+#import "BeerVC.h"
 
 #define  USER_EXP 200
 #define  LEVEL_1 1000
@@ -19,7 +20,7 @@
 
 @interface UserVC () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel; //Lliga
 @property (strong, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -44,8 +45,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.user = [(AppDelegate *)[UIApplication sharedApplication].delegate actualUser];
-    self.nameLabel.text = self.user.name;
 
     //init mutableArray
     self.data =[[NSMutableArray alloc]
@@ -65,13 +64,6 @@
         self.next_level = LEVEL_2;
     }
     
-    //s'ha de passar el titul del jugador
-    self.titleLabel.text = [NSString stringWithFormat:@"%@ (%ld / %d)",self.level,(long)self.user.experiencePoints,self.next_level];
-    
-    //s'ha de passar el num de punts del usuari
-    self.pointsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (NSInteger)self.user.experiencePoints];
-    
-    self.progress = (int)self.user.experiencePoints / self.next_level;
     
     //[self popTest];
     
@@ -83,9 +75,16 @@
         [UIView commitAnimations];
     //[self colocar:self.afegirBirra];
     
-    
-    
-    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.user = [(AppDelegate *)[UIApplication sharedApplication].delegate actualUser];
+    self.nameLabel.text = self.user.name;
+    self.titleLabel.text = self.user.league.name;
+    self.pointsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (long)[self.user.experiencePoints integerValue]];
+    self.progress = (int)self.user.experiencePoints / self.next_level;
 }
 
 /*
@@ -190,16 +189,23 @@
 #pragma mark - Table View delegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
     if (self.segmentControl.selectedSegmentIndex == 0){
         //s'ha de canviar UserVC per BeerVC
-        UserVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"beerID"];
-        
-        [self presentViewController:beerVC animated:false completion:nil];
-        
+        BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        beerVC.beer = [self.data objectAtIndex:indexPath.row];
+        beerVC.hideSplash = YES;
+        [self presentViewController:beerVC animated:YES completion:nil];
     }
     
 }
+
+#pragma mark - Navigation
+
+- (IBAction)goToCamera:(UIBarButtonItem *)sender {
+    [(PageContentVC*)self.navigationController.parentViewController moveToCameraWithDirectionRight:YES];
+}
+
 
 
 @end

@@ -50,18 +50,18 @@
     return __theDataSource;
 }
 
-- (void)getBeerWithIdentifier:(NSString *)identifier
+- (void)getBeerFromCatchoomWithIdentifier:(NSString *)identifier
                    completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
     if (identifier) {
-        [keys addObject:@"id"];
+        [keys addObject:@"idCatchoom"];
         [objects addObject:identifier];
     }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    [self.operationManager POST:@"getBirra_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:@"getBirraCatchoom_1php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         block(dict, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -70,7 +70,7 @@
 }
 
 - (void)getUserWithIdentifier:(NSString *)identifier
-                   completion:(void(^)(User *user, NSError *error))block {
+                   completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
@@ -85,8 +85,7 @@
     [self.operationManager POST:@"getUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         if ([[dict objectForKey:@"error"] isEqual:@0]) {
-            User *user = [[User alloc] initUserWithDictionary:dict];
-            block(user, nil);
+            block(dict, nil);
         } else {
             NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
             block(nil, error);
@@ -97,7 +96,7 @@
 }
 
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
-            completion:(void(^)(User *user, NSError *error))block {
+            completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
@@ -112,8 +111,7 @@
     [self.operationManager POST:@"login_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         if ([[dict objectForKey:@"error"] isEqual:@0]) {
-            User *user = [[User alloc] initUserWithDictionary:dict];
-            block(user, nil);
+            block(dict, nil);
         } else {
             NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
             block(nil, error);
