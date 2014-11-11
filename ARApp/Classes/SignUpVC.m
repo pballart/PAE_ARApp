@@ -69,24 +69,11 @@
     [[DataSource sharedDataSource] signInWithEmail:self.email_su_TF.text name:self.name_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error){
        [SVProgressHUD dismiss];
         if (!error) {
-            NSLog(@"Operation Completed!");
-            
-            /// Un altre métode
-            
-            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error) {
-                [SVProgressHUD dismiss];
-                if (!error) {
-                    NSLog(@"Logged in!");
-                    User *user = [[User alloc] initUserWithDictionary:dict];
-                    [self userDidLogIn:user];
-                } else {
-                    NSLog(@"Error logging in: %@", error);
-                }
-            }];
-            
-            /////
+            NSLog(@"Sign up seccessfull");
+            User *user = [[User alloc] initUserWithDictionary:dict];
+            [self userDidLogIn:user];
         } else {
-            NSLog(@"Error logging in: %@", error);
+            NSLog(@"Error signing up in: %@", error);
         }
     }];
 

@@ -50,18 +50,19 @@
     return __theDataSource;
 }
 
-- (void)getBeerFromCatchoomWithIdentifier:(NSString *)identifier
+//Beers
+
+- (void)getBeerWithIdentifier:(NSString *)identifier
                    completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    if (identifier) {
-        [keys addObject:@"idCatchoom"];
-        [objects addObject:identifier];
-    }
+    NSAssert(identifier!=nil, @"Identifier is nil");
+    [keys addObject:@"id"];
+    [objects addObject:identifier];
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
-    [self.operationManager POST:@"getBirraCatchoom_1php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.operationManager POST:@"getBirra_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
         block(dict, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -69,17 +70,143 @@
     }];
 }
 
+- (void)getBeerFromCatchoomWithIdentifier:(NSString *)identifier
+                   completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(identifier!=nil, @"Identifier is nil");
+    [keys addObject:@"idCatchoom"];
+    [objects addObject:identifier];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getBirraCatchoom_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+- (void)getInfoFromBeer:(NSString *)beerId andUser:(NSString *)userId
+             completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(beerId!=nil, @"BeerId is nil");
+    NSAssert(userId!=nil, @"UserId is nil");
+    
+    [keys addObject:@"birra"];
+    [objects addObject:beerId];
+    [keys addObject:@"user"];
+    [objects addObject:userId];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getBirraUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+- (void)getBeersFromUser:(NSString *)userId
+              completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(userId!=nil, @"UserId is nil");
+    
+    [keys addObject:@"user"];
+    [objects addObject:userId];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getBirresUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+- (void)getOwnerInfoFromBeer:(NSString *)beerId andLeague:(NSString *)leagueId
+                  completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(beerId!=nil, @"BeerId is nil");
+    NSAssert(leagueId!=nil, @"LeaguId is nil");
+    
+    [keys addObject:@"birra"];
+    [objects addObject:beerId];
+    [keys addObject:@"league"];
+    [objects addObject:leagueId];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getOwner_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+//Gloop!
+
+- (void)updateBeer:(NSString *)beerId withUser:(NSString *)userId
+        completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(beerId!=nil, @"BeerId is nil");
+    NSAssert(userId!=nil, @"LeaguId is nil");
+    
+    [keys addObject:@"birra"];
+    [objects addObject:beerId];
+    [keys addObject:@"user"];
+    [objects addObject:userId];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"update_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
+//Ranking methods
+
+- (void)getRankingTotalWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    
+}
+
+- (void)getRankingDailyWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    
+}
+
+- (void)getRankingWeeklyWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    
+}
+
+- (void)getRankingTopTenUsersWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    
+}
+
+
+//User
+
 - (void)getUserWithIdentifier:(NSString *)identifier
                    completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    if (identifier) {
-        [keys addObject:@"user"];
-        [objects addObject:identifier];
-        [keys addObject:@"birres"];
-        [objects addObject:@1];
-    }
+    NSAssert(identifier!=nil, @"Identifier is nil");
+    [keys addObject:@"user"];
+    [objects addObject:identifier];
+    [keys addObject:@"birres"];
+    [objects addObject:@1];
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -95,17 +222,38 @@
     }];
 }
 
+- (void)getLeagueInfoWithLeagueIdentifier:(NSString *)identifier
+                               completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(identifier!=nil, @"Identifier is nil");
+    
+    [keys addObject:@"league"];
+    [objects addObject:identifier];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getLeague_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
             completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    if (email && password) {
-        [keys addObject:@"email"];
-        [objects addObject:email];
-        [keys addObject:@"password"];
-        [objects addObject:password];
-    }
+    NSAssert(email!=nil, @"Email is nil");
+    NSAssert(password!=nil, @"Password is nil");
+    
+    [keys addObject:@"email"];
+    [objects addObject:email];
+    [keys addObject:@"password"];
+    [objects addObject:password];
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"login_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -127,14 +275,16 @@
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    if (email && name && password) {
-        [keys addObject:@"email"];
-        [objects addObject:email];
-        [keys addObject:@"password"];
-        [objects addObject:password];
-        [keys addObject:@"name"];
-        [objects addObject:name];
-    }
+    NSAssert(email!=nil, @"Email is nil");
+    NSAssert(password!=nil, @"Password is nil");
+    NSAssert(name!=nil, @"Name is nil");
+    
+    [keys addObject:@"email"];
+    [objects addObject:email];
+    [keys addObject:@"password"];
+    [objects addObject:password];
+    [keys addObject:@"user"];
+    [objects addObject:name];
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"register_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -143,16 +293,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
-}
-
-#pragma mark - Private methods
-
-- (NSError *)errorWithResult:(NSDictionary *)result inOperation:(AFHTTPRequestOperation *)operation
-{
-    if ([result objectForKey:@"responseCode"] && ![[result objectForKey:@"responseCode"] isEqualToString:@"200"]) {
-        return [NSError errorWithDomain:@"AppDomain" code:[[result objectForKey:@"responseCode"] integerValue] userInfo:nil];
-    }
-    return nil;
 }
 
 @end
