@@ -7,8 +7,14 @@
 //
 
 #import "SettingsTVC.h"
+#import <MessageUI/MessageUI.h>
 
-@interface SettingsTVC ()
+#define facebook @"fb://requests"
+#define appleStore @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=284417350&mt=8&uo=6"
+#define webpage @"http://147.83.39.196/gloop/admin/templates/frontend/"
+
+@interface SettingsTVC () <MFMailComposeViewControllerDelegate>
+
 
 @end
 
@@ -32,26 +38,112 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 4;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] init];
+    }
     return cell;
 }
-*/
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([selectedCell.reuseIdentifier isEqualToString:@"Invita"]){
+        NSLog(@"Invita");
+        [self abrirMail];
+    }
+    else if ([selectedCell.reuseIdentifier isEqualToString:@"Enviar"]){
+        NSLog(@"Enviar");
+        [self abrirMail];
+    }
+    else if ([selectedCell.reuseIdentifier isEqualToString:@"Reseña"]){
+        NSURL *url = [NSURL URLWithString:appleStore];
+        [[UIApplication sharedApplication] openURL:url];
+        NSLog(@"Reseña");
+    }
+    else if ([selectedCell.reuseIdentifier isEqualToString:@"Legal"]){
+        NSLog(@"Legal");
+    }
+    else if ([selectedCell.reuseIdentifier isEqualToString:@"Web"]){
+        NSURL *url = [NSURL URLWithString:webpage];
+        [[UIApplication sharedApplication] openURL:url];
+        NSLog(@"Web");
+    }
+    else if ([selectedCell.reuseIdentifier isEqualToString:@"Facebook"]){
+        NSURL *url = [NSURL URLWithString:facebook];
+        [[UIApplication sharedApplication] openURL:url];
+        NSLog(@"Facebook");
+    }
+    else{
+        [self.navigationController popViewControllerAnimated:YES];
+        NSLog(@"Exit");
+    }
+}
+
+- (IBAction)abrirMail {
+    
+    // Comprobamos si nuestro dispositivo puede enviar mails en este momento
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        
+        [mailer setSubject:@"Asunto del mensaje"];
+        
+        NSArray *toRecipients = [NSArray arrayWithObjects:@"usuario1@gmail.com", nil];
+        
+        [mailer setToRecipients:toRecipients];
+        
+        NSString *emailBody = @"Texto que incluirá el <b>email</b> que vamos a enviar.";
+        
+        [mailer setMessageBody:emailBody isHTML:YES];
+        
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Tu dispositivo no permite enviar correos desde esta app."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"El usuario ha cancelado el envio del email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"El usuario ha guardado el mensaje.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"El usuario ha enviado el mensaje y ha quedado pendiente.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"El mensaje no se ha guardado ni enviado por algún error.");
+            break;
+        default:
+            NSLog(@"El mensaje no se ha enviado.");
+            break;
+    }
+    // Eliminamos el controlador que muestra el envio del correo
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 // Override to support conditional editing of the table view.

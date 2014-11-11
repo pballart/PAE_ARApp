@@ -8,15 +8,20 @@
 
 #import "legalVC.h"
 
-@interface legalVC ()
+@interface legalVC () <UIScrollViewAccessibilityDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation legalVC
-
+	
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.scrollView setScrollEnabled:YES];
+   // [self.scrollView setContentSize:CGSizeMake(self.view.layer. .size.width, self.view.frame.size.width)];
+
+
 }
 
 - (void)didReceiveMemoryWarning {
