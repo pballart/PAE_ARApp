@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -122,16 +123,16 @@
                                 <exclude reference="ipk-bb-XyR"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="x62-BV-hx0"/>
+                                <exclude reference="d4p-xm-pLp"/>
+                                <exclude reference="wlb-Ce-X5j"/>
+                                <exclude reference="5W8-rf-gGp"/>
+                                <exclude reference="EJE-yj-uSH"/>
                                 <exclude reference="DbR-ZY-KA8"/>
                                 <exclude reference="HvH-pq-cEZ"/>
                                 <exclude reference="Qic-ik-qQb"/>
                                 <exclude reference="CdI-1m-qP6"/>
                                 <exclude reference="SBF-ZD-5fV"/>
-                                <exclude reference="d4p-xm-pLp"/>
-                                <exclude reference="wlb-Ce-X5j"/>
-                                <exclude reference="5W8-rf-gGp"/>
-                                <exclude reference="EJE-yj-uSH"/>
-                                <exclude reference="x62-BV-hx0"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -142,16 +143,16 @@
                                 <include reference="ipk-bb-XyR"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="x62-BV-hx0"/>
+                                <include reference="d4p-xm-pLp"/>
+                                <include reference="wlb-Ce-X5j"/>
+                                <include reference="5W8-rf-gGp"/>
+                                <include reference="EJE-yj-uSH"/>
                                 <include reference="DbR-ZY-KA8"/>
                                 <include reference="HvH-pq-cEZ"/>
                                 <include reference="Qic-ik-qQb"/>
                                 <include reference="CdI-1m-qP6"/>
                                 <include reference="SBF-ZD-5fV"/>
-                                <include reference="d4p-xm-pLp"/>
-                                <include reference="wlb-Ce-X5j"/>
-                                <include reference="5W8-rf-gGp"/>
-                                <include reference="EJE-yj-uSH"/>
-                                <include reference="x62-BV-hx0"/>
                             </mask>
                         </variation>
                     </view>
@@ -172,10 +173,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-md-msJ" userLabel="View-points">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-md-msJ" userLabel="View-points">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_points_background" translatesAutoresizingMaskIntoConstraints="NO" id="lve-OV-iYk">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="beer_points_background" translatesAutoresizingMaskIntoConstraints="NO" id="lve-OV-iYk">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nice Gloop!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-EZ-eQ5">
@@ -232,7 +233,8 @@
                                                 <exclude reference="hSA-RV-qoF"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact">
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="156" y="313" width="129" height="28"/>
                                             <mask key="constraints">
                                                 <include reference="hSA-RV-qoF"/>
                                             </mask>
@@ -309,21 +311,21 @@
                                         <exclude reference="FQg-oZ-cJR"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="3DL-TS-Oyq"/>
+                                        <exclude reference="ozW-ON-I0m"/>
+                                        <exclude reference="ycW-Jq-yUC"/>
+                                        <exclude reference="DA3-4c-aQx"/>
+                                        <exclude reference="CTO-UK-PBy"/>
+                                        <exclude reference="F0S-iV-ode"/>
+                                        <exclude reference="H7i-9p-FoH"/>
+                                        <exclude reference="W7A-SM-1oa"/>
+                                        <exclude reference="cIj-IX-iWS"/>
                                         <exclude reference="H9P-qm-aGz"/>
                                         <exclude reference="H9U-hF-usT"/>
                                         <exclude reference="Pst-xK-EdK"/>
                                         <exclude reference="Qjy-3Q-LcI"/>
                                         <exclude reference="fCV-8s-VoY"/>
                                         <exclude reference="ndC-Wq-fsC"/>
-                                        <exclude reference="CTO-UK-PBy"/>
-                                        <exclude reference="F0S-iV-ode"/>
-                                        <exclude reference="H7i-9p-FoH"/>
-                                        <exclude reference="W7A-SM-1oa"/>
-                                        <exclude reference="cIj-IX-iWS"/>
-                                        <exclude reference="DA3-4c-aQx"/>
-                                        <exclude reference="3DL-TS-Oyq"/>
-                                        <exclude reference="ozW-ON-I0m"/>
-                                        <exclude reference="ycW-Jq-yUC"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -336,25 +338,25 @@
                                         <include reference="FQg-oZ-cJR"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="3DL-TS-Oyq"/>
+                                        <include reference="ozW-ON-I0m"/>
+                                        <include reference="ycW-Jq-yUC"/>
+                                        <include reference="DA3-4c-aQx"/>
+                                        <include reference="CTO-UK-PBy"/>
+                                        <include reference="F0S-iV-ode"/>
+                                        <include reference="H7i-9p-FoH"/>
+                                        <include reference="W7A-SM-1oa"/>
+                                        <include reference="cIj-IX-iWS"/>
                                         <include reference="H9P-qm-aGz"/>
                                         <include reference="H9U-hF-usT"/>
                                         <include reference="Pst-xK-EdK"/>
                                         <include reference="Qjy-3Q-LcI"/>
                                         <include reference="fCV-8s-VoY"/>
                                         <include reference="ndC-Wq-fsC"/>
-                                        <include reference="CTO-UK-PBy"/>
-                                        <include reference="F0S-iV-ode"/>
-                                        <include reference="H7i-9p-FoH"/>
-                                        <include reference="W7A-SM-1oa"/>
-                                        <include reference="cIj-IX-iWS"/>
-                                        <include reference="DA3-4c-aQx"/>
-                                        <include reference="3DL-TS-Oyq"/>
-                                        <include reference="ozW-ON-I0m"/>
-                                        <include reference="ycW-Jq-yUC"/>
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="IuX-Kl-r0H">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="IuX-Kl-r0H">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er5-Fq-kf8" userLabel="Button-back">
@@ -367,7 +369,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89D-l0-nqb">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="218"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                             </imageView>
                         </subviews>
@@ -397,11 +399,11 @@
                                 <exclude reference="yzN-sR-FL8"/>
                                 <exclude reference="aVS-fy-5zi"/>
                                 <exclude reference="o1o-qG-9au"/>
-                                <exclude reference="rOP-VD-hiL"/>
-                                <exclude reference="8Dn-ao-h66"/>
-                                <exclude reference="rhG-KT-7kJ"/>
                                 <exclude reference="bFF-qO-kuT"/>
                                 <exclude reference="wKw-hc-bKa"/>
+                                <exclude reference="8Dn-ao-h66"/>
+                                <exclude reference="rhG-KT-7kJ"/>
+                                <exclude reference="rOP-VD-hiL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -417,11 +419,11 @@
                                 <include reference="yzN-sR-FL8"/>
                                 <include reference="aVS-fy-5zi"/>
                                 <include reference="o1o-qG-9au"/>
-                                <include reference="rOP-VD-hiL"/>
-                                <include reference="8Dn-ao-h66"/>
-                                <include reference="rhG-KT-7kJ"/>
                                 <include reference="bFF-qO-kuT"/>
                                 <include reference="wKw-hc-bKa"/>
+                                <include reference="8Dn-ao-h66"/>
+                                <include reference="rhG-KT-7kJ"/>
+                                <include reference="rOP-VD-hiL"/>
                             </mask>
                         </variation>
                     </view>
