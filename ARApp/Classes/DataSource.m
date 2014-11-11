@@ -178,19 +178,64 @@
 //Ranking methods
 
 - (void)getRankingTotalWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
+    [keys addObject:@"ranking"];
+    [objects addObject:@"total"];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
 }
 
 - (void)getRankingDailyWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
+    [keys addObject:@"ranking"];
+    [objects addObject:@"daily"];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
 }
 
 - (void)getRankingWeeklyWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
+    [keys addObject:@"ranking"];
+    [objects addObject:@"weekly"];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
 }
 
 - (void)getRankingTopTenUsersWithcompletion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getUsersRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        block(dict, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
 }
 
 
