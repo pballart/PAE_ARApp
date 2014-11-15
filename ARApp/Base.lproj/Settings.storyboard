@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gYd-b9-7FD">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -249,7 +249,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="SALIR" footerTitle="Version 1.0" id="OYr-h1-PL0">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Exit" id="fqO-MQ-87a">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="fqO-MQ-87a">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fqO-MQ-87a" id="cRr-TZ-Fl9">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -293,7 +293,14 @@
                             <outlet property="delegate" destination="in6-1D-ROx" id="2Rn-jd-S1V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="o84-Vc-6kL"/>
+                    <navigationItem key="navigationItem" id="o84-Vc-6kL">
+                        <barButtonItem key="leftBarButtonItem" image="backArrow" id="Y9O-hn-LFU">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dismiss:" destination="in6-1D-ROx" id="LrI-Sc-YMr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XWR-kw-t1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -355,9 +362,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l7h-rQ-W8a">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gloop_logo" translatesAutoresizingMaskIntoConstraints="NO" id="l7h-rQ-W8a">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <color key="backgroundColor" red="1" green="0.70588235290000001" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="141" id="Unm-ma-oIi"/>
                                         </constraints>
@@ -704,4 +710,8 @@
             <point key="canvasLocation" x="2287.5" y="438"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backArrow" width="25" height="25"/>
+        <image name="gloop_logo" width="394" height="127"/>
+    </resources>
 </document>

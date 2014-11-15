@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "PageContentVC.h"
 #import "BeerVC.h"
+#import "SettingsTVC.h"
 
 #define  USER_EXP 200
 #define  LEVEL_1 1000
@@ -191,7 +192,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
     if (self.segmentControl.selectedSegmentIndex == 0){
-        //s'ha de canviar UserVC per BeerVC
         BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         beerVC.beer = [self.data objectAtIndex:indexPath.row];
         beerVC.hideSplash = YES;
@@ -206,6 +206,10 @@
     [(PageContentVC*)self.navigationController.parentViewController moveToCameraWithDirectionRight:YES];
 }
 
+- (IBAction)showSettings:(id)sender {
+    SettingsTVC *settingsTVC = [[UIStoryboard storyboardWithName:@"Settings" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    [self presentViewController:settingsTVC animated:YES completion:nil];
+}
 
 
 @end

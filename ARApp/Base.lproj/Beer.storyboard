@@ -249,8 +249,7 @@
                                                 <exclude reference="hSA-RV-qoF"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="156" y="313" width="129" height="28"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="hSA-RV-qoF"/>
                                             </mask>

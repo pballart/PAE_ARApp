@@ -105,16 +105,16 @@
                                                     <exclude reference="9oL-li-4Wv"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="5eY-Hx-1tz"/>
-                                                    <exclude reference="FL6-vn-kDT"/>
-                                                    <exclude reference="n3C-qO-a9m"/>
-                                                    <exclude reference="URl-Qt-7aq"/>
-                                                    <exclude reference="YNK-Ta-ely"/>
-                                                    <exclude reference="zS0-iv-Ahh"/>
                                                     <exclude reference="1py-Vu-ZHN"/>
                                                     <exclude reference="Mog-0T-YVe"/>
                                                     <exclude reference="RFN-lB-5P8"/>
                                                     <exclude reference="qaX-LD-efF"/>
+                                                    <exclude reference="URl-Qt-7aq"/>
+                                                    <exclude reference="YNK-Ta-ely"/>
+                                                    <exclude reference="zS0-iv-Ahh"/>
+                                                    <exclude reference="5eY-Hx-1tz"/>
+                                                    <exclude reference="FL6-vn-kDT"/>
+                                                    <exclude reference="n3C-qO-a9m"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -125,16 +125,16 @@
                                                     <include reference="9oL-li-4Wv"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="5eY-Hx-1tz"/>
-                                                    <include reference="FL6-vn-kDT"/>
-                                                    <include reference="n3C-qO-a9m"/>
-                                                    <include reference="URl-Qt-7aq"/>
-                                                    <include reference="YNK-Ta-ely"/>
-                                                    <include reference="zS0-iv-Ahh"/>
                                                     <include reference="1py-Vu-ZHN"/>
                                                     <include reference="Mog-0T-YVe"/>
                                                     <include reference="RFN-lB-5P8"/>
                                                     <include reference="qaX-LD-efF"/>
+                                                    <include reference="URl-Qt-7aq"/>
+                                                    <include reference="YNK-Ta-ely"/>
+                                                    <include reference="zS0-iv-Ahh"/>
+                                                    <include reference="5eY-Hx-1tz"/>
+                                                    <include reference="FL6-vn-kDT"/>
+                                                    <include reference="n3C-qO-a9m"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
