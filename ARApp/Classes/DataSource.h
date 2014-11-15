@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+//#define API_BASE_URL2 @"http://147.83.39.196/gloop/"
+//#define API_BASE_URL @"http://plusdimension.hol.es/PlusDim/"
+
+extern NSString *API_BASE_URL;
 
 @interface DataSource : NSObject
 

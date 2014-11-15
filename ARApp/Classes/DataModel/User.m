@@ -33,4 +33,16 @@
     return self;
 }
 
+-(id)initUserWithRankingDictionary:(NSDictionary *)dictionary
+{
+    self = [self init];
+    if(self) {
+        self.name = [dictionary objectForKey:@"userName"];
+        self.userId = [dictionary objectForKey:@"id"];
+        self.experiencePoints = [dictionary objectForKey:@"xp"];
+        self.totalPoints = [dictionary objectForKey:@"totalPunts"];
+    }
+    return self;
+}
+
 @end

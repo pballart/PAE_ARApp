@@ -8,19 +8,20 @@
 
 #import "RankingVC.h"
 #import "PageContentVC.h"
+#import "RankingTVC.h"
+#import "DataSource.h"
+#import "Beer.h"
+#import "User.h"
+
+#define UPDATE_TABLE_NOTIFICATION @"update_table_notification"
 
 @interface RankingVC ()
 
-
-@property (nonatomic, strong) NSArray *Names_d;
-@property (nonatomic, strong) NSArray *Names_w;
-@property (nonatomic, strong) NSArray *Names_m;
-@property (nonatomic, strong) NSArray *Coses;
-@property (nonatomic, strong) NSArray *Brand_d;
-@property (nonatomic, strong) NSArray *Brand_w;
-@property (nonatomic, strong) NSArray *Brand_m;
-@property (nonatomic, strong) NSArray *Subcoses;
-
+@property (nonatomic, strong) NSMutableArray *dayRank;
+@property (nonatomic, strong) NSMutableArray *weekRank;
+@property (nonatomic, strong) NSMutableArray *totalRank;
+@property (nonatomic, strong) NSMutableArray *userRank;
+@property (nonatomic, strong) NSArray *actualRank;
 
 @end
 
@@ -29,45 +30,147 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.navigationController.navigationBarHidden = NO;
 
+    //Load ranking from server
+    self.dayRank = NSMutableArray.array;
+    self.weekRank = NSMutableArray.array;
+    self.totalRank = NSMutableArray.array;
+    self.userRank = NSMutableArray.array;
+    self.actualRank = NSArray.array;
+}
 
-    
-    self.Names_d=@[@"Cervesa Day 1",@"Cervesa Day 2",@"Cervesa Day 3",@"Cervesa Day 4",@"Cervesa Day 5"];
-    self.Names_w=@[@"Cervesa Week 1",@"Cervesa Week 2",@"Cervesa Week 3",@"Cervesa Week 4",@"Cervesa Week 5"];
-    self.Names_m=@[@"Cervesa Month 1",@"Cervesa Month 2",@"Cervesa Month 3",@"Cervesa Month 4",@"Cervesa Month 5"];
-    self.Coses=self.Names_d;
-    
-    self.Brand_d=@[@"Brand 1",@"Brand 2",@"Brand 3",@"Brand 4",@"Brand 5"];
-    self.Brand_w=@[@"Brand 1",@"Brand 2",@"Brand 3",@"Brand 4",@"Brand 5"];
-    self.Brand_m=@[@"Brand 1",@"Brand 2",@"Brand 3",@"Brand 4",@"Brand 5"];
-    self.Subcoses=self.Brand_d;
-    
-    
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self loadDailyRanking];
+    [self loadWeeklyRanking];
+    [self loadTotalRanking];
+    [self loadUserRanking];
+}
+
+-(void) loadDailyRanking {
+    [[DataSource sharedDataSource] getRankingDailyWithcompletion:^(NSDictionary *dict, NSError *error) {
+        if (error) {
+            NSLog(@"Error getting ranking: %@", error);
+        } else {
+            [self.dayRank removeAllObjects];
+            //NSLog(@"Ranking: %@", dict);
+            NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
+            for (NSDictionary *d in retrievedBeers) {
+                Beer *b = [[Beer alloc] initBeerWithDictionary:d];
+                [self.dayRank addObject:b];
+            }
+            self.actualRank = self.dayRank;
+            [self updateTable];
+        }
+    }];
+}
+
+-(void) loadWeeklyRanking {
+    [[DataSource sharedDataSource] getRankingWeeklyWithcompletion:^(NSDictionary *dict, NSError *error) {
+        if (error) {
+            NSLog(@"Error getting ranking: %@", error);
+        } else {
+            [self.weekRank removeAllObjects];
+            //NSLog(@"Ranking: %@", dict);
+            NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
+            for (NSDictionary *d in retrievedBeers) {
+                Beer *b = [[Beer alloc] initBeerWithDictionary:d];
+                [self.weekRank addObject:b];
+            }
+            [self updateTable];
+        }
+    }];
+}
+
+-(void) loadTotalRanking {
+    [[DataSource sharedDataSource] getRankingTotalWithcompletion:^(NSDictionary *dict, NSError *error) {
+        if (error) {
+            NSLog(@"Error getting ranking: %@", error);
+        } else {
+            [self.totalRank removeAllObjects];
+            //NSLog(@"Ranking: %@", dict);
+            NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
+            for (NSDictionary *d in retrievedBeers) {
+                Beer *b = [[Beer alloc] initBeerWithDictionary:d];
+                [self.totalRank addObject:b];
+            }
+            [self updateTable];
+        }
+    }];
+}
+
+-(void) loadUserRanking {
+    [[DataSource sharedDataSource] getRankingTopTenUsersWithcompletion:^(NSDictionary *dict, NSError *error) {
+        if (error) {
+            NSLog(@"Error getting ranking: %@", error);
+        } else {
+            [self.userRank removeAllObjects];
+            NSLog(@"Ranking: %@", dict);
+            NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
+            for (NSDictionary *d in retrievedBeers) {
+                User *u = [[User alloc] initUserWithRankingDictionary:d];
+                [self.userRank addObject:u];
+            }
+            [self updateTable];
+        }
+    }];
+}
+
+-(void) updateTable {
+    switch (self.mySelector.selectedSegmentIndex) {
+        case 0:
+            self.actualRank=self.dayRank;
+            [self.tableV reloadData];
+            break;
+        case 1:
+            self.actualRank=self.weekRank;
+            [self.tableV reloadData];
+            break;
+            
+        case 2:
+            self.actualRank=self.totalRank;
+            [self.tableV reloadData];
+            break;
+        case 3:
+            self.actualRank=self.userRank;
+            [self.tableV reloadData];
+            break;
+        default:
+            break;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     // Return the number of rows in the section.
-    return [self.Coses count];
+    return [self.actualRank count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
+    RankingTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"rankingCellId"];
     
+    if (!cell) {
+        cell = [[RankingTVC alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"rankingCellId"];
+    }
     
+    if ([[self.actualRank firstObject] isKindOfClass:[Beer class]]) {
+        Beer *b = [self.actualRank objectAtIndex:indexPath.row];
+        [cell configureCellWithBeer:b];
+    } else if ([[self.actualRank firstObject] isKindOfClass:[User class]]) {
+        User *u = [self.actualRank objectAtIndex:indexPath.row];
+        [cell configureCellWithUser:u];
+    }
     
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"myCell"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setBackgroundColor:[UIColor clearColor]];
-    
-    
-    cell.textLabel.text = [self.Coses objectAtIndex:(indexPath.row)];
-    cell.detailTextLabel.text=[self.Subcoses objectAtIndex:(indexPath.row)];
-    
+
+    if(indexPath.row%2==0){
+        [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0 green:219.0/255.0 blue:75.0/255.0 alpha:1.0]];
+    }
+    else{
+        [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1.0]];
+    }
     return cell;
 }
 
@@ -87,48 +190,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)mySelectorAction:(id)sender {
+    [self updateTable];
 }
 
-
-
-
-
-
-- (IBAction)mySelectorAction:(id)sender {
-    switch (self.mySelector.selectedSegmentIndex) {
-        case 0:
-            //[self.view setBackgroundColor:[UIColor redColor]];
-            
-            self.Coses=self.Names_d;
-            self.Subcoses=self.Brand_d;
-            [self.tableV reloadData];
-            
-            
-            break;
-            
-            
-        case 1:
-            //[self.view setBackgroundColor:[UIColor greenColor]];
-            
-            self.Coses=self.Names_w;
-            self.Subcoses=self.Brand_w;
-            [self.tableV reloadData];
-            break;
-            
-        case 2:
-            //[self.view setBackgroundColor:[UIColor yellowColor]];
-            
-            self.Coses=self.Names_m;
-            self.Subcoses=self.Brand_m;
-            [self.tableV reloadData];
-            break;
-        default:
-            break;
-    }}
 
 - (IBAction)back:(id)sender {
     [(PageContentVC*)self.navigationController.parentViewController moveToCameraWithDirectionRight:NO];

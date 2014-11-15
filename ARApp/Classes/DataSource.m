@@ -9,13 +9,12 @@
 #import "DataSource.h"
 #import <Pods/AFNetworking.h>
 
-#define API_BASE_URL2 @"http://147.83.39.196/gloop/"
-#define API_BASE_URL @"http://plusdimension.hol.es/PlusDim/"
-
 @interface DataSource ()
 @property (nonatomic, strong) AFHTTPRequestOperationManager     *operationManager;
 @property (nonatomic, assign) BOOL                              isOnline;
 @end
+
+NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
 
 @implementation DataSource
 

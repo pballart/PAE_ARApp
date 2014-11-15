@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -36,7 +37,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csq-9J-YMI">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
-                                <state key="normal" title="&gt;&gt; Log in">
+                                <state key="normal" title="&gt;&gt; Log in" backgroundImage="buttonBackground">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -49,7 +50,7 @@
                                     <constraint firstAttribute="width" constant="113" id="p2v-3N-nB8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
-                                <state key="normal" title="&gt;&gt; Sign up">
+                                <state key="normal" title="&gt;&gt; Sign up" backgroundImage="buttonBackground">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -109,21 +110,21 @@
                                 <exclude reference="hCD-uc-xsk"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="FkX-Y1-Bco"/>
-                                <exclude reference="GmS-Sp-RMU"/>
-                                <exclude reference="gAy-zF-nlV"/>
-                                <exclude reference="gTK-FF-uED"/>
-                                <exclude reference="z2u-Jg-WLD"/>
-                                <exclude reference="6Y2-8R-lWV"/>
-                                <exclude reference="A8p-To-x2Y"/>
-                                <exclude reference="pcw-8f-MM2"/>
+                                <exclude reference="Rtd-sV-I2y"/>
                                 <exclude reference="BAS-HO-VJn"/>
                                 <exclude reference="H5x-2I-93e"/>
                                 <exclude reference="N2W-uV-WPz"/>
                                 <exclude reference="xRq-Aa-ATC"/>
                                 <exclude reference="pu4-GM-IBb"/>
                                 <exclude reference="zhS-JR-8cf"/>
-                                <exclude reference="Rtd-sV-I2y"/>
+                                <exclude reference="6Y2-8R-lWV"/>
+                                <exclude reference="A8p-To-x2Y"/>
+                                <exclude reference="pcw-8f-MM2"/>
+                                <exclude reference="FkX-Y1-Bco"/>
+                                <exclude reference="GmS-Sp-RMU"/>
+                                <exclude reference="gAy-zF-nlV"/>
+                                <exclude reference="gTK-FF-uED"/>
+                                <exclude reference="z2u-Jg-WLD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -134,21 +135,21 @@
                                 <include reference="hCD-uc-xsk"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="FkX-Y1-Bco"/>
-                                <include reference="GmS-Sp-RMU"/>
-                                <include reference="gAy-zF-nlV"/>
-                                <include reference="gTK-FF-uED"/>
-                                <include reference="z2u-Jg-WLD"/>
-                                <include reference="6Y2-8R-lWV"/>
-                                <include reference="A8p-To-x2Y"/>
-                                <include reference="pcw-8f-MM2"/>
+                                <include reference="Rtd-sV-I2y"/>
                                 <include reference="BAS-HO-VJn"/>
                                 <include reference="H5x-2I-93e"/>
                                 <exclude reference="N2W-uV-WPz"/>
                                 <exclude reference="xRq-Aa-ATC"/>
                                 <include reference="pu4-GM-IBb"/>
                                 <exclude reference="zhS-JR-8cf"/>
-                                <include reference="Rtd-sV-I2y"/>
+                                <include reference="6Y2-8R-lWV"/>
+                                <include reference="A8p-To-x2Y"/>
+                                <include reference="pcw-8f-MM2"/>
+                                <include reference="FkX-Y1-Bco"/>
+                                <include reference="GmS-Sp-RMU"/>
+                                <include reference="gAy-zF-nlV"/>
+                                <include reference="gTK-FF-uED"/>
+                                <include reference="z2u-Jg-WLD"/>
                             </mask>
                         </variation>
                     </view>
@@ -609,8 +610,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backArrow" width="37" height="37"/>
+        <image name="backArrow" width="25" height="25"/>
         <image name="background" width="646" height="1142"/>
+        <image name="buttonBackground" width="95" height="32"/>
         <image name="gloop_logo" width="394" height="127"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

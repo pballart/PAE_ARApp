@@ -19,7 +19,7 @@
         self.beerImageURL = [dictionary objectForKey:@"img"];
         //TODO: FIXME: finish implementation
         self.ownerId = nil;
-        self.beerPoints = nil;
+        self.beerPoints = [dictionary objectForKey:@"birraTotalChecks"];
         self.brandId = [dictionary objectForKey:@"brand_id"];
         self.brandInfo = [dictionary objectForKey:@"brand_information"];
     }

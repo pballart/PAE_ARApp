@@ -19,6 +19,8 @@
 		5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE819E8164200BBED83 /* PageContentVC.m */; };
 		5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EEE19E820DD00BBED83 /* RankingVC.m */; };
 		5F8C1EF419E82ED000BBED83 /* Beer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C1EF219E82ED000BBED83 /* Beer.storyboard */; };
+		5F90960F1A165FCB004243E8 /* RankingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F90960E1A165FCB004243E8 /* RankingTVC.m */; };
+		5F9096111A166601004243E8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F9096101A166601004243E8 /* Roboto-Bold.ttf */; };
 		5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5319D1DC6B00A0DB71 /* main.m */; };
 		5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5619D1DC6B00A0DB71 /* AppDelegate.m */; };
 		5FA83C5D19D1DC6B00A0DB71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA83C5B19D1DC6B00A0DB71 /* Main.storyboard */; };
@@ -61,6 +63,9 @@
 		5F8C1EED19E820DD00BBED83 /* RankingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingVC.h; sourceTree = "<group>"; };
 		5F8C1EEE19E820DD00BBED83 /* RankingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingVC.m; sourceTree = "<group>"; };
 		5F8C1EF319E82ED000BBED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Beer.storyboard; sourceTree = "<group>"; };
+		5F90960D1A165FCB004243E8 /* RankingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingTVC.h; sourceTree = "<group>"; };
+		5F90960E1A165FCB004243E8 /* RankingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingTVC.m; sourceTree = "<group>"; };
+		5F9096101A166601004243E8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5F95ADFC1A03CBB3005995E2 /* Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		5FA83C4E19D1DC6B00A0DB71 /* ARApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA83C5219D1DC6B00A0DB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 		5F8C1EDD19E8160600BBED83 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5F90960C1A165FA5004243E8 /* Ranking */,
 				5FAEC0B71A0F7DA6000C1D4E /* Beer */,
 				5FFDE86819F69BF8002A6720 /* Login */,
 				5F00B4BF19F15C5A00FA9CED /* DataSource */,
@@ -153,8 +159,6 @@
 				5F8C1EE819E8164200BBED83 /* PageContentVC.m */,
 				5F8C1EEA19E8208D00BBED83 /* UserVC.h */,
 				5F06111C1A082FCE00973A01 /* UserVC.m */,
-				5F8C1EED19E820DD00BBED83 /* RankingVC.h */,
-				5F8C1EEE19E820DD00BBED83 /* RankingVC.m */,
 				5F95ADFC1A03CBB3005995E2 /* Configuration.h */,
 			);
 			path = Classes;
@@ -170,6 +174,17 @@
 				5F00B4BC19F14CA300FA9CED /* User.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5F90960C1A165FA5004243E8 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C1EED19E820DD00BBED83 /* RankingVC.h */,
+				5F8C1EEE19E820DD00BBED83 /* RankingVC.m */,
+				5F90960D1A165FCB004243E8 /* RankingTVC.h */,
+				5F90960E1A165FCB004243E8 /* RankingTVC.m */,
+			);
+			name = Ranking;
 			sourceTree = "<group>";
 		};
 		5FA83C4519D1DC6B00A0DB71 = {
@@ -211,6 +226,7 @@
 			children = (
 				5FAEC0B31A0F68C2000C1D4E /* Roboto-Light.ttf */,
 				5FAEC0B41A0F68C2000C1D4E /* Roboto-Thin.ttf */,
+				5F9096101A166601004243E8 /* Roboto-Bold.ttf */,
 				5FA83C5219D1DC6B00A0DB71 /* Info.plist */,
 				5FA83C5319D1DC6B00A0DB71 /* main.m */,
 			);
@@ -353,6 +369,7 @@
 			files = (
 				5F8C1EF419E82ED000BBED83 /* Beer.storyboard in Resources */,
 				5FA83C5D19D1DC6B00A0DB71 /* Main.storyboard in Resources */,
+				5F9096111A166601004243E8 /* Roboto-Bold.ttf in Resources */,
 				5FFDE86719F69825002A6720 /* Login.storyboard in Resources */,
 				5FA83C6219D1DC6B00A0DB71 /* LaunchScreen.xib in Resources */,
 				5FA83C5F19D1DC6B00A0DB71 /* Images.xcassets in Resources */,
@@ -417,6 +434,7 @@
 				5FBFA0BC1A01A265004B9AAA /* User.m in Sources */,
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
 				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,
+				5F90960F1A165FCB004243E8 /* RankingTVC.m in Sources */,
 				5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

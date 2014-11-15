@@ -9,15 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface RankingVC : UIViewController
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mySelector;
-- (IBAction)mySelectorAction:(id)sender;
-
-- (IBAction)back:(id)sender;
-
-
-
-
-
 @property (weak, nonatomic) IBOutlet UITableView *tableV;
+
+- (IBAction)mySelectorAction:(id)sender;
+- (IBAction)back:(id)sender;
 
 @end
