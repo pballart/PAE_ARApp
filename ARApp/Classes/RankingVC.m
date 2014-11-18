@@ -106,7 +106,7 @@
             NSLog(@"Error getting ranking: %@", error);
         } else {
             [self.userRank removeAllObjects];
-            NSLog(@"Ranking: %@", dict);
+            //NSLog(@"Ranking: %@", dict);
             NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
             for (NSDictionary *d in retrievedBeers) {
                 User *u = [[User alloc] initUserWithRankingDictionary:d];
