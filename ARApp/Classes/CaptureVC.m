@@ -15,6 +15,7 @@
 #import "PageContentVC.h"
 #import "NoMatchVC.h"
 #import "BeerVC.h"
+#import "AppDelegate.h"
 
 @interface CaptureVC () <CatchoomCloudRecognitionProtocol, CatchoomSDKProtocol, POPAnimationDelegate> {
     // Catchoom SDK reference
@@ -133,7 +134,7 @@
         // Found one item !!!
         NSLog(@"Trobat!");
 //        CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
-//        [self.dataSource getBeerFromCatchoomWithIdentifier:item.itemId completion:^(NSDictionary *dict, NSError *error) {
+//        [self.dataSource updateBeer:item.itemId withUser:((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser.userId completion:^(NSDictionary *dict, NSError *error) {
 //            if (!error) {
 //                NSLog(@"Received response: %@", dict);
 //                Beer *b = [[Beer alloc] initBeerWithDictionary:dict];
@@ -145,6 +146,7 @@
 //            }
 //            [SVProgressHUD dismiss];
 //        }];
+
         // TODO: DELETE <
         Beer *b = [[Beer alloc] initBeerWithDictionary:[self createTestBeer]];
         [self  showBeerFoundWithBeer:b];

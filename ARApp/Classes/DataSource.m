@@ -160,7 +160,7 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSAssert(beerId!=nil, @"BeerId is nil");
     NSAssert(userId!=nil, @"LeaguId is nil");
     
-    [keys addObject:@"birra"];
+    [keys addObject:@"birraCatchoom"];
     [objects addObject:beerId];
     [keys addObject:@"user"];
     [objects addObject:userId];

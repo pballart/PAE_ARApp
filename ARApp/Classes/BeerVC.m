@@ -7,11 +7,22 @@
 //
 
 #import "BeerVC.h"
+#import "AppDelegate.h"
+#import <Pods/UIImageView+AFNetworking.h>
+#import "User.h"
+
+#define BASE_URL @"http://plusdimension.hol.es"
 
 @interface BeerVC ()
 
 @property (weak, nonatomic) IBOutlet UIView *splashView;
 @property (weak, nonatomic) IBOutlet UILabel *earnedPointsLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *beerImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ownerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *leagueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numGloopsLabel;
 
 
 @end
@@ -24,6 +35,17 @@
     if (self.hideSplash) {
         [self.splashView setHidden:YES];
     }
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.scrollView.contentSize.height)];
+    User *actualUser = ((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser;
+    
+    self.nameLabel.text = self.beer.name;
+    self.ownerLabel.text = actualUser.name;
+    self.leagueLabel.text = actualUser.league.name;
+    self.numGloopsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (long)[actualUser.experiencePoints integerValue]];
+    
+    NSURL *url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:self.beer.beerImageURL]];
+    [self.beerImage setImageWithURL:url];
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated
