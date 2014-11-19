@@ -15,6 +15,7 @@
 		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
 		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
 		5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */; };
+		5F366FCE1A1D26110083882D /* UIImage+RenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F366FCD1A1D26110083882D /* UIImage+RenderView.m */; };
 		5F76F20A1A17982B0027BEB1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F76F2081A17982B0027BEB1 /* Settings.storyboard */; };
 		5F76F20D1A17983C0027BEB1 /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */; };
 		5F76F2101A1798BE0027BEB1 /* legalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F76F20F1A1798BE0027BEB1 /* legalVC.m */; };
@@ -58,6 +59,8 @@
 		5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5F366FCC1A1D26110083882D /* UIImage+RenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RenderView.h"; sourceTree = "<group>"; };
+		5F366FCD1A1D26110083882D /* UIImage+RenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RenderView.m"; sourceTree = "<group>"; };
 		5F76F2091A17982B0027BEB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		5F76F20B1A17983C0027BEB1 /* SettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTVC.h; sourceTree = "<group>"; };
 		5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVC.m; sourceTree = "<group>"; };
@@ -153,9 +156,19 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F366FCB1A1D25EE0083882D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5F366FCC1A1D26110083882D /* UIImage+RenderView.h */,
+				5F366FCD1A1D26110083882D /* UIImage+RenderView.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		5F8C1EDD19E8160600BBED83 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5F366FCB1A1D25EE0083882D /* Categories */,
 				5F90960C1A165FA5004243E8 /* Ranking */,
 				5FAEC0B71A0F7DA6000C1D4E /* Beer */,
 				5FFDE86819F69BF8002A6720 /* Login */,
@@ -448,6 +461,7 @@
 				5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */,
 				5FBFA0BC1A01A265004B9AAA /* User.m in Sources */,
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
+				5F366FCE1A1D26110083882D /* UIImage+RenderView.m in Sources */,
 				5F76F20D1A17983C0027BEB1 /* SettingsTVC.m in Sources */,
 				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,
 				5F90960F1A165FCB004243E8 /* RankingTVC.m in Sources */,
@@ -614,7 +628,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "891a8d23-396d-4c53-b633-0a164a45d380";
+				PROVISIONING_PROFILE = "eab2d2e9-4642-4a33-b290-24c4af8e49c6";
 			};
 			name = Debug;
 		};
@@ -635,7 +649,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "704b3eea-640a-4200-ae45-59da105be33e";
+				PROVISIONING_PROFILE = "c57ce448-5445-4051-81d7-5a9cc42b3a4a";
 			};
 			name = Release;
 		};

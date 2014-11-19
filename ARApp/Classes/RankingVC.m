@@ -12,6 +12,8 @@
 #import "DataSource.h"
 #import "Beer.h"
 #import "User.h"
+#import "UIImage+RenderView.h"
+#import "AppDelegate.h"
 
 #define UPDATE_TABLE_NOTIFICATION @"update_table_notification"
 
@@ -189,6 +191,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     */
 }
 
+- (IBAction)shareActualRanking:(UIBarButtonItem *)sender {
+    UIImageView *screenShot = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    screenShot.image = [UIImage imageWithView:[(AppDelegate *)[[UIApplication sharedApplication] delegate] window]];
+    NSAssert(screenShot.image != nil, @"Error nil image");
+    
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[screenShot.image] applicationActivities:nil];
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
 - (IBAction)mySelectorAction:(id)sender {
     [self updateTable];

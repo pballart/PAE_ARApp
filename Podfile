@@ -6,9 +6,6 @@ target "ARApp" do
 pod 'SVProgressHUD', '~> 1.0'
 pod 'pop', '~> 1.0'
 #pod 'AFNetworking', '~> 2.4'
-end
-
-target "ARAppTests" do
 
 end
 
