@@ -177,10 +177,8 @@
     cell.accessoryView.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:153.0/255.0 alpha:1.0];
     
     if(indexPath.row%2==0){
-        
         [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0 green:184.0/255.0 blue:24.0/255.0 alpha:1.0]];
     }
-    
     else{
         [cell setBackgroundColor:[UIColor colorWithRed:254.0/255.0 green:203.0/255.0 blue:52.0/255.0 alpha:1.0]];
     }
@@ -193,7 +191,7 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
     if (self.segmentControl.selectedSegmentIndex == 0){
         BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        beerVC.beer = [self.data objectAtIndex:indexPath.row];
+        //beerVC.beer = [self.data objectAtIndex:indexPath.row];
         beerVC.hideSplash = YES;
         [self presentViewController:beerVC animated:YES completion:nil];
     }

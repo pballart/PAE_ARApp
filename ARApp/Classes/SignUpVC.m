@@ -70,11 +70,8 @@
        [SVProgressHUD dismiss];
         if (!error) {
             NSLog(@"Sign up seccessfull");
-            BOOL valid = [self checkIfErrors:dict];
-            if (valid) {
-                User *user = [[User alloc] initUserWithDictionary:dict];
-                [self userDidLogIn:user];
-            }
+            User *user = [[User alloc] initUserWithDictionary:dict];
+            [self userDidLogIn:user];
             
         } else {
             NSLog(@"Error signing up in: %@", error);
@@ -90,44 +87,5 @@
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }
 
--(BOOL) checkIfErrors:(NSDictionary*)dict {
-    NSInteger num = [[dict objectForKey:@"error"] integerValue];
-    switch (num) {
-        case 0:
-        {
-            return YES;
-        }
-            break;
-        case 1:
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        case 2:
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        case 3:
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-        case 4:
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
-            return NO;
-        }
-            break;
-            
-        default:
-            return NO;
-            break;
-    }
-}
 
 @end

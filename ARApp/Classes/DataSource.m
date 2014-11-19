@@ -63,7 +63,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirra_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -81,7 +86,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirraCatchoom_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -103,7 +113,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirraUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -122,7 +137,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirresUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -144,7 +164,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getOwner_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -168,7 +193,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"update_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -186,7 +216,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -202,7 +237,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -218,7 +258,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -231,7 +276,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getUsersRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -279,7 +329,12 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getLeague_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];
@@ -333,7 +388,39 @@ NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"register_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        block(dict, nil);
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSInteger num = [[dict objectForKey:@"error"] integerValue];
+            switch (num) {
+                case 1:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+                }
+                case 2:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+                }
+                case 3:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+                }
+                case 4:
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert show];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error);
     }];

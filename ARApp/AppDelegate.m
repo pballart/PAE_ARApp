@@ -31,9 +31,11 @@
     if (userId) {
         startVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         [[DataSource sharedDataSource] getUserWithIdentifier:userId completion:^(NSDictionary *dict, NSError *error) {
-            if (dict && !error) {
+            if (!error) {
                 User *user = [[User alloc] initUserWithDictionary:dict];
                 self.actualUser = user;
+            } else {
+                NSLog(@"Error logging in");
             }
         }];
     } else {
