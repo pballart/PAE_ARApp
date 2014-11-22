@@ -137,7 +137,7 @@
         CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
         [self.dataSource updateBeer:item.itemId withUser:((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser.userId completion:^(NSDictionary *dict, NSError *error) {
             if (!error) {
-                NSLog(@"Received response: %@", dict);
+                //NSLog(@"Received response: %@", dict);
                 BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
                 beerVC.params = dict;
                 [self presentViewController:beerVC animated:YES completion:nil];

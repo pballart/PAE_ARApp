@@ -27,8 +27,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *descriptionViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *gloopsDoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *plusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *plusLabel2;
 @property (weak, nonatomic) IBOutlet UIView *descriptionView;
 @property (weak, nonatomic) IBOutlet UIWebView *descriptionWebView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *featuresViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *featuresView;
 
 
 @end
@@ -58,6 +61,8 @@
 //            
 //        }
     }
+    self.featuresViewHeightConstraint.constant = 66;
+    
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.scrollView.contentSize.height)];
     User *actualUser = ((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser;
     
@@ -88,8 +93,8 @@
 }
 
 
-- (IBAction)showDescription:(UITapGestureRecognizer *)sender {
-    [self.descriptionView removeGestureRecognizer:sender];
+- (IBAction)showDescription:(UIButton *)sender {
+    [sender removeFromSuperview];
     NSString *myDescriptionHTML = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
                                    "<style type=\"text/css\"> \n"
@@ -104,6 +109,19 @@
     [self.descriptionWebView loadHTMLString:myDescriptionHTML baseURL:nil];
 }
 
+- (IBAction)showDatos:(UIButton *)sender {
+    [sender removeFromSuperview];
+    [self.plusLabel2 setHidden:YES];
+    self.featuresViewHeightConstraint.constant = 300;
+    [self.scrollView setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [self.scrollView layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                         [self.scrollView scrollRectToVisible:CGRectMake(self.featuresView.frame.origin.x, self.featuresView.frame.origin.y, self.featuresView.frame.size.width, self.featuresView.frame.size.height) animated:YES];
+                     }];
+}
+
 #pragma mark - UIWebView Delegate Methods
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -115,10 +133,10 @@
 
     [self.plusLabel setHidden:YES];
     self.descriptionViewHeightConstraint.constant += fittingSize.height;
-    [self.descriptionView setNeedsUpdateConstraints];
+    [self.scrollView setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.5
                      animations:^{
-                         [self.descriptionView layoutIfNeeded];
+                         [self.scrollView layoutIfNeeded];
                      } completion:^(BOOL finished) {
                          [self.scrollView scrollRectToVisible:CGRectMake(self.descriptionView.frame.origin.x, self.descriptionView.frame.origin.y, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height) animated:YES];
                      }];
@@ -131,5 +149,10 @@
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)websiteButtonPressed:(UIButton *)sender {
+        //[[UIApplication sharedApplication] openURL:self.beer.brandURL];
+}
+
 
 @end
