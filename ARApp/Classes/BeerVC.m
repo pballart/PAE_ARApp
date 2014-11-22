@@ -11,20 +11,9 @@
 #import <Pods/UIImageView+AFNetworking.h>
 #import "User.h"
 
-#define BASE_URL @"http://plusdimension.hol.es"
+#define BASE_URL @"http://147.83.39.196"
 
-const struct BeerParameters BeerParameters = {
-    .ownerName = @"__OWNER_NAME__",
-    .becomeOwner = @"__BECOME_OWNER__",
-    .pointsMade = @"__POINTS_MADE__",
-    .lastCheck = @"__LAST_CHECK__",
-    .beerInfo = @"__BEER_INFO__",
-    .changeLeague = @"__CHANGE_LEAGUE__",
-    .weekDay = @"__WEEK_DAY__",
-    .dayChecks = @"__DAY_CHECKS__",
-};
-
-@interface BeerVC ()
+@interface BeerVC () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *splashView;
 @property (weak, nonatomic) IBOutlet UILabel *earnedPointsLabel;
@@ -35,6 +24,11 @@ const struct BeerParameters BeerParameters = {
 @property (weak, nonatomic) IBOutlet UILabel *ownerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leagueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numGloopsLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *descriptionViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *gloopsDoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *plusLabel;
+@property (weak, nonatomic) IBOutlet UIView *descriptionView;
+@property (weak, nonatomic) IBOutlet UIWebView *descriptionWebView;
 
 
 @end
@@ -48,7 +42,7 @@ const struct BeerParameters BeerParameters = {
         [self.splashView setHidden:YES];
     } else {
         //Fullfill splash info
-        if ([[self.params objectForKey:BeerParameters.becomeOwner] integerValue] == 3) {
+        if ([[self.params objectForKey:@"becomeOwner"] integerValue] == 3) {
             //Becomes new propietari
             //Show label
             [self.becomesOwnerLabel setHidden:NO];
@@ -67,13 +61,16 @@ const struct BeerParameters BeerParameters = {
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.scrollView.contentSize.height)];
     User *actualUser = ((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser;
     
+    //Process the info from dictionary
+    self.beer = [[Beer alloc] initBeerWithDictionary:[self.params objectForKey:@"birra"]];
     
     //Set the labels text
-    self.earnedPointsLabel.text = [[self.params objectForKey:BeerParameters.pointsMade] stringValue];
+    self.earnedPointsLabel.text = [[self.params objectForKey:@"points"] stringValue];
     self.nameLabel.text = self.beer.name;
-    self.ownerLabel.text = [self.params objectForKey:BeerParameters.ownerName];
-    self.leagueLabel.text = actualUser.league.name;
+    self.ownerLabel.text = [self.params objectForKey:@"owner"];
+    self.leagueLabel.text = [self.params objectForKey:@"leagueName"];
     self.numGloopsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (long)[actualUser.experiencePoints integerValue]];
+    self.gloopsDoneLabel.text = [[NSString stringWithFormat:@"%ld Gloops! done", (long)[actualUser.experiencePoints integerValue]] uppercaseString];
     
     NSURL *url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:self.beer.beerImageURL]];
     [self.beerImage setImageWithURL:url];
@@ -90,9 +87,38 @@ const struct BeerParameters BeerParameters = {
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)showDescription:(UITapGestureRecognizer *)sender {
+    [self.descriptionView removeGestureRecognizer:sender];
+    [self.plusLabel setHidden:YES];
+    NSString *myDescriptionHTML = [NSString stringWithFormat:@"<html> \n"
+                                   "<head> \n"
+                                   "<style type=\"text/css\"> \n"
+                                   "body {font-family: \"%@\"; font-size: %@; color:rgb(255,247,155)}\n"
+                                   "</style> \n"
+                                   "</head> \n"
+                                   "<body>%@</body> \n"
+                                   "</html>",
+                                   @"Helvetica",
+                                   @(20),
+                                   self.beer.beerInfo];
+    //Info AIXÒ ´potser la liem si fotem molt de text per lo tant no sé. Jo el que faria és <br><b>caca puta merda </b> i ja està.<br><br><p>Això no pot ser collons!!!!</p>Ja n'hi ha prou!!!
+    [self.descriptionWebView loadHTMLString:myDescriptionHTML baseURL:nil];
+}
+
+#pragma mark - UIWebView Delegate Methods
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [webView.scrollView setScrollEnabled:NO];
+    self.descriptionViewHeightConstraint.constant += webView.scrollView.contentSize.height+10;
+    [self.descriptionView setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         [self.descriptionView layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+                         [self.scrollView scrollRectToVisible:CGRectMake(self.descriptionView.frame.origin.x, self.descriptionView.frame.origin.y, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height) animated:YES];
+                     }];
+    
 }
 
 

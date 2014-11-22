@@ -138,7 +138,9 @@
         [self.dataSource updateBeer:item.itemId withUser:((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser.userId completion:^(NSDictionary *dict, NSError *error) {
             if (!error) {
                 NSLog(@"Received response: %@", dict);
-                [self processUpdateBeer:dict];
+                BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+                beerVC.params = dict;
+                [self presentViewController:beerVC animated:YES completion:nil];
             }
             [SVProgressHUD dismiss];
         }];
@@ -174,29 +176,6 @@
 
 #pragma mark - Navigation
 
--(void)processUpdateBeer:(NSDictionary *)dict {
-    //Create the params dict
-    NSMutableDictionary *mDict = NSMutableDictionary.dictionary;
-    [mDict setObject:[dict objectForKey:@"owner"] forKey:BeerParameters.ownerName];
-    [mDict setObject:[dict objectForKey:@"becomeOwner"] forKey:BeerParameters.becomeOwner];
-    [mDict setObject:[dict objectForKey:@"points"] forKey:BeerParameters.pointsMade];
-    [mDict setObject:[dict objectForKey:@"lastCheck"] forKey:BeerParameters.lastCheck];
-    [mDict setObject:[dict objectForKey:@"changeLeague"] forKey:BeerParameters.changeLeague];
-    [mDict setObject:[dict objectForKey:@"weekDay"] forKey:BeerParameters.weekDay];
-    [mDict setObject:[dict objectForKey:@"dayChecks"] forKey:BeerParameters.dayChecks];
-    [mDict setObject:[dict objectForKey:@"birra"] forKey:BeerParameters.beerInfo];
-    
-    Beer *b = [[Beer alloc] initBeerWithDictionary:[mDict objectForKey:BeerParameters.beerInfo]];
-    if (!b) {
-        NSLog(@"Error: beer couldn't be initialized");
-        return;
-    }
-    
-    BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-    beerVC.beer = b;
-    beerVC.params = [mDict copy];
-    [self presentViewController:beerVC animated:YES completion:nil];
-}
 
 - (IBAction)moveToUser:(UIButton *)sender {
     [(PageContentVC *)self.parentViewController moveToUser];

@@ -14,7 +14,7 @@
 @property (nonatomic, assign) BOOL                              isOnline;
 @end
 
-NSString *API_BASE_URL = @"http://plusdimension.hol.es/PlusDim/";
+NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
 
 @implementation DataSource
 
