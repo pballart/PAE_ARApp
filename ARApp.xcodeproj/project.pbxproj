@@ -165,6 +165,19 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		5F63F0A41A211F130090D79C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C1EEA19E8208D00BBED83 /* UserVC.h */,
+				5F06111C1A082FCE00973A01 /* UserVC.m */,
+				5F76F20B1A17983C0027BEB1 /* SettingsTVC.h */,
+				5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */,
+				5F76F20E1A1798BE0027BEB1 /* legalVC.h */,
+				5F76F20F1A1798BE0027BEB1 /* legalVC.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		5F8C1EDD19E8160600BBED83 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,16 +187,11 @@
 				5FFDE86819F69BF8002A6720 /* Login */,
 				5F00B4BF19F15C5A00FA9CED /* DataSource */,
 				5FBFA0B91A01A248004B9AAA /* DataModel */,
+				5F63F0A41A211F130090D79C /* User */,
 				5F8C1EE419E8162B00BBED83 /* CaptureVC.h */,
 				5F8C1EE519E8162B00BBED83 /* CaptureVC.m */,
 				5F8C1EE719E8164200BBED83 /* PageContentVC.h */,
 				5F8C1EE819E8164200BBED83 /* PageContentVC.m */,
-				5F8C1EEA19E8208D00BBED83 /* UserVC.h */,
-				5F06111C1A082FCE00973A01 /* UserVC.m */,
-				5F76F20B1A17983C0027BEB1 /* SettingsTVC.h */,
-				5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */,
-				5F76F20E1A1798BE0027BEB1 /* legalVC.h */,
-				5F76F20F1A1798BE0027BEB1 /* legalVC.m */,
 				5F95ADFC1A03CBB3005995E2 /* Configuration.h */,
 			);
 			path = Classes;

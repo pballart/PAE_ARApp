@@ -113,20 +113,6 @@
     
 }
 
-//TODO: Delete this method:
--(NSDictionary *)createTestBeer {
-    NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
-    [d setObject:@1 forKey:@"id"];
-    //[d setObject:@1 forKey:@"brand_id"];
-    //[d setObject:@1 forKey:@"brand_name"];
-    //[d setObject:@1 forKey:@"brand_information"];
-    [d setObject:@"Estrella Damm" forKey:@"name"];
-    [d setObject:@"/PlusDim/Imatges/Birres/foto_damm_estrella_1.jpg" forKey:@"img"];
-    [d setObject:@"Mediterraniament..." forKey:@"info"];
-    //[d setObject:@1 forKey:@"points"];
-    [d setObject:@1415546491 forKey:@"lastCheck"];
-    return [d copy];
-}
 
 #pragma mark - CatchoomCloudRecognition Delegate
 
@@ -144,12 +130,6 @@
             }
             [SVProgressHUD dismiss];
         }];
-
-//        // TODO: DELETE <
-//        Beer *b = [[Beer alloc] initBeerWithDictionary:[self createTestBeer]];
-//        [self  showBeerFoundWithBeer:b];
-//        [SVProgressHUD dismiss];
-//        // >
     } else {
         [SVProgressHUD dismiss];
         [self showNothingFoundAlert];
