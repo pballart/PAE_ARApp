@@ -90,7 +90,6 @@
 
 - (IBAction)showDescription:(UITapGestureRecognizer *)sender {
     [self.descriptionView removeGestureRecognizer:sender];
-    [self.plusLabel setHidden:YES];
     NSString *myDescriptionHTML = [NSString stringWithFormat:@"<html> \n"
                                    "<head> \n"
                                    "<style type=\"text/css\"> \n"
@@ -102,7 +101,6 @@
                                    @"Helvetica",
                                    @(20),
                                    self.beer.beerInfo];
-    //Info AIXÒ ´potser la liem si fotem molt de text per lo tant no sé. Jo el que faria és <br><b>caca puta merda </b> i ja està.<br><br><p>Això no pot ser collons!!!!</p>Ja n'hi ha prou!!!
     [self.descriptionWebView loadHTMLString:myDescriptionHTML baseURL:nil];
 }
 
@@ -110,7 +108,13 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [webView.scrollView setScrollEnabled:NO];
-    self.descriptionViewHeightConstraint.constant += webView.scrollView.contentSize.height+10;
+    CGRect frame = webView.frame;
+    frame.size.height = 1;
+    webView.frame = frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+
+    [self.plusLabel setHidden:YES];
+    self.descriptionViewHeightConstraint.constant += fittingSize.height;
     [self.descriptionView setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.5
                      animations:^{
