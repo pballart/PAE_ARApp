@@ -59,6 +59,7 @@
 - (IBAction)scanButtonPressed:(UIButton *)sender {
     [_sdk takeSnapshot];
     [SVProgressHUD show];
+    self.scanButton.userInteractionEnabled = NO;
     
     //animate button
     POPSpringAnimation *anim = [POPSpringAnimation animation];
@@ -123,12 +124,13 @@
         CatchoomCloudRecognitionItem *item = [resultItems objectAtIndex:0];
         [self.dataSource updateBeer:item.itemId withUser:((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser.userId completion:^(NSDictionary *dict, NSError *error) {
             if (!error) {
-                //NSLog(@"Received response: %@", dict);
+                NSLog(@"Received response: %@", dict);
                 BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
                 beerVC.params = dict;
                 [self presentViewController:beerVC animated:YES completion:nil];
             }
             [SVProgressHUD dismiss];
+            self.scanButton.userInteractionEnabled = YES;
         }];
     } else {
         [SVProgressHUD dismiss];
@@ -147,6 +149,7 @@
 -(void)showNothingFoundAlert {
     NoMatchVC *noMatchVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"noMatch"];
     [self presentViewController:noMatchVC animated:YES completion:nil];
+    self.scanButton.userInteractionEnabled = YES;
 }
 
 -(void)didValidateToken

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *becomesOwnerLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *beerImage;
+@property (weak, nonatomic) IBOutlet UIImageView *beerBannerImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ownerLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leagueLabel;
@@ -52,7 +53,7 @@
             //Play sound
             
         }
-        //Change league
+        //TODO: Change league
 //        if ([[self.params objectForKey:BeerParameters.changeLeague] integerValue] == 3) {
 //            //Becomes new propietari
 //            //Show label
@@ -75,11 +76,12 @@
     self.ownerLabel.text = [self.params objectForKey:@"owner"];
     self.leagueLabel.text = [self.params objectForKey:@"leagueName"];
     self.numGloopsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (long)[actualUser.experiencePoints integerValue]];
-    self.gloopsDoneLabel.text = [[NSString stringWithFormat:@"%ld Gloops! done", (long)[actualUser.experiencePoints integerValue]] uppercaseString];
+    self.gloopsDoneLabel.text = [[NSString stringWithFormat:@"%ld Gloops! done", (long)[self.beer.beerPoints integerValue]] uppercaseString];
     
     NSURL *url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:self.beer.beerImageURL]];
     [self.beerImage setImageWithURL:url];
-    
+    url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:self.beer.beerBannerURL]];
+    [self.beerBannerImage setImageWithURL:url];
 }
 
 -(void) viewDidAppear:(BOOL)animated

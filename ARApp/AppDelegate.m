@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Configuration.h"
 #import "DataSource.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -30,6 +31,7 @@
     NSString *userId = [defaults objectForKey:kUserLoggedInUserDefaults];
     if (userId) {
         startVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        [SVProgressHUD show];
         [[DataSource sharedDataSource] getUserWithIdentifier:userId completion:^(NSDictionary *dict, NSError *error) {
             if (!error) {
                 User *user = [[User alloc] initUserWithDictionary:dict];
@@ -37,6 +39,7 @@
             } else {
                 NSLog(@"Error logging in");
             }
+            [SVProgressHUD dismiss];
         }];
     } else {
         startVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
