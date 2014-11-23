@@ -68,7 +68,9 @@
     User *actualUser = ((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser;
     
     //Process the info from dictionary
-    self.beer = [[Beer alloc] initBeerWithDictionary:[self.params objectForKey:@"birra"]];
+    if (!self.beer) {
+        self.beer = [[Beer alloc] initBeerWithDictionary:[self.params objectForKey:@"birra"]];
+    }
     
     //Set the labels text
     self.earnedPointsLabel.text = [[self.params objectForKey:@"points"] stringValue];

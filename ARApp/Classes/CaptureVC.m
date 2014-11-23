@@ -45,6 +45,10 @@
     // Setup the Catchoom SDK
     _sdk = [CatchoomSDK sharedCatchoomSDK];
     [_sdk setDelegate:self];
+    
+    //Wait for the user to be set
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userHasBeenSet) name:@"USER_SET" object:nil];
+    [SVProgressHUD show];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
@@ -53,6 +57,15 @@
     // Start Video Preview for search and tracking
     [_sdk startCaptureWithView: self.cameraView];
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)userHasBeenSet {
+    [SVProgressHUD dismiss];
 }
 
 
@@ -128,6 +141,9 @@
                 BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
                 beerVC.params = dict;
                 [self presentViewController:beerVC animated:YES completion:nil];
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
             }
             [SVProgressHUD dismiss];
             self.scanButton.userInteractionEnabled = YES;

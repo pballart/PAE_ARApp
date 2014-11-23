@@ -31,7 +31,6 @@
     NSString *userId = [defaults objectForKey:kUserLoggedInUserDefaults];
     if (userId) {
         startVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        [SVProgressHUD show];
         [[DataSource sharedDataSource] getUserWithIdentifier:userId completion:^(NSDictionary *dict, NSError *error) {
             if (!error) {
                 User *user = [[User alloc] initUserWithDictionary:dict];
@@ -39,7 +38,6 @@
             } else {
                 NSLog(@"Error logging in");
             }
-            [SVProgressHUD dismiss];
         }];
     } else {
         startVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
@@ -57,6 +55,7 @@
     if (_actualUser != actualUser) {
         _actualUser = actualUser;
         NSLog(@"Actual user: %@", actualUser.name);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"USER_SET" object:nil];
         [[NSUserDefaults standardUserDefaults] setObject:actualUser.userId forKey:kUserLoggedInUserDefaults];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }

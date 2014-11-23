@@ -13,30 +13,25 @@
 #import "BeerVC.h"
 #import "SettingsTVC.h"
 #import "RankingTVC.h"
+#import "DataSource.h"
 
-#define  USER_EXP 200
-#define  LEVEL_1 1000
-#define  LEVEL_2 2000
 #define BEERS_BUTTON 0
 #define MEDALS_BUTTON 1
+#define LEVEL_MAX_POINTS 1000
+
 
 @interface UserVC () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel; //Lliga
-@property (strong, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *afegirBirra;
-
+@property (weak, nonatomic) IBOutlet UILabel *leagueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
 @property (nonatomic, strong) User *user;
-@property (strong,nonatomic) NSString *level;
-@property int next_level;
-@property int progress;
+@property (weak, nonatomic) IBOutlet UIView *beerProgressView;
+@property (weak, nonatomic) IBOutlet UIImageView *beerProgressImage;
 
-
-
-//arrays
+//Data Arrays
 @property (strong,  nonatomic) NSMutableArray *data;
 @property (strong,  nonatomic) NSMutableArray *beers;
 @property (strong,  nonatomic) NSMutableArray *medals;
@@ -47,51 +42,74 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //init mutableArray
-    self.data =[[NSMutableArray alloc]
-                initWithObjects:@"ESTRELLA DAMM",@"MORITZ",@"SAN MIGUEL",@"VOLL DAMM",@"DUFF",@"CORONITA",@"TSINGTAO",@"BALTIKA 6",@"BALTIKA 7",@"HEINEKEN",@"DAMM LEMON",@"DAMM FREE",nil];
-    
-    self.beers = [[NSMutableArray alloc]
-                  initWithObjects:@"ESTRELLA DAMM",@"MORITZ",@"SAN MIGUEL",@"VOLL DAMM",@"DUFF",@"CORONITA",@"TSINGTAO",@"BALTIKA 6",@"BALTIKA 7",@"HEINEKEN",@"DAMM LEMON",@"DAMM FREE",nil];
-    
-    self.medals = [[NSMutableArray alloc] initWithObjects:@"FREE NIGHT 0.0",@"1 BEER CHIEF",@"3 BEER CHIEF",@"5 BEER CHIEF",@"USUAL DRINKER",@"LOYAL GLOOPER!",@"WAKE UP AND GLOOP!",@"CANNOT STOP!",@"WHERE IS BOB",@"I CAN SEE THE LIGHT",@"SOMEONE SAID BEER?",@"I INVITE NEXT ROUND!",@"WHERE I LEFT MY GLASS?",@"THINK I AM GOING TO THROW UP",nil];    
+    self.data = NSMutableArray.array;
+    self.beers = NSMutableArray.array;
+    self.medals = NSMutableArray.array;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.beerProgressImage setHidden:YES];
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.user = [(AppDelegate *)[UIApplication sharedApplication].delegate actualUser];
-    self.nameLabel.text = self.user.name;
-    self.titleLabel.text = self.user.league.name;
-    self.pointsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (long)[self.user.experiencePoints integerValue]];
-    self.progress = (int)self.user.experiencePoints / self.next_level;
+    
+    [self.beers removeAllObjects];
+    [self.medals removeAllObjects];
+    
+    [[DataSource sharedDataSource] getBeersFromUser:self.user.userId completion:^(NSDictionary *dict, NSError *error) {
+        if (!error) {
+            //NSLog(@"Received response: %@", dict);
+            NSArray *beers = [dict objectForKey:@"birres"];
+            for (NSDictionary *d in beers) {
+                Beer *b = [[Beer alloc] initBeerWithDictionary:d];
+                [self.beers addObject:b];
+            }
+            self.data = self.beers;
+            [self.tableView reloadData];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+    
+    self.nameLabel.text = [self.user.name uppercaseString];
+    self.leagueLabel.text = [self.user.league.name uppercaseString];
+    self.pointsLabel.text = [NSString stringWithFormat:@"%ld / %d Gloopies", (long)[self.user.experiencePoints integerValue], LEVEL_MAX_POINTS];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //Animate beer progress
+    self.beerProgressImage.frame = CGRectMake(0, self.beerProgressView.frame.size.height, self.beerProgressImage.frame.size.width, self.beerProgressImage.frame.size.height);
+    [self.beerProgressImage setHidden:NO];
+    CGFloat percent = ([self.user.experiencePoints integerValue] * self.beerProgressView.frame.size.height) / LEVEL_MAX_POINTS;
+    CGRect frame = self.beerProgressImage.frame;
+    frame.origin.y = self.beerProgressView.frame.size.height - percent;
+    [UIView animateWithDuration:1.0 animations:^{
+        self.beerProgressImage.frame = frame;
+    }];
+}
 
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.beerProgressImage setHidden:YES];
+}
 
 - (IBAction)segmentedClicked:(id)sender {
     
     if (self.segmentControl.selectedSegmentIndex == BEERS_BUTTON) {
-        [self.data removeAllObjects];
-        [self.data addObjectsFromArray:self.beers];
+        self.data=self.beers;
         [self.tableView reloadData];
         
     } else if(self.segmentControl.selectedSegmentIndex == MEDALS_BUTTON) {
-        [self.data removeAllObjects];
-        [self.data addObjectsFromArray:self.medals];
+        self.data = self.medals;
         [self.tableView reloadData];
     }
 }
 
-
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -106,8 +124,8 @@
         cell = [[RankingTVC alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"userBeersCell"];
     }
     
-    Beer *b = [self.beers objectAtIndex:indexPath.row];
-    //[cell configureCellWithBeer:b];
+    Beer *b = [self.data objectAtIndex:indexPath.row];
+    [cell configureCellWithBeer:b];
     
     
     if(indexPath.row%2==0){
@@ -126,11 +144,10 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
     if (self.segmentControl.selectedSegmentIndex == 0){
         BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        //beerVC.beer = [self.data objectAtIndex:indexPath.row];
+        beerVC.beer = [self.data objectAtIndex:indexPath.row];
         beerVC.hideSplash = YES;
         [self presentViewController:beerVC animated:YES completion:nil];
     }
-    
 }
 
 #pragma mark - Navigation

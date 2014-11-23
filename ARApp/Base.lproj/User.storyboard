@@ -533,6 +533,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="beerProgressImage" destination="xNf-2Y-TAV" id="x06-qM-VTv"/>
+                        <outlet property="beerProgressView" destination="Kg4-OM-kO6" id="yt8-Dm-2u3"/>
+                        <outlet property="leagueLabel" destination="yiD-Rz-EnN" id="9Mk-jj-b8H"/>
+                        <outlet property="nameLabel" destination="0XZ-Kd-Mp6" id="BLB-7V-vXM"/>
+                        <outlet property="pointsLabel" destination="6WJ-NH-UuR" id="y9w-QH-yBn"/>
                         <outlet property="segmentControl" destination="vft-NY-cc3" id="P5U-8A-EKN"/>
                         <outlet property="tableView" destination="aiw-eo-Cge" id="vOf-DQ-ldp"/>
                     </connections>
