@@ -14,13 +14,17 @@
 #import "Configuration.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-@interface LogInVC () <UITextFieldDelegate>
+@interface LogInVC () <UITextFieldDelegate,UIScrollViewAccessibilityDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView2;
+
 
 @end
 
 @implementation LogInVC
+CGPoint svos2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,8 +32,11 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    self.emailTF.text = @"proves@coreloparte.com";
-    self.passwordTF.text = @"hoPetem";
+    //self.emailTF.text = @"proves@coreloparte.com";
+    //self.passwordTF.text = @"hoPetem";
+    
+    [self.emailTF becomeFirstResponder];
+    //[self.passwordTF nextResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +84,34 @@
         [self logInButtonPressed:nil];
     }
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+
+    
+    svos2 = self.scrollView2.contentOffset;
+    CGPoint pt;
+    CGRect rc = [textField bounds];
+    rc = [textField convertRect:rc toView:self.scrollView2];
+    
+    if (textField == self.emailTF) {
+        
+    }else if (textField == self.passwordTF) {
+        //pt = rc.origin;
+        pt.x = 0;
+        pt.y += 60;
+        //[self logInButtonPressed:nil];
+    }
+     [self.scrollView2 setContentOffset:pt animated:YES];
+    
+
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    CGPoint pt;
+    pt.x = 0;
+    pt.y =0;
+    [self.scrollView2 setContentOffset:pt animated:YES];
 }
 
 /*

@@ -15,14 +15,17 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 
 
-@interface SignUpVC ()
+@interface SignUpVC ()  <UITextFieldDelegate,UIScrollViewAccessibilityDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation SignUpVC
+CGPoint svos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+       // [self.scrollView setScrollEnabled:YES];
     // Do any additional setup after loading the view.
     
 //    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -30,11 +33,16 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    self.name_su_TF.text = @"Name";
-    self.password_su_TF.text = @"Password";
-    self.email_su_TF.text = @"e-mail";
+    //self.name_su_TF.text = @"Name";
+    //self.password_su_TF.text = @"Password";
+    //self.email_su_TF.text = @"e-mail";
+    
+    [self.name_su_TF becomeFirstResponder];
     
     
+    /*[self.password_su_TF nextResponder];
+    [self.email_su_TF nextResponder];
+    */
     
 }
 
@@ -97,4 +105,62 @@
     PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+     [self.scrollView setContentOffset:svos animated:YES];
+    
+    if (textField == self.name_su_TF) {
+        [self.email_su_TF becomeFirstResponder];
+    } else if (textField == self.email_su_TF) {
+        [self.email_su_TF resignFirstResponder];
+        [self.password_su_TF becomeFirstResponder];
+        //[self logInButtonPressed:nil];
+    }    else if (textField == self.password_su_TF) {
+        [self.password_su_TF resignFirstResponder];
+        [self signUpButtonPressed:nil];
+    }
+    return YES;
+}
+
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+ svos = self.scrollView.contentOffset;
+ CGPoint pt;
+ CGRect rc = [textField bounds];
+ rc = [textField convertRect:rc toView:self.scrollView];
+    
+    if (textField == self.name_su_TF) {
+        
+    } else if (textField == self.email_su_TF) {
+        //pt = rc.origin;
+        pt.x = 0;
+        pt.y += 60;
+        //[self logInButtonPressed:nil];
+    }    else if (textField == self.password_su_TF) {
+        
+        pt.x = 0;
+        pt.y += 60;
+    }
+ /*pt = rc.origin;
+ pt.x = 0;
+ pt.y -= 60;
+ */
+    [self.scrollView setContentOffset:pt animated:YES];
+ }
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    CGPoint pt;
+    pt.x = 0;
+    pt.y =0;
+    [self.scrollView setContentOffset:pt animated:YES];
+}
+/*
+ - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+ [self.scrollView setContentOffset:svos animated:YES];
+ [textField resignFirstResponder];
+ return YES;
+ }*/
+
 @end
