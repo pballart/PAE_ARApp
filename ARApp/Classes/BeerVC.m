@@ -54,6 +54,7 @@
             
         }
         //TODO: Change league
+        //0 si no change i objecte lliga
 //        if ([[self.params objectForKey:BeerParameters.changeLeague] integerValue] == 3) {
 //            //Becomes new propietari
 //            //Show label

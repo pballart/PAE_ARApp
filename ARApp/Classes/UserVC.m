@@ -60,6 +60,9 @@
     [[DataSource sharedDataSource] getBeersFromUser:self.user.userId completion:^(NSDictionary *dict, NSError *error) {
         if (!error) {
             //NSLog(@"Received response: %@", dict);
+            
+            //TODO fer getLeague
+            
             NSArray *beers = [dict objectForKey:@"birres"];
             for (NSDictionary *d in beers) {
                 Beer *b = [[Beer alloc] initBeerWithDictionary:d];
