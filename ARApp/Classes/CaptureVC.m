@@ -70,18 +70,25 @@
 
 
 - (IBAction)scanButtonPressed:(UIButton *)sender {
-    [_sdk takeSnapshot];
-    [SVProgressHUD show];
-    self.scanButton.userInteractionEnabled = NO;
-    
-    //animate button
-    POPSpringAnimation *anim = [POPSpringAnimation animation];
-    anim.delegate = self;
-    anim.property = [POPAnimatableProperty propertyWithName:kPOPViewScaleXY];
-    anim.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5, 1.5)];
-    anim.springSpeed = 20;
-    anim.springBounciness = 20;
-    [sender pop_addAnimation:anim forKey:@"scanButton"];
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]) {
+        // show camera
+        [_sdk takeSnapshot];
+        [SVProgressHUD show];
+        self.scanButton.userInteractionEnabled = NO;
+        
+        //animate button
+        POPSpringAnimation *anim = [POPSpringAnimation animation];
+        anim.delegate = self;
+        anim.property = [POPAnimatableProperty propertyWithName:kPOPViewScaleXY];
+        anim.toValue = [NSValue valueWithCGSize:CGSizeMake(1.5, 1.5)];
+        anim.springSpeed = 20;
+        anim.springBounciness = 20;
+        [sender pop_addAnimation:anim forKey:@"scanButton"];
+    } else {
+        // don't show camera
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Camera not available" message:@"Please give access to the camera via the settings app" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 #pragma mark - Help Methods
