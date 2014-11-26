@@ -14,17 +14,16 @@
 #import "Configuration.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-@interface LogInVC () <UITextFieldDelegate,UIScrollViewAccessibilityDelegate>
+@interface LogInVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
-
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView2;
+@property (weak, nonatomic) IBOutlet UIView *credentialsView;
 
 
 @end
 
 @implementation LogInVC
-CGPoint svos2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,17 +31,20 @@ CGPoint svos2;
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    //self.emailTF.text = @"proves@coreloparte.com";
-    //self.passwordTF.text = @"hoPetem";
+//    self.emailTF.text = @"proves@coreloparte.com";
+//    self.passwordTF.text = @"hoPetem";
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    UIView *paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    self.emailTF.leftView = paddingView;
+    self.passwordTF.leftView = paddingView2;
+    self.emailTF.leftViewMode = UITextFieldViewModeAlways;
+    self.passwordTF.leftViewMode = UITextFieldViewModeAlways;
     
     [self.emailTF becomeFirstResponder];
-    //[self.passwordTF nextResponder];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(void) dismissKeyboard {
     [self.emailTF resignFirstResponder];
@@ -59,6 +61,8 @@ CGPoint svos2;
             NSLog(@"Logged in!");
         } else {
             NSLog(@"Error logging in: %@", error);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error logging in" message:[NSString stringWithFormat:@"Please make sure your credentials are correct"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
         }
     }];
 }
@@ -69,7 +73,6 @@ CGPoint svos2;
 
 -(void)userDidLogIn:(User *)user {
     [(AppDelegate *)[UIApplication sharedApplication].delegate setActualUser:user];
-    
     PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }
@@ -88,41 +91,21 @@ CGPoint svos2;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-
-    
-    svos2 = self.scrollView2.contentOffset;
-    CGPoint pt;
-    CGRect rc = [textField bounds];
-    rc = [textField convertRect:rc toView:self.scrollView2];
-    
     if (textField == self.emailTF) {
-        
+        [self.scrollView2 setContentOffset:CGPointMake(0, 10) animated:YES];
     }else if (textField == self.passwordTF) {
-        //pt = rc.origin;
-        pt.x = 0;
-        pt.y += 60;
-        //[self logInButtonPressed:nil];
+        [self.scrollView2 setContentOffset:CGPointMake(0, 60) animated:YES];
     }
-     [self.scrollView2 setContentOffset:pt animated:YES];
-    
-
 }
 
 -(void) textFieldDidEndEditing:(UITextField *)textField{
-    CGPoint pt;
-    pt.x = 0;
-    pt.y =0;
-    [self.scrollView2 setContentOffset:pt animated:YES];
+    [self.scrollView2 setContentOffset:CGPointMake(0, 0) animated:YES];
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)openResetPasswordURL:(id)sender {
+    //TODO: implement
 }
-*/
 
 @end

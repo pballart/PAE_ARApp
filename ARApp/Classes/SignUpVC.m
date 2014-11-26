@@ -80,18 +80,16 @@ CGPoint svos;
             NSLog(@"Operation Completed!");
             
             /// Un altre métode
-            
-            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(User *user, NSError *error) {
+            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error) {
                 [SVProgressHUD dismiss];
                 if (!error) {
                     NSLog(@"Logged in!");
-                    [self userDidLogIn:user];
+                    User *u = [[User alloc] initUserWithDictionary:dict];
+                    [self userDidLogIn:u];
                 } else {
                     NSLog(@"Error logging in: %@", error);
                 }
             }];
-            
-            /////
         } else {
             NSLog(@"Error logging in: %@", error);
         }
@@ -101,7 +99,6 @@ CGPoint svos;
 
 -(void)userDidLogIn:(User *)user {
     [(AppDelegate *)[UIApplication sharedApplication].delegate setActualUser:user];
-    
     PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }

@@ -1409,7 +1409,7 @@
         <image name="background" width="646" height="1142"/>
         <image name="beer_image_background" width="321" height="278"/>
         <image name="beer_points_background" width="321" height="569"/>
-        <image name="buttonBackground" width="95" height="32"/>
+        <image name="buttonBackground" width="50" height="22"/>
         <image name="gloop_foam" width="314" height="338"/>
         <image name="title_background" width="320" height="60"/>
     </resources>
