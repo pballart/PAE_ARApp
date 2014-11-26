@@ -15,14 +15,17 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 
 
-@interface SignUpVC ()
+@interface SignUpVC ()  <UITextFieldDelegate,UIScrollViewAccessibilityDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation SignUpVC
+CGPoint svos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+       // [self.scrollView setScrollEnabled:YES];
     // Do any additional setup after loading the view.
     
 //    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -30,11 +33,16 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    self.name_su_TF.text = @"Name";
-    self.password_su_TF.text = @"Password";
-    self.email_su_TF.text = @"e-mail";
+    //self.name_su_TF.text = @"Name";
+    //self.password_su_TF.text = @"Password";
+    //self.email_su_TF.text = @"e-mail";
+    
+    [self.name_su_TF becomeFirstResponder];
     
     
+    /*[self.password_su_TF nextResponder];
+    [self.email_su_TF nextResponder];
+    */
     
 }
 
@@ -69,12 +77,23 @@
     [[DataSource sharedDataSource] signInWithEmail:self.email_su_TF.text name:self.name_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error){
        [SVProgressHUD dismiss];
         if (!error) {
-            NSLog(@"Sign up seccessfull");
-            User *user = [[User alloc] initUserWithDictionary:dict];
-            [self userDidLogIn:user];
+            NSLog(@"Operation Completed!");
             
+            /// Un altre métode
+            
+            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(User *user, NSError *error) {
+                [SVProgressHUD dismiss];
+                if (!error) {
+                    NSLog(@"Logged in!");
+                    [self userDidLogIn:user];
+                } else {
+                    NSLog(@"Error logging in: %@", error);
+                }
+            }];
+            
+            /////
         } else {
-            NSLog(@"Error signing up in: %@", error);
+            NSLog(@"Error logging in: %@", error);
         }
     }];
 
@@ -87,5 +106,61 @@
     [self.navigationController presentViewController:VC animated:YES completion:nil];
 }
 
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+     [self.scrollView setContentOffset:svos animated:YES];
+    
+    if (textField == self.name_su_TF) {
+        [self.email_su_TF becomeFirstResponder];
+    } else if (textField == self.email_su_TF) {
+        [self.email_su_TF resignFirstResponder];
+        [self.password_su_TF becomeFirstResponder];
+        //[self logInButtonPressed:nil];
+    }    else if (textField == self.password_su_TF) {
+        [self.password_su_TF resignFirstResponder];
+        [self signUpButtonPressed:nil];
+    }
+    return YES;
+}
+
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+ svos = self.scrollView.contentOffset;
+ CGPoint pt;
+ CGRect rc = [textField bounds];
+ rc = [textField convertRect:rc toView:self.scrollView];
+    
+    if (textField == self.name_su_TF) {
+        
+    } else if (textField == self.email_su_TF) {
+        //pt = rc.origin;
+        pt.x = 0;
+        pt.y += 60;
+        //[self logInButtonPressed:nil];
+    }    else if (textField == self.password_su_TF) {
+        
+        pt.x = 0;
+        pt.y += 60;
+    }
+ /*pt = rc.origin;
+ pt.x = 0;
+ pt.y -= 60;
+ */
+    [self.scrollView setContentOffset:pt animated:YES];
+ }
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    CGPoint pt;
+    pt.x = 0;
+    pt.y =0;
+    [self.scrollView setContentOffset:pt animated:YES];
+}
+/*
+ - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+ [self.scrollView setContentOffset:svos animated:YES];
+ [textField resignFirstResponder];
+ return YES;
+ }*/
 
 @end
