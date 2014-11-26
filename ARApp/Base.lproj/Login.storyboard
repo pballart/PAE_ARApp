@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -668,13 +669,13 @@
                                 <exclude reference="uSq-In-6Gp"/>
                                 <exclude reference="uY1-mX-4o3"/>
                                 <exclude reference="z9d-fm-OUs"/>
-                                <exclude reference="E6I-u1-3Pt"/>
-                                <exclude reference="NrQ-IE-Z0f"/>
-                                <exclude reference="fX2-9e-gzv"/>
                                 <exclude reference="9Ie-Zw-nEX"/>
                                 <exclude reference="jfI-CX-sbb"/>
                                 <exclude reference="vKH-fM-6nB"/>
                                 <exclude reference="vTb-Nh-xk3"/>
+                                <exclude reference="E6I-u1-3Pt"/>
+                                <exclude reference="NrQ-IE-Z0f"/>
+                                <exclude reference="fX2-9e-gzv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -699,13 +700,13 @@
                                 <exclude reference="uSq-In-6Gp"/>
                                 <include reference="uY1-mX-4o3"/>
                                 <exclude reference="z9d-fm-OUs"/>
-                                <include reference="E6I-u1-3Pt"/>
-                                <include reference="NrQ-IE-Z0f"/>
-                                <include reference="fX2-9e-gzv"/>
                                 <exclude reference="9Ie-Zw-nEX"/>
                                 <exclude reference="jfI-CX-sbb"/>
                                 <exclude reference="vKH-fM-6nB"/>
                                 <exclude reference="vTb-Nh-xk3"/>
+                                <include reference="E6I-u1-3Pt"/>
+                                <include reference="NrQ-IE-Z0f"/>
+                                <include reference="fX2-9e-gzv"/>
                             </mask>
                         </variation>
                     </view>
@@ -969,18 +970,18 @@
                                 <exclude reference="0jG-DC-N3t"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="EOV-Kq-vnh"/>
-                                <exclude reference="QI9-XV-aPn"/>
-                                <exclude reference="Qf3-NP-kaq"/>
-                                <exclude reference="ea6-l4-RNX"/>
-                                <exclude reference="0a2-jc-DDk"/>
-                                <exclude reference="qEP-k9-94d"/>
                                 <exclude reference="EQA-bv-Cl6"/>
                                 <exclude reference="F5h-1C-qKw"/>
                                 <exclude reference="Hda-1R-xhH"/>
                                 <exclude reference="RHK-04-ZPn"/>
                                 <exclude reference="UCa-Ah-8vK"/>
+                                <exclude reference="0a2-jc-DDk"/>
+                                <exclude reference="qEP-k9-94d"/>
                                 <exclude reference="HGF-hg-MBe"/>
+                                <exclude reference="EOV-Kq-vnh"/>
+                                <exclude reference="QI9-XV-aPn"/>
+                                <exclude reference="Qf3-NP-kaq"/>
+                                <exclude reference="ea6-l4-RNX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -988,18 +989,18 @@
                                 <include reference="0jG-DC-N3t"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="EOV-Kq-vnh"/>
-                                <include reference="QI9-XV-aPn"/>
-                                <include reference="Qf3-NP-kaq"/>
-                                <include reference="ea6-l4-RNX"/>
-                                <include reference="0a2-jc-DDk"/>
-                                <exclude reference="qEP-k9-94d"/>
                                 <exclude reference="EQA-bv-Cl6"/>
                                 <include reference="F5h-1C-qKw"/>
                                 <include reference="Hda-1R-xhH"/>
                                 <include reference="RHK-04-ZPn"/>
                                 <exclude reference="UCa-Ah-8vK"/>
+                                <include reference="0a2-jc-DDk"/>
+                                <exclude reference="qEP-k9-94d"/>
                                 <include reference="HGF-hg-MBe"/>
+                                <include reference="EOV-Kq-vnh"/>
+                                <include reference="QI9-XV-aPn"/>
+                                <include reference="Qf3-NP-kaq"/>
+                                <include reference="ea6-l4-RNX"/>
                             </mask>
                         </variation>
                     </view>
