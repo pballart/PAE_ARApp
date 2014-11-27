@@ -31,8 +31,8 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-//    self.emailTF.text = @"proves@coreloparte.com";
-//    self.passwordTF.text = @"hoPetem";
+//    self.emailTF.text = @"pau@takeagloop.com";
+//    self.passwordTF.text = @"ioslopeta";
     
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
     UIView *paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
@@ -41,7 +41,7 @@
     self.emailTF.leftViewMode = UITextFieldViewModeAlways;
     self.passwordTF.leftViewMode = UITextFieldViewModeAlways;
     
-    [self.emailTF becomeFirstResponder];
+    //[self.emailTF becomeFirstResponder];
     
 }
 

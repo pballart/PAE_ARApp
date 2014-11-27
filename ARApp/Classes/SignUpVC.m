@@ -21,28 +21,25 @@
 @end
 
 @implementation SignUpVC
-CGPoint svos;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       // [self.scrollView setScrollEnabled:YES];
     // Do any additional setup after loading the view.
     
-//    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-//    [self.view addGestureRecognizer:tapGestureRecognizer];
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
-    //self.name_su_TF.text = @"Name";
-    //self.password_su_TF.text = @"Password";
-    //self.email_su_TF.text = @"e-mail";
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    UIView *paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    UIView *paddingView3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    self.name_su_TF.leftView = paddingView;
+    self.email_su_TF.leftView = paddingView2;
+    self.password_su_TF.leftView = paddingView3;
+    self.name_su_TF.leftViewMode = UITextFieldViewModeAlways;
+    self.email_su_TF.leftViewMode = UITextFieldViewModeAlways;
+    self.password_su_TF.leftViewMode = UITextFieldViewModeAlways;
     
-    [self.name_su_TF becomeFirstResponder];
-    
-    
-    /*[self.password_su_TF nextResponder];
-    [self.email_su_TF nextResponder];
-    */
+    //[self.name_su_TF becomeFirstResponder];
     
 }
 
@@ -56,42 +53,20 @@ CGPoint svos;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)signUpButtonPressed:(id)sender {
     
     [SVProgressHUD show];
     [[DataSource sharedDataSource] signInWithEmail:self.email_su_TF.text name:self.name_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error){
-       [SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
         if (!error) {
-            NSLog(@"Operation Completed!");
-            
-            /// Un altre métode
-            [[DataSource sharedDataSource] logInWithEmail:self.email_su_TF.text andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error) {
-                [SVProgressHUD dismiss];
-                if (!error) {
-                    NSLog(@"Logged in!");
-                    User *u = [[User alloc] initUserWithDictionary:dict];
-                    [self userDidLogIn:u];
-                } else {
-                    NSLog(@"Error logging in: %@", error);
-                }
-            }];
+            User *user = [[User alloc] initUserWithDictionary:dict];
+            [self userDidLogIn:user];
+            NSLog(@"Signed up and logged in!");
         } else {
-            NSLog(@"Error logging in: %@", error);
+            NSLog(@"Error signing up: %@", error);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error signing up" message:[NSString stringWithFormat:@"User may already exist. Also check that password has minimum 6 characters"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
         }
     }];
 
@@ -105,15 +80,12 @@ CGPoint svos;
 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-     [self.scrollView setContentOffset:svos animated:YES];
-    
+{    
     if (textField == self.name_su_TF) {
         [self.email_su_TF becomeFirstResponder];
     } else if (textField == self.email_su_TF) {
         [self.email_su_TF resignFirstResponder];
         [self.password_su_TF becomeFirstResponder];
-        //[self logInButtonPressed:nil];
     }    else if (textField == self.password_su_TF) {
         [self.password_su_TF resignFirstResponder];
         [self signUpButtonPressed:nil];
@@ -124,40 +96,20 @@ CGPoint svos;
 
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
- svos = self.scrollView.contentOffset;
- CGPoint pt;
- CGRect rc = [textField bounds];
- rc = [textField convertRect:rc toView:self.scrollView];
-    
     if (textField == self.name_su_TF) {
-        
+        [self.scrollView setContentOffset:CGPointMake(0, 10) animated:YES];
     } else if (textField == self.email_su_TF) {
-        //pt = rc.origin;
-        pt.x = 0;
-        pt.y += 60;
-        //[self logInButtonPressed:nil];
-    }    else if (textField == self.password_su_TF) {
-        
-        pt.x = 0;
-        pt.y += 60;
+        [self.scrollView setContentOffset:CGPointMake(0, 60) animated:YES];
+    } else if (textField == self.password_su_TF) {
+        [self.scrollView setContentOffset:CGPointMake(0, 100) animated:YES];
     }
- /*pt = rc.origin;
- pt.x = 0;
- pt.y -= 60;
- */
-    [self.scrollView setContentOffset:pt animated:YES];
  }
 -(void) textFieldDidEndEditing:(UITextField *)textField{
-    CGPoint pt;
-    pt.x = 0;
-    pt.y =0;
-    [self.scrollView setContentOffset:pt animated:YES];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
-/*
- - (BOOL)textFieldShouldReturn:(UITextField *)textField {
- [self.scrollView setContentOffset:svos animated:YES];
- [textField resignFirstResponder];
- return YES;
- }*/
+
+- (IBAction)openTermsWebsite:(id)sender {
+    
+}
 
 @end

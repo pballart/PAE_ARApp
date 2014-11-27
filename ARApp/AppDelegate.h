@@ -14,5 +14,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) User *actualUser;
 
+- (void)resetWindowToInitialView;
+
 @end
 

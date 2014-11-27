@@ -391,33 +391,33 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
         if ([[dict objectForKey:@"error"] isEqual:@0]) {
             block(dict, nil);
         } else {
-            NSInteger num = [[dict objectForKey:@"error"] integerValue];
-            switch (num) {
-                case 1:
-                {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [alert show];
-                }
-                case 2:
-                {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [alert show];
-                }
-                case 3:
-                {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [alert show];
-                }
-                case 4:
-                {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                    [alert show];
-                }
-                    break;
-                    
-                default:
-                    break;
-            }
+//            NSInteger num = [[dict objectForKey:@"error"] integerValue];
+//            switch (num) {
+//                case 1:
+//                {
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//                    [alert show];
+//                }
+//                case 2:
+//                {
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//                    [alert show];
+//                }
+//                case 3:
+//                {
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//                    [alert show];
+//                }
+//                case 4:
+//                {
+//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//                    [alert show];
+//                }
+//                    break;
+//                    
+//                default:
+//                    break;
+//            }
             NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
             block(nil, error);
         }

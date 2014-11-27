@@ -61,4 +61,16 @@
     }
 }
 
+- (void)resetWindowToInitialView
+{
+    self.actualUser = nil;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LOGOUT" object:nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:kUserLoggedInUserDefaults];
+    [defaults synchronize];
+    
+    UIViewController *startVC = [[UIStoryboard storyboardWithName:@"Login" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    self.window.rootViewController = startVC;
+}
+
 @end

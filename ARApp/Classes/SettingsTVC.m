@@ -8,6 +8,7 @@
 
 #import "SettingsTVC.h"
 #import <MessageUI/MessageUI.h>
+#import "AppDelegate.h"
 
 #define facebook @"fb://requests"
 #define appleStore @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=284417350&mt=8&uo=6"
@@ -149,9 +150,9 @@
 #pragma mark - Navigation
 
 -(void) logout {
-    //TODO:FIXME: Do logout bé
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) resetWindowToInitialView];
 }
+
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

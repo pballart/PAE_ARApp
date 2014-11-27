@@ -49,6 +49,9 @@
     //Wait for the user to be set
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userHasBeenSet) name:@"USER_SET" object:nil];
     [SVProgressHUD show];
+    
+    //Wait for the logout
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedOut) name:@"LOGOUT" object:nil];
 }
 
 - (void) viewWillAppear:(BOOL) animated {
@@ -61,7 +64,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [SVProgressHUD dismiss];
+    self.scanButton.userInteractionEnabled = YES;
 }
 
 -(void)userHasBeenSet {
@@ -190,6 +194,10 @@
 - (IBAction)moveToRankings:(UIButton *)sender {
     [(PageContentVC *)self.parentViewController moveToRanking];
 
+}
+
+-(void)userLoggedOut {
+    [_sdk stopCapture];
 }
 
 
