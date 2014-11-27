@@ -19,14 +19,16 @@
     [super prepareForReuse];
     self.nameLabel.text = @"";
     self.numGloopiesLabel.text = @"";
-    self.insigniaView.image = nil; //Chango for placeholder
+    [self.insigniaView setImage:[UIImage imageNamed:@"beerCellIcon"]];
+    self.numPosLabel.text = @"";
+    self.numPosLabel.hidden = NO;
 }
 
 -(void)configureCellWithBeer:(Beer *)beer {
     self.nameLabel.text = [beer.name uppercaseString];
     self.numGloopiesLabel.text = [NSString stringWithFormat:@"%@ G!", beer.beerPoints];
-    NSURL *url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:beer.beerImageURL]]; //Add the placeholder
-    [self.insigniaView setImageWithURL:url];
+    //NSURL *url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:beer.beerImageURL]]; //Add the placeholder
+    //[self.insigniaView setImageWithURL:url];
 }
 
 -(void)configureCellWithUser:(User *)user {
@@ -34,5 +36,16 @@
     self.numGloopiesLabel.text = [NSString stringWithFormat:@"%@ G!", user.totalPoints];
     //Set image
 }
+-(void)configureCellWithImageName:(NSString *)stringImage{
+    [self.insigniaView setImage:[UIImage imageNamed:stringImage]];
+}
 
+-(void)configureCellWithNumberPos:(NSInteger)position{
+    NSInteger pos = position+1;
+    self.numPosLabel.text = [NSString stringWithFormat:@"%ld", (long)pos];
+}
+-(void)setToInvisible{
+    self.numPosLabel.hidden = YES;
+}
 @end
+

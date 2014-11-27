@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Roboto-Bold.ttf">
@@ -51,7 +53,7 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n5u-mK-hIF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beerCellIcon" translatesAutoresizingMaskIntoConstraints="NO" id="n5u-mK-hIF">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="G5N-ZQ-f4C"/>
@@ -75,24 +77,43 @@
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="347" y="19" width="45" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="9oL-li-4Wv">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="21"/>
                                                     <color key="textColor" red="1" green="0.96862745098039216" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="62" y="18" width="52" height="25"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJX-sT-qrC">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9oL-li-4Wv" firstAttribute="centerY" secondItem="zuS-Zw-8Wi" secondAttribute="centerY" constant="1" id="1py-Vu-ZHN"/>
                                                 <constraint firstAttribute="trailing" secondItem="Zya-s9-oJC" secondAttribute="trailing" id="5eY-Hx-1tz"/>
                                                 <constraint firstItem="Zya-s9-oJC" firstAttribute="leading" secondItem="TsD-BK-T4O" secondAttribute="leading" id="FL6-vn-kDT"/>
+                                                <constraint firstItem="9oL-li-4Wv" firstAttribute="leading" secondItem="MJX-sT-qrC" secondAttribute="trailing" constant="4" id="IVX-TA-LoE"/>
                                                 <constraint firstItem="9oL-li-4Wv" firstAttribute="leading" secondItem="n5u-mK-hIF" secondAttribute="trailing" constant="23" id="Mog-0T-YVe">
                                                     <variation key="widthClass=compact" constant="6"/>
                                                 </constraint>
                                                 <constraint firstItem="zuS-Zw-8Wi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9oL-li-4Wv" secondAttribute="trailing" constant="10" id="RFN-lB-5P8"/>
+                                                <constraint firstItem="MJX-sT-qrC" firstAttribute="top" secondItem="Zya-s9-oJC" secondAttribute="bottom" constant="8" id="TC5-Fj-Qx7"/>
                                                 <constraint firstItem="n5u-mK-hIF" firstAttribute="centerY" secondItem="9oL-li-4Wv" secondAttribute="centerY" constant="0.5" id="URl-Qt-7aq"/>
                                                 <constraint firstItem="n5u-mK-hIF" firstAttribute="leading" secondItem="TsD-BK-T4O" secondAttribute="leading" constant="16" id="YNK-Ta-ely"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MJX-sT-qrC" secondAttribute="bottom" constant="1" id="e7G-Yq-ld8"/>
+                                                <constraint firstItem="MJX-sT-qrC" firstAttribute="leading" secondItem="TsD-BK-T4O" secondAttribute="leadingMargin" constant="8" id="epH-NP-2A3"/>
                                                 <constraint firstItem="Zya-s9-oJC" firstAttribute="top" secondItem="TsD-BK-T4O" secondAttribute="top" id="n3C-qO-a9m"/>
                                                 <constraint firstAttribute="trailing" secondItem="zuS-Zw-8Wi" secondAttribute="trailing" constant="8" id="qaX-LD-efF"/>
                                                 <constraint firstAttribute="centerY" secondItem="n5u-mK-hIF" secondAttribute="centerY" constant="-0.5" id="zS0-iv-Ahh"/>
@@ -103,10 +124,15 @@
                                                     <exclude reference="n5u-mK-hIF"/>
                                                     <exclude reference="zuS-Zw-8Wi"/>
                                                     <exclude reference="9oL-li-4Wv"/>
+                                                    <exclude reference="MJX-sT-qrC"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <exclude reference="1py-Vu-ZHN"/>
+                                                    <exclude reference="IVX-TA-LoE"/>
                                                     <exclude reference="Mog-0T-YVe"/>
+                                                    <exclude reference="TC5-Fj-Qx7"/>
+                                                    <exclude reference="e7G-Yq-ld8"/>
+                                                    <exclude reference="epH-NP-2A3"/>
                                                     <exclude reference="RFN-lB-5P8"/>
                                                     <exclude reference="qaX-LD-efF"/>
                                                     <exclude reference="URl-Qt-7aq"/>
@@ -123,10 +149,15 @@
                                                     <include reference="n5u-mK-hIF"/>
                                                     <include reference="zuS-Zw-8Wi"/>
                                                     <include reference="9oL-li-4Wv"/>
+                                                    <include reference="MJX-sT-qrC"/>
                                                 </mask>
                                                 <mask key="constraints">
                                                     <include reference="1py-Vu-ZHN"/>
+                                                    <include reference="IVX-TA-LoE"/>
                                                     <include reference="Mog-0T-YVe"/>
+                                                    <include reference="TC5-Fj-Qx7"/>
+                                                    <include reference="e7G-Yq-ld8"/>
+                                                    <include reference="epH-NP-2A3"/>
                                                     <include reference="RFN-lB-5P8"/>
                                                     <include reference="qaX-LD-efF"/>
                                                     <include reference="URl-Qt-7aq"/>
@@ -144,6 +175,7 @@
                                             <outlet property="insigniaView" destination="n5u-mK-hIF" id="VA8-aY-xoL"/>
                                             <outlet property="nameLabel" destination="9oL-li-4Wv" id="MGt-sH-ihJ"/>
                                             <outlet property="numGloopiesLabel" destination="zuS-Zw-8Wi" id="wUa-VC-Jz8"/>
+                                            <outlet property="numPosLabel" destination="MJX-sT-qrC" id="RUG-j4-RjC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -221,6 +253,7 @@
     </scenes>
     <resources>
         <image name="backArrow" width="25" height="25"/>
+        <image name="beerCellIcon" width="31" height="31"/>
     </resources>
     <color key="tintColor" red="1" green="0.33658400799999999" blue="0.093042857160000006" alpha="1" colorSpace="calibratedRGB"/>
 </document>

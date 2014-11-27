@@ -166,6 +166,18 @@
         [cell configureCellWithUser:u];
     }
     
+    
+    [cell configureCellWithNumberPos:indexPath.row];
+    
+    if (indexPath.row <=2) {
+        [cell configureCellWithImageName:@"birraRanking"];
+        [cell setToInvisible];
+        
+    }
+    
+
+    
+    
 
     if(indexPath.row%2==0){
         [cell setBackgroundColor:[UIColor colorWithRed:255.0/255.0 green:219.0/255.0 blue:75.0/255.0 alpha:1.0]];
