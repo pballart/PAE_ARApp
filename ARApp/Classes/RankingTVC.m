@@ -27,8 +27,6 @@
 -(void)configureCellWithBeer:(Beer *)beer {
     self.nameLabel.text = [beer.name uppercaseString];
     self.numGloopiesLabel.text = [NSString stringWithFormat:@"%@ G!", beer.beerPoints];
-    //NSURL *url = [NSURL URLWithString:[BASE_URL stringByAppendingPathComponent:beer.beerImageURL]]; //Add the placeholder
-    //[self.insigniaView setImageWithURL:url];
 }
 
 -(void)configureCellWithUser:(User *)user {
@@ -47,5 +45,6 @@
 -(void)setToInvisible{
     self.numPosLabel.hidden = YES;
 }
+
 @end
 
