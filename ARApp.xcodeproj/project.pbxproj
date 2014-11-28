@@ -16,9 +16,9 @@
 		5F0D3BCF19DEE17A00F65CE9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCE19DEE17A00F65CE9 /* SystemConfiguration.framework */; };
 		5F0D3BD119DEE18100F65CE9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */; };
 		5F366FCE1A1D26110083882D /* UIImage+RenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F366FCD1A1D26110083882D /* UIImage+RenderView.m */; };
+		5F49C68C1A2923530056AAA6 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F49C68B1A2923530056AAA6 /* WebVC.m */; };
 		5F76F20A1A17982B0027BEB1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F76F2081A17982B0027BEB1 /* Settings.storyboard */; };
 		5F76F20D1A17983C0027BEB1 /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */; };
-		5F76F2101A1798BE0027BEB1 /* legalVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F76F20F1A1798BE0027BEB1 /* legalVC.m */; };
 		5F8C1EE619E8162B00BBED83 /* CaptureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE519E8162B00BBED83 /* CaptureVC.m */; };
 		5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE819E8164200BBED83 /* PageContentVC.m */; };
 		5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EEE19E820DD00BBED83 /* RankingVC.m */; };
@@ -61,11 +61,11 @@
 		5F0D3BD019DEE18100F65CE9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5F366FCC1A1D26110083882D /* UIImage+RenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RenderView.h"; sourceTree = "<group>"; };
 		5F366FCD1A1D26110083882D /* UIImage+RenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RenderView.m"; sourceTree = "<group>"; };
+		5F49C68A1A2923530056AAA6 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		5F49C68B1A2923530056AAA6 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		5F76F2091A17982B0027BEB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		5F76F20B1A17983C0027BEB1 /* SettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTVC.h; sourceTree = "<group>"; };
 		5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVC.m; sourceTree = "<group>"; };
-		5F76F20E1A1798BE0027BEB1 /* legalVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = legalVC.h; sourceTree = "<group>"; };
-		5F76F20F1A1798BE0027BEB1 /* legalVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = legalVC.m; sourceTree = "<group>"; };
 		5F8C1EE419E8162B00BBED83 /* CaptureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureVC.h; sourceTree = "<group>"; };
 		5F8C1EE519E8162B00BBED83 /* CaptureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureVC.m; sourceTree = "<group>"; };
 		5F8C1EE719E8164200BBED83 /* PageContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentVC.h; sourceTree = "<group>"; };
@@ -172,8 +172,6 @@
 				5F06111C1A082FCE00973A01 /* UserVC.m */,
 				5F76F20B1A17983C0027BEB1 /* SettingsTVC.h */,
 				5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */,
-				5F76F20E1A1798BE0027BEB1 /* legalVC.h */,
-				5F76F20F1A1798BE0027BEB1 /* legalVC.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -192,6 +190,8 @@
 				5F8C1EE519E8162B00BBED83 /* CaptureVC.m */,
 				5F8C1EE719E8164200BBED83 /* PageContentVC.h */,
 				5F8C1EE819E8164200BBED83 /* PageContentVC.m */,
+				5F49C68A1A2923530056AAA6 /* WebVC.h */,
+				5F49C68B1A2923530056AAA6 /* WebVC.m */,
 				5F95ADFC1A03CBB3005995E2 /* Configuration.h */,
 			);
 			path = Classes;
@@ -457,9 +457,9 @@
 			files = (
 				5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */,
 				5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */,
-				5F76F2101A1798BE0027BEB1 /* legalVC.m in Sources */,
 				5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */,
 				5F06111D1A082FCE00973A01 /* UserVC.m in Sources */,
+				5F49C68C1A2923530056AAA6 /* WebVC.m in Sources */,
 				5FAEC0BD1A0F8BD7000C1D4E /* BeerVC.m in Sources */,
 				5FBFA0BF1A01A273004B9AAA /* Beer.m in Sources */,
 				5FAEC0C01A0F93F2000C1D4E /* League.m in Sources */,

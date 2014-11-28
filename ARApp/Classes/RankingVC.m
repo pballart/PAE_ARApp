@@ -14,6 +14,7 @@
 #import "User.h"
 #import "UIImage+RenderView.h"
 #import "AppDelegate.h"
+#import "BeerVC.h"
 
 #define UPDATE_TABLE_NOTIFICATION @"update_table_notification"
 
@@ -32,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     //Load ranking from server
     self.dayRank = NSMutableArray.array;
     self.weekRank = NSMutableArray.array;
@@ -44,6 +45,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
     [self loadDailyRanking];
     [self loadWeeklyRanking];
     [self loadTotalRanking];
@@ -143,6 +146,8 @@
     }
 }
 
+#pragma mark - Table View Data Source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -190,17 +195,16 @@
 
 
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*
-    NSString *a = [self.Coses objectAtIndex:indexPath.row];
-    
-    SegonViewController *c = [[UIStoryboard storyboardWithName:@"Segon" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"b"];
-    
-    c.passo = a;
-    
-    [self presentViewController:c animated:false completion:nil];
-    */
+#pragma mark - Table View delegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
+    if (self.mySelector.selectedSegmentIndex != 3){
+        BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+        beerVC.beer = [self.actualRank objectAtIndex:indexPath.row];
+        beerVC.hideSplash = YES;
+        [self presentViewController:beerVC animated:YES completion:nil];
+    }
 }
 
 - (IBAction)shareActualRanking:(UIBarButtonItem *)sender {

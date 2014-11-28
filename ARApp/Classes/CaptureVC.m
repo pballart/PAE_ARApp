@@ -57,6 +57,8 @@
 - (void) viewWillAppear:(BOOL) animated {
     [super viewWillAppear:animated];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     // Start Video Preview for search and tracking
     [_sdk startCaptureWithView: self.cameraView];
     

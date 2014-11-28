@@ -610,6 +610,9 @@
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="200" y="444" width="171" height="16"/>
+                                                </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdV-vk-sjr">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -617,6 +620,9 @@
                                                 <state key="normal" title="Terms of use">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="296" y="459" width="75" height="28"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="openResetPasswordURL:" destination="yd5-qt-Qhk" eventType="touchUpInside" id="qx6-9r-p7r"/>
                                                     <action selector="openTermsWebsite:" destination="h3t-yn-P58" eventType="touchUpInside" id="3Av-gh-bAk"/>
@@ -654,6 +660,10 @@
                                                 <exclude reference="YdV-vk-sjr"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <exclude reference="1dL-9E-3mK"/>
+                                                <exclude reference="Euu-qs-xpO"/>
+                                                <exclude reference="vUv-DG-xIH"/>
+                                                <exclude reference="emQ-dh-1fH"/>
                                                 <exclude reference="V9K-CY-q4Y"/>
                                                 <exclude reference="rwV-hO-eQs"/>
                                                 <exclude reference="03F-2f-OCV"/>
@@ -664,10 +674,6 @@
                                                 <exclude reference="7zT-C0-Swu"/>
                                                 <exclude reference="Ra8-Oj-hIb"/>
                                                 <exclude reference="WBw-7f-FLt"/>
-                                                <exclude reference="1dL-9E-3mK"/>
-                                                <exclude reference="Euu-qs-xpO"/>
-                                                <exclude reference="vUv-DG-xIH"/>
-                                                <exclude reference="emQ-dh-1fH"/>
                                                 <exclude reference="Hhb-yW-GwC"/>
                                                 <exclude reference="Vqr-Qf-dqH"/>
                                             </mask>
@@ -682,6 +688,10 @@
                                                 <include reference="YdV-vk-sjr"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <include reference="1dL-9E-3mK"/>
+                                                <include reference="Euu-qs-xpO"/>
+                                                <include reference="vUv-DG-xIH"/>
+                                                <include reference="emQ-dh-1fH"/>
                                                 <include reference="V9K-CY-q4Y"/>
                                                 <include reference="rwV-hO-eQs"/>
                                                 <include reference="03F-2f-OCV"/>
@@ -692,10 +702,6 @@
                                                 <include reference="7zT-C0-Swu"/>
                                                 <include reference="Ra8-Oj-hIb"/>
                                                 <include reference="WBw-7f-FLt"/>
-                                                <include reference="1dL-9E-3mK"/>
-                                                <include reference="Euu-qs-xpO"/>
-                                                <include reference="vUv-DG-xIH"/>
-                                                <include reference="emQ-dh-1fH"/>
                                                 <include reference="Hhb-yW-GwC"/>
                                                 <include reference="Vqr-Qf-dqH"/>
                                             </mask>
@@ -1000,6 +1006,9 @@
                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="235" y="411" width="122" height="17"/>
+                                                </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZP-i6-b1I">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1007,6 +1016,9 @@
                                                 <state key="normal" title="Reset your password">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="215" y="424" width="142" height="30"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="openResetPasswordURL:" destination="yd5-qt-Qhk" eventType="touchUpInside" id="F3a-99-tEL"/>
                                                 </connections>

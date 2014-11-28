@@ -15,10 +15,9 @@
 @property (nonatomic, strong) NSString *beerInfo;
 @property (nonatomic, strong) NSString *beerImageURL;
 @property (nonatomic, strong) NSString *beerBannerURL;
-@property (nonatomic, strong) NSString *ownerId;
 @property (nonatomic, strong) NSString *beerPoints;
-@property (nonatomic, strong) NSString *brandId;
-@property (nonatomic, strong) NSString *brandInfo;
+@property (nonatomic, strong) NSString *website;
+@property (nonatomic, strong) NSString *beerTotalChecks;
 
 -(id)initBeerWithDictionary:(NSDictionary *)dictionary;
 

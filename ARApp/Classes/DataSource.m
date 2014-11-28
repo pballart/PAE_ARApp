@@ -301,7 +301,6 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     [keys addObject:@"birres"];
     [objects addObject:@1];
     
-    
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;

@@ -52,6 +52,8 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
     self.user = [(AppDelegate *)[UIApplication sharedApplication].delegate actualUser];
     
     [self.beers removeAllObjects];
@@ -70,10 +72,11 @@
             }
             self.data = self.beers;
             [self.tableView reloadData];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert show];
         }
+//        else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
+//        }
     }];
     
     self.nameLabel.text = [self.user.name uppercaseString];

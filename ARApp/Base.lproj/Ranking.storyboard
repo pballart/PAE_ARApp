@@ -24,10 +24,10 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SdS-Up-7xh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SdS-Up-7xh">
                                 <rect key="frame" x="0.0" y="44" width="600" height="492"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rankingCellId" id="WfT-RI-ZA6" customClass="RankingTVC">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="rankingCellId" id="WfT-RI-ZA6" customClass="RankingTVC">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WfT-RI-ZA6" id="TsD-BK-T4O">
@@ -121,20 +121,20 @@
                                                     <exclude reference="9oL-li-4Wv"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="5eY-Hx-1tz"/>
-                                                    <exclude reference="FL6-vn-kDT"/>
-                                                    <exclude reference="n3C-qO-a9m"/>
-                                                    <exclude reference="URl-Qt-7aq"/>
-                                                    <exclude reference="YNK-Ta-ely"/>
-                                                    <exclude reference="zS0-iv-Ahh"/>
+                                                    <exclude reference="1py-Vu-ZHN"/>
+                                                    <exclude reference="Mog-0T-YVe"/>
                                                     <exclude reference="GCO-oC-dah"/>
                                                     <exclude reference="PHi-2I-SC5"/>
                                                     <exclude reference="XZZ-lJ-sKT"/>
                                                     <exclude reference="YZq-PE-QJQ"/>
-                                                    <exclude reference="1py-Vu-ZHN"/>
-                                                    <exclude reference="Mog-0T-YVe"/>
                                                     <exclude reference="RFN-lB-5P8"/>
                                                     <exclude reference="qaX-LD-efF"/>
+                                                    <exclude reference="URl-Qt-7aq"/>
+                                                    <exclude reference="YNK-Ta-ely"/>
+                                                    <exclude reference="zS0-iv-Ahh"/>
+                                                    <exclude reference="5eY-Hx-1tz"/>
+                                                    <exclude reference="FL6-vn-kDT"/>
+                                                    <exclude reference="n3C-qO-a9m"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -146,20 +146,20 @@
                                                     <include reference="9oL-li-4Wv"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="5eY-Hx-1tz"/>
-                                                    <include reference="FL6-vn-kDT"/>
-                                                    <include reference="n3C-qO-a9m"/>
-                                                    <include reference="URl-Qt-7aq"/>
-                                                    <include reference="YNK-Ta-ely"/>
-                                                    <include reference="zS0-iv-Ahh"/>
+                                                    <include reference="1py-Vu-ZHN"/>
+                                                    <include reference="Mog-0T-YVe"/>
                                                     <include reference="GCO-oC-dah"/>
                                                     <include reference="PHi-2I-SC5"/>
                                                     <include reference="XZZ-lJ-sKT"/>
                                                     <include reference="YZq-PE-QJQ"/>
-                                                    <include reference="1py-Vu-ZHN"/>
-                                                    <include reference="Mog-0T-YVe"/>
                                                     <include reference="RFN-lB-5P8"/>
                                                     <include reference="qaX-LD-efF"/>
+                                                    <include reference="URl-Qt-7aq"/>
+                                                    <include reference="YNK-Ta-ely"/>
+                                                    <include reference="zS0-iv-Ahh"/>
+                                                    <include reference="5eY-Hx-1tz"/>
+                                                    <include reference="FL6-vn-kDT"/>
+                                                    <include reference="n3C-qO-a9m"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
