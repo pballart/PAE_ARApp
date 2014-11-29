@@ -20,10 +20,11 @@
 #define MEDALS_BUTTON 1
 
 
-@interface UserVC () <UITableViewDelegate, UITableViewDataSource>
+@interface UserVC () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leagueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pointsLabel;
@@ -45,6 +46,7 @@
     self.medals = NSMutableArray.array;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.beerProgressImage setHidden:YES];
+    [self.collectionView setHidden:YES];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -116,11 +118,10 @@
 - (IBAction)segmentedClicked:(id)sender {
     
     if (self.segmentControl.selectedSegmentIndex == BEERS_BUTTON) {
-        //Hide collectionView and show tableView
-        //[self.tableView reloadData];
+        [self.collectionView setHidden:YES];
         
     } else if(self.segmentControl.selectedSegmentIndex == MEDALS_BUTTON) {
-        //Hide tabeView and show collectionView
+        [self.collectionView setHidden:NO];
     }
 }
 
@@ -157,13 +158,32 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
-    if (self.segmentControl.selectedSegmentIndex == 0){
+    if (self.segmentControl.selectedSegmentIndex == BEERS_BUTTON){
         BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
         beerVC.beer = [self.beers objectAtIndex:indexPath.row];
         beerVC.hideSplash = YES;
         [self presentViewController:beerVC animated:YES completion:nil];
     }
 }
+
+#pragma mark - CollectionView DataSource
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.medals count];
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
+
+#pragma mark - CollectionView Delegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(collectionView.bounds.size.width/4, collectionView.bounds.size.width/4);
+}
+
 
 #pragma mark - Navigation
 

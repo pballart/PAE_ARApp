@@ -201,27 +201,18 @@
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="133" y="62" width="161" height="21"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37500 / 100000 Gloopies!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-NH-UuR">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="133" y="106" width="173" height="18"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEER MASTER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yiD-Rz-EnN">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="133" y="84" width="125" height="21"/>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -382,18 +373,12 @@
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="347" y="23" width="45" height="21"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="XQk-EE-ipq">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="21"/>
                                                     <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="62" y="21" width="52" height="25"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -473,9 +458,34 @@
                                     <outlet property="delegate" destination="XVH-2l-gKu" id="Mdw-Dc-4fM"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z5D-DJ-ybZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ubX-cg-7qt">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgesCellId" id="5Xw-Om-Q8H">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="XVH-2l-gKu" id="UC9-yU-k3K"/>
+                                    <outlet property="delegate" destination="XVH-2l-gKu" id="1td-lf-2Pd"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.70588235294117641" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z5D-DJ-ybZ" secondAttribute="trailing" id="7lg-Jr-S5F"/>
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="top" secondItem="8aJ-vo-ISA" secondAttribute="bottom" id="E4J-t9-42P"/>
                             <constraint firstItem="8aJ-vo-ISA" firstAttribute="top" secondItem="vJK-Cj-fcA" secondAttribute="bottom" constant="80" id="NYY-rT-6aa"/>
                             <constraint firstItem="j2H-bH-g8T" firstAttribute="leading" secondItem="NeT-gV-Xyf" secondAttribute="leading" id="QZp-RU-CFn">
@@ -487,16 +497,20 @@
                             </constraint>
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="bottom" secondItem="q5a-wy-sVH" secondAttribute="top" id="Xa0-3h-Su0"/>
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="leading" secondItem="NeT-gV-Xyf" secondAttribute="leading" id="eGg-Mq-pfu"/>
+                            <constraint firstItem="q5a-wy-sVH" firstAttribute="top" secondItem="Z5D-DJ-ybZ" secondAttribute="bottom" id="nkU-0J-6FJ"/>
                             <constraint firstAttribute="trailing" secondItem="8aJ-vo-ISA" secondAttribute="trailing" id="sLZ-3r-ro8"/>
+                            <constraint firstItem="Z5D-DJ-ybZ" firstAttribute="leading" secondItem="NeT-gV-Xyf" secondAttribute="leading" id="t8S-Wq-sgo"/>
                             <constraint firstItem="j2H-bH-g8T" firstAttribute="top" secondItem="vJK-Cj-fcA" secondAttribute="bottom" id="vlz-Ni-y7e"/>
                             <constraint firstAttribute="trailing" secondItem="aiw-eo-Cge" secondAttribute="trailing" id="yPo-VX-4xY"/>
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="top" secondItem="8aJ-vo-ISA" secondAttribute="bottom" id="ygH-nb-t0m"/>
+                            <constraint firstItem="Z5D-DJ-ybZ" firstAttribute="top" secondItem="8aJ-vo-ISA" secondAttribute="bottom" id="zQD-21-hIf"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="j2H-bH-g8T"/>
                                 <exclude reference="8aJ-vo-ISA"/>
                                 <exclude reference="aiw-eo-Cge"/>
+                                <exclude reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="QZp-RU-CFn"/>
@@ -505,11 +519,15 @@
                                 <exclude reference="NYY-rT-6aa"/>
                                 <exclude reference="SGl-gU-tOn"/>
                                 <exclude reference="sLZ-3r-ro8"/>
+                                <exclude reference="7lg-Jr-S5F"/>
+                                <exclude reference="t8S-Wq-sgo"/>
+                                <exclude reference="zQD-21-hIf"/>
                                 <exclude reference="E4J-t9-42P"/>
                                 <exclude reference="Xa0-3h-Su0"/>
                                 <exclude reference="eGg-Mq-pfu"/>
                                 <exclude reference="yPo-VX-4xY"/>
                                 <exclude reference="ygH-nb-t0m"/>
+                                <exclude reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -517,6 +535,7 @@
                                 <include reference="j2H-bH-g8T"/>
                                 <include reference="8aJ-vo-ISA"/>
                                 <include reference="aiw-eo-Cge"/>
+                                <include reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="QZp-RU-CFn"/>
@@ -525,11 +544,15 @@
                                 <include reference="NYY-rT-6aa"/>
                                 <include reference="SGl-gU-tOn"/>
                                 <include reference="sLZ-3r-ro8"/>
-                                <include reference="E4J-t9-42P"/>
+                                <include reference="7lg-Jr-S5F"/>
+                                <include reference="t8S-Wq-sgo"/>
+                                <include reference="zQD-21-hIf"/>
+                                <exclude reference="E4J-t9-42P"/>
                                 <include reference="Xa0-3h-Su0"/>
                                 <include reference="eGg-Mq-pfu"/>
                                 <include reference="yPo-VX-4xY"/>
                                 <include reference="ygH-nb-t0m"/>
+                                <include reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -550,6 +573,7 @@
                     <connections>
                         <outlet property="beerProgressImage" destination="xNf-2Y-TAV" id="x06-qM-VTv"/>
                         <outlet property="beerProgressView" destination="Kg4-OM-kO6" id="yt8-Dm-2u3"/>
+                        <outlet property="collectionView" destination="Z5D-DJ-ybZ" id="LzM-52-Kbh"/>
                         <outlet property="leagueLabel" destination="yiD-Rz-EnN" id="9Mk-jj-b8H"/>
                         <outlet property="nameLabel" destination="0XZ-Kd-Mp6" id="BLB-7V-vXM"/>
                         <outlet property="pointsLabel" destination="6WJ-NH-UuR" id="y9w-QH-yBn"/>
