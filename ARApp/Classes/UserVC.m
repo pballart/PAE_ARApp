@@ -14,6 +14,7 @@
 #import "SettingsTVC.h"
 #import "RankingTVC.h"
 #import "DataSource.h"
+#import <pop/POP.h>
 
 #define BEERS_BUTTON 0
 #define MEDALS_BUTTON 1
@@ -98,9 +99,12 @@
     CGFloat percent = ([self.user.experiencePoints integerValue] * self.beerProgressView.frame.size.height) / maxPoints;
     CGRect frame = self.beerProgressImage.frame;
     frame.origin.y = self.beerProgressView.frame.size.height - percent;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.beerProgressImage.frame = frame;
-    }];
+    
+    POPSpringAnimation *anim = [POPSpringAnimation animation];
+    anim.delegate = self;
+    anim.property = [POPAnimatableProperty propertyWithName:kPOPViewFrame];
+    anim.toValue = [NSValue valueWithCGRect:frame];
+    [self.beerProgressImage pop_addAnimation:anim forKey:@"scanButton"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
