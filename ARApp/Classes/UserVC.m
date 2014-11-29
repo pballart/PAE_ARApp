@@ -17,7 +17,6 @@
 
 #define BEERS_BUTTON 0
 #define MEDALS_BUTTON 1
-#define LEVEL_MAX_POINTS 1000
 
 
 @interface UserVC () <UITableViewDelegate, UITableViewDataSource>
@@ -32,7 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *beerProgressImage;
 
 //Data Arrays
-@property (strong,  nonatomic) NSMutableArray *data;
 @property (strong,  nonatomic) NSMutableArray *beers;
 @property (strong,  nonatomic) NSMutableArray *medals;
 
@@ -42,7 +40,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.data = NSMutableArray.array;
     self.beers = NSMutableArray.array;
     self.medals = NSMutableArray.array;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -62,15 +59,11 @@
     [[DataSource sharedDataSource] getBeersFromUser:self.user.userId completion:^(NSDictionary *dict, NSError *error) {
         if (!error) {
             //NSLog(@"Received response: %@", dict);
-            
-            //TODO fer getLeague
-            
             NSArray *beers = [dict objectForKey:@"birres"];
             for (NSDictionary *d in beers) {
                 Beer *b = [[Beer alloc] initBeerWithDictionary:d];
                 [self.beers addObject:b];
             }
-            self.data = self.beers;
             [self.tableView reloadData];
         }
 //        else {
@@ -79,20 +72,33 @@
 //        }
     }];
     
+    [[DataSource sharedDataSource] getLeagueInfoWithLeagueIdentifier:self.user.league.leagueId completion:^(NSDictionary *dict, NSError *error) {
+        if (!error) {
+            NSLog(@"Received response: %@", dict);
+            [self applyLeagueInfoWithDict:[dict objectForKey:@"league"]];
+        }
+        //        else {
+        //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        //            [alert show];
+        //        }
+    }];
+    
     self.nameLabel.text = [self.user.name uppercaseString];
-    self.leagueLabel.text = [self.user.league.name uppercaseString];
-    self.pointsLabel.text = [NSString stringWithFormat:@"%ld / %d Gloopies", (long)[self.user.experiencePoints integerValue], LEVEL_MAX_POINTS];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+-(void)applyLeagueInfoWithDict:(NSDictionary *)dict {
+
+    self.leagueLabel.text = [[dict objectForKey:@"name"] uppercaseString];
+    NSInteger maxPoints = [[dict objectForKey:@"maxPoints"] integerValue];
+    self.pointsLabel.text = [NSString stringWithFormat:@"%ld / %ld Gloopies", (long)[self.user.experiencePoints integerValue], (long)maxPoints];
+    
     //Animate beer progress
     self.beerProgressImage.frame = CGRectMake(0, self.beerProgressView.frame.size.height, self.beerProgressImage.frame.size.width, self.beerProgressImage.frame.size.height);
     [self.beerProgressImage setHidden:NO];
-    CGFloat percent = ([self.user.experiencePoints integerValue] * self.beerProgressView.frame.size.height) / LEVEL_MAX_POINTS;
+    CGFloat percent = ([self.user.experiencePoints integerValue] * self.beerProgressView.frame.size.height) / maxPoints;
     CGRect frame = self.beerProgressImage.frame;
     frame.origin.y = self.beerProgressView.frame.size.height - percent;
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         self.beerProgressImage.frame = frame;
     }];
 }
@@ -106,12 +112,11 @@
 - (IBAction)segmentedClicked:(id)sender {
     
     if (self.segmentControl.selectedSegmentIndex == BEERS_BUTTON) {
-        self.data=self.beers;
-        [self.tableView reloadData];
+        //Hide collectionView and show tableView
+        //[self.tableView reloadData];
         
     } else if(self.segmentControl.selectedSegmentIndex == MEDALS_BUTTON) {
-        self.data = self.medals;
-        [self.tableView reloadData];
+        //Hide tabeView and show collectionView
     }
 }
 
@@ -119,7 +124,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.data count];
+    return [self.beers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,7 +135,7 @@
         cell = [[RankingTVC alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"userBeersCell"];
     }
     
-    Beer *b = [self.data objectAtIndex:indexPath.row];
+    Beer *b = [self.beers objectAtIndex:indexPath.row];
     [cell configureCellWithBeer:b];
     
     
@@ -150,7 +155,7 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
     if (self.segmentControl.selectedSegmentIndex == 0){
         BeerVC *beerVC = [[UIStoryboard storyboardWithName:@"Beer" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-        beerVC.beer = [self.data objectAtIndex:indexPath.row];
+        beerVC.beer = [self.beers objectAtIndex:indexPath.row];
         beerVC.hideSplash = YES;
         [self presentViewController:beerVC animated:YES completion:nil];
     }

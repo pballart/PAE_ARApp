@@ -26,7 +26,12 @@
 
 -(void)configureCellWithBeer:(Beer *)beer {
     self.nameLabel.text = [beer.name uppercaseString];
-    self.numGloopiesLabel.text = [NSString stringWithFormat:@"%@ G!", beer.beerTotalChecks];
+    if (beer.beerTotalChecks) {
+        self.numGloopiesLabel.text = [NSString stringWithFormat:@"%@ G!", beer.beerTotalChecks];
+    } else {
+        self.numGloopiesLabel.text = [NSString stringWithFormat:@"%@ G!", beer.beerPoints];
+    }
+    
 }
 
 -(void)configureCellWithUser:(User *)user {
