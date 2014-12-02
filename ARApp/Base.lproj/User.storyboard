@@ -343,7 +343,8 @@
                                                             <exclude reference="DRh-Cq-UaK"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
                                                         <mask key="constraints">
                                                             <include reference="DRh-Cq-UaK"/>
                                                         </mask>
@@ -373,6 +374,9 @@
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="267" y="23" width="45" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="XQk-EE-ipq">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -513,6 +517,7 @@
                                 <exclude reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="nkU-0J-6FJ"/>
                                 <exclude reference="QZp-RU-CFn"/>
                                 <exclude reference="XHu-cX-TJf"/>
                                 <exclude reference="vlz-Ni-y7e"/>
@@ -527,7 +532,6 @@
                                 <exclude reference="eGg-Mq-pfu"/>
                                 <exclude reference="yPo-VX-4xY"/>
                                 <exclude reference="ygH-nb-t0m"/>
-                                <exclude reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -538,6 +542,7 @@
                                 <include reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="nkU-0J-6FJ"/>
                                 <include reference="QZp-RU-CFn"/>
                                 <include reference="XHu-cX-TJf"/>
                                 <include reference="vlz-Ni-y7e"/>
@@ -552,7 +557,6 @@
                                 <include reference="eGg-Mq-pfu"/>
                                 <include reference="yPo-VX-4xY"/>
                                 <include reference="ygH-nb-t0m"/>
-                                <include reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                     </view>

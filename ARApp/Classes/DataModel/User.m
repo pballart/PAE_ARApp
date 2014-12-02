@@ -18,7 +18,7 @@
         NSDictionary *userInfo = [dictionary objectForKey:@"user"];
         self.name = [userInfo objectForKey:@"userName"];
         self.userId = [userInfo objectForKey:@"id"];
-        self.experiencePoints = [userInfo objectForKey:@"xp"];
+        self.experiencePoints = [userInfo objectForKey:@"points"];
         NSArray *beers = [userInfo objectForKey:@"birres"];
         NSMutableArray *array = [NSMutableArray array];
         for (NSDictionary *d in beers) {
