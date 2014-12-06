@@ -46,8 +46,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
     self.descriptionIsShown = NO;
     self.featuresAreShown = NO;
     
@@ -130,6 +128,11 @@
     [self.beerImage setImageWithURL:url];
     url = [NSURL URLWithString:[API_BASE_URL stringByAppendingPathComponent:self.beer.beerBannerURL]];
     [self.beerBannerImage setImageWithURL:url];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -246,7 +249,7 @@
 
 - (IBAction)websiteButtonPressed:(UIButton *)sender {
     WebVC *webViewVC = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"WebVC"];
-    [webViewVC.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.beer.website]]];
+    webViewVC.url = self.beer.website;
     [self presentViewController:webViewVC animated:YES completion:nil];
 }
 

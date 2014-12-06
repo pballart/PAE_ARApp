@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gYd-b9-7FD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gYd-b9-7FD">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -169,9 +169,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hH5-J1-t4V" kind="show" id="cD8-qw-K4Y"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Web" id="XGH-C2-9Zc">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -309,26 +306,25 @@
         <!--WebVC-->
         <scene sceneID="Sek-DJ-JT1">
             <objects>
-                <viewController storyboardIdentifier="WebVC" id="hH5-J1-t4V" customClass="WebVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebVC" automaticallyAdjustsScrollViewInsets="NO" id="hH5-J1-t4V" customClass="WebVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rvc-HC-Njy"/>
                         <viewControllerLayoutGuide type="bottom" id="sYR-qh-dce"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ddZ-1G-R7f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpA-gT-7wC">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="536"/>
-                                </variation>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="hH5-J1-t4V" id="a2v-Wy-Fy6"/>
                                 </connections>
                             </webView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAG-Ue-wLc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <color key="barTintColor" red="0.99215686270000003" green="0.63921568630000003" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem id="jEf-j1-XOC">
                                         <barButtonItem key="leftBarButtonItem" image="backArrow" id="dvh-ev-G4E">
@@ -344,11 +340,25 @@
                                 </variation>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.63921568630000003" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="TpA-gT-7wC" secondAttribute="trailing" id="1P7-cv-les"/>
+                            <constraint firstItem="TpA-gT-7wC" firstAttribute="top" secondItem="rvc-HC-Njy" secondAttribute="bottom" id="dvL-t9-Lcb">
+                                <variation key="widthClass=compact" constant="44"/>
+                            </constraint>
+                            <constraint firstItem="TpA-gT-7wC" firstAttribute="leading" secondItem="ddZ-1G-R7f" secondAttribute="leading" id="o0D-Fl-nkz"/>
+                            <constraint firstAttribute="bottom" secondItem="TpA-gT-7wC" secondAttribute="bottom" id="t4e-W9-PbS"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="TpA-gT-7wC"/>
                                 <exclude reference="NAG-Ue-wLc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1P7-cv-les"/>
+                                <exclude reference="dvL-t9-Lcb"/>
+                                <exclude reference="o0D-Fl-nkz"/>
+                                <exclude reference="t4e-W9-PbS"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -356,8 +366,15 @@
                                 <include reference="TpA-gT-7wC"/>
                                 <include reference="NAG-Ue-wLc"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="1P7-cv-les"/>
+                                <include reference="dvL-t9-Lcb"/>
+                                <include reference="o0D-Fl-nkz"/>
+                                <include reference="t4e-W9-PbS"/>
+                            </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

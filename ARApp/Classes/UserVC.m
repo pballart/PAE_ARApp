@@ -86,6 +86,9 @@
         //        }
     }];
     
+    //Get badges
+    
+    
     self.nameLabel.text = [self.user.name uppercaseString];
 }
 

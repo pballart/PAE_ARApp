@@ -16,8 +16,6 @@
 #import "AppDelegate.h"
 #import "BeerVC.h"
 
-#define UPDATE_TABLE_NOTIFICATION @"update_table_notification"
-
 @interface RankingVC ()
 
 @property (nonatomic, strong) NSMutableArray *dayRank;
@@ -179,9 +177,6 @@
         [cell setToInvisible];
         
     }
-    
-
-    
     
 
     if(indexPath.row%2==0){

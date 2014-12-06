@@ -419,7 +419,7 @@
                                                             <constraint firstAttribute="width" constant="25" id="OHV-Rr-ZUC"/>
                                                             <constraint firstAttribute="height" constant="25" id="u5j-AY-nmT"/>
                                                         </constraints>
-                                                        <state key="normal" image="backArrow"/>
+                                                        <state key="normal" image="backArrowWhite"/>
                                                         <variation key="default">
                                                             <mask key="constraints">
                                                                 <exclude reference="OHV-Rr-ZUC"/>
@@ -1433,12 +1433,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZB-ew-TQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481.5" y="1125"/>
+            <point key="canvasLocation" x="481.5" y="1238"/>
         </scene>
     </scenes>
     <resources>
         <image name="MarcFotoBirra" width="96" height="141"/>
-        <image name="backArrow" width="37" height="37"/>
+        <image name="backArrowWhite" width="25" height="25"/>
         <image name="background" width="646" height="1142"/>
         <image name="beer_image_background" width="321" height="278"/>
         <image name="beer_points_background" width="321" height="569"/>

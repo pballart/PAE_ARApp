@@ -339,6 +339,30 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     }];
 }
 
+- (void)getBadgetWithUserIdentifier:(NSString *)identifier
+                         completion:(void(^)(NSDictionary *dict, NSError *error))block {
+    NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
+    NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
+    
+    NSAssert(identifier!=nil, @"Identifier is nil");
+    
+    [keys addObject:@"user"];
+    [objects addObject:identifier];
+    
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
+    [self.operationManager POST:@"getBadges_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+            block(dict, nil);
+        } else {
+            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            block(nil, error);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error);
+    }];
+}
+
 - (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
             completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];

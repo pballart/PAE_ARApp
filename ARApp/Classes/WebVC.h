@@ -10,6 +10,7 @@
 
 @interface WebVC : UIViewController
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic, strong) NSString *url;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end

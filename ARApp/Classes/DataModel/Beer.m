@@ -25,7 +25,7 @@
         NSDictionary *featuresDict = [dictionary objectForKey:@"features"];
         self.alcohol = [featuresDict objectForKey:@"alcohol"];
         self.colour = [featuresDict objectForKey:@"colour"];
-        self.fermentation = [featuresDict objectForKey:@"fermantacio"];
+        self.fermentation = [featuresDict objectForKey:@"fermentacio"];
         self.ingredients = [featuresDict objectForKey:@"ingredients"];
         self.type = [featuresDict objectForKey:@"type"];
     }
