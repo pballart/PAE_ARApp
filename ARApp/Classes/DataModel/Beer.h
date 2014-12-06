@@ -18,6 +18,11 @@
 @property (nonatomic, strong) NSString *beerPoints;
 @property (nonatomic, strong) NSString *website;
 @property (nonatomic, strong) NSString *beerTotalChecks;
+@property (nonatomic, strong) NSString *alcohol;
+@property (nonatomic, strong) NSString *colour;
+@property (nonatomic, strong) NSString *fermentation;
+@property (nonatomic, strong) NSString *ingredients;
+@property (nonatomic, strong) NSString *type;
 
 -(id)initBeerWithDictionary:(NSDictionary *)dictionary;
 

@@ -14,7 +14,7 @@
     self = [self init];
     if(self) {
         self.name = [dictionary objectForKey:@"name"];
-        NSAssert(self.name, @"Beer name is null");
+        //NSAssert(self.name, @"Beer name is null");
         self.beerId = [dictionary objectForKey:@"id"];
         self.beerInfo = [dictionary objectForKey:@"info"];
         self.beerImageURL = [dictionary objectForKey:@"img"];
@@ -22,6 +22,12 @@
         self.beerPoints = [dictionary objectForKey:@"points"];
         self.website = [dictionary objectForKey:@"website"];
         self.beerTotalChecks = [dictionary objectForKey:@"birraTotalChecks"];
+        NSDictionary *featuresDict = [dictionary objectForKey:@"features"];
+        self.alcohol = [featuresDict objectForKey:@"alcohol"];
+        self.colour = [featuresDict objectForKey:@"colour"];
+        self.fermentation = [featuresDict objectForKey:@"fermantacio"];
+        self.ingredients = [featuresDict objectForKey:@"ingredients"];
+        self.type = [featuresDict objectForKey:@"type"];
     }
     return self;
 }

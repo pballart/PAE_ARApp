@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *descriptionWebView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *featuresViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *featuresView;
+@property (weak, nonatomic) IBOutlet UIWebView *featuresWebView;
 @property (nonatomic, assign) BOOL descriptionIsShown;
 @property (nonatomic, assign) BOOL featuresAreShown;
 
@@ -168,7 +169,7 @@
                          animations:^{
                              [self.scrollView layoutIfNeeded];
                          } completion:^(BOOL finished) {
-                             [self.scrollView scrollRectToVisible:CGRectMake(self.descriptionView.frame.origin.x, self.descriptionView.frame.origin.y, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height) animated:YES];
+//                             [self.scrollView scrollRectToVisible:CGRectMake(self.descriptionView.frame.origin.x, self.descriptionView.frame.origin.y, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height) animated:YES];
                          }];
     }
 }
@@ -177,14 +178,24 @@
     if (!self.featuresAreShown) {
         self.featuresAreShown = YES;
         [self.plusLabel2 setText:@"-"];
-        self.featuresViewHeightConstraint.constant = 300;
-        [self.scrollView setNeedsUpdateConstraints];
-        [UIView animateWithDuration:0.5
-                         animations:^{
-                             [self.scrollView layoutIfNeeded];
-                         } completion:^(BOOL finished) {
-                             [self.scrollView scrollRectToVisible:CGRectMake(self.featuresView.frame.origin.x, self.featuresView.frame.origin.y, self.featuresView.frame.size.width, self.featuresView.frame.size.height) animated:YES];
-                         }];
+        NSString *myDescriptionHTML = [NSString stringWithFormat:@"<html> \n"
+                                       "<head> \n"
+                                       "<style type=\"text/css\"> \n"
+                                       "body {font-family: \"%@\"; font-size: %@; color:rgb(255,247,155)}\n"
+                                       "</style> \n"
+                                       "</head> \n"
+                                       "<body>"
+                                       "<p><b>- Alcohol:</b> %@ %%</p>"
+                                       "<p><b>- Colour:</b> %@</p>"
+                                       "<p><b>- Fermentation:</b> %@</p>"
+                                       "<p><b>- Ingredients:</b> %@</p>"
+                                       "<p><b>- Type:</b> %@</p>"
+                                       "</body> \n"
+                                       "</html>",
+                                       @"Helvetica",
+                                       @(20),
+                                       self.beer.alcohol, self.beer.colour, self.beer.fermentation, self.beer.ingredients, self.beer.type];
+        [self.featuresWebView loadHTMLString:myDescriptionHTML baseURL:nil];
 
     } else {
         self.featuresAreShown = NO;
@@ -195,7 +206,7 @@
                          animations:^{
                              [self.scrollView layoutIfNeeded];
                          } completion:^(BOOL finished) {
-                             [self.scrollView scrollRectToVisible:CGRectMake(self.featuresView.frame.origin.x, self.featuresView.frame.origin.y, self.featuresView.frame.size.width, self.featuresView.frame.size.height) animated:YES];
+//                             [self.scrollView scrollRectToVisible:CGRectMake(self.featuresView.frame.origin.x, self.featuresView.frame.origin.y, self.featuresView.frame.size.width, self.featuresView.frame.size.height) animated:YES];
                          }];
 
     }
@@ -210,13 +221,18 @@
     webView.frame = frame;
     CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
 
-    self.descriptionViewHeightConstraint.constant += fittingSize.height;
+    if ([webView isEqual:self.descriptionWebView]) {
+        self.descriptionViewHeightConstraint.constant += fittingSize.height;
+    } else {
+        self.featuresViewHeightConstraint.constant += fittingSize.height;
+    }
+    
     [self.scrollView setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.5
                      animations:^{
                          [self.scrollView layoutIfNeeded];
                      } completion:^(BOOL finished) {
-                         [self.scrollView scrollRectToVisible:CGRectMake(self.descriptionView.frame.origin.x, self.descriptionView.frame.origin.y, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height) animated:YES];
+//                         [self.scrollView scrollRectToVisible:CGRectMake(self.descriptionView.frame.origin.x, self.descriptionView.frame.origin.y, self.descriptionView.frame.size.width, self.descriptionView.frame.size.height) animated:YES];
                      }];
     
 }
