@@ -7,10 +7,12 @@
 //
 
 #import "WelcomeVC.h"
-#import "PageContentVC.h"
+#import "TutorialCVC.h"
 
 
-@interface WelcomeVC ()
+@interface WelcomeVC () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -19,23 +21,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *const)collectionView numberOfItemsInSection:(NSInteger const)section
+{
+    return 4;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UICollectionViewCell *)collectionView:(UICollectionView *const)collectionView cellForItemAtIndexPath:(NSIndexPath *const)indexPath
+{
+    TutorialCVC *cell;
+    cell = (TutorialCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:@"tutorialCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[TutorialCVC alloc] init];
+    }
+    [cell configureCellAtIndexPath:indexPath];
+    return cell;
 }
-*/
+
+
+#pragma mark - UICollectionViewDelgate
+
+- (CGSize)collectionView:(UICollectionView *const)collectionView layout:(UICollectionViewLayout *const)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *const)indexPath
+{
+    return self.view.frame.size;
+}
+
+#pragma mark - UIScrollView
+
+- (void)scrollViewDidScroll:(UIScrollView *const)scrollView
+{
+    if ([scrollView isEqual:self.collectionView]) {
+        CGFloat pageWidth = self.collectionView.frame.size.width;
+        self.pageControl.currentPage = (self.collectionView.contentOffset.x + pageWidth / 2) / pageWidth;
+    }
+}
 
 @end

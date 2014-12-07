@@ -10,6 +10,7 @@
 		5F00B4BB19F14C7A00FA9CED /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4B919F14C7A00FA9CED /* Ranking.storyboard */; };
 		5F00B4BE19F14CA300FA9CED /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F00B4BC19F14CA300FA9CED /* User.storyboard */; };
 		5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F00B4C119F15C8F00FA9CED /* DataSource.m */; };
+		5F0521AB1A34E19300B40D8E /* TutorialCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0521AA1A34E19300B40D8E /* TutorialCVC.m */; };
 		5F06111D1A082FCE00973A01 /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06111C1A082FCE00973A01 /* UserVC.m */; };
 		5F0D3BCB19DEE16C00F65CE9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */; };
 		5F0D3BCD19DEE17300F65CE9 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0D3BCC19DEE17300F65CE9 /* CoreMedia.framework */; };
@@ -55,6 +56,8 @@
 		5F00B4BD19F14CA300FA9CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/User.storyboard; sourceTree = "<group>"; };
 		5F00B4C019F15C8F00FA9CED /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		5F00B4C119F15C8F00FA9CED /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		5F0521A91A34E19300B40D8E /* TutorialCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialCVC.h; sourceTree = "<group>"; };
+		5F0521AA1A34E19300B40D8E /* TutorialCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialCVC.m; sourceTree = "<group>"; };
 		5F06111C1A082FCE00973A01 /* UserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
 		5F0D3BC619DEE16600F65CE9 /* CatchoomSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CatchoomSDK.framework; sourceTree = "<group>"; };
 		5F0D3BCA19DEE16C00F65CE9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -323,6 +326,8 @@
 			children = (
 				5FFDE86919F69C23002A6720 /* WelcomeVC.h */,
 				5FFDE86A19F69C23002A6720 /* WelcomeVC.m */,
+				5F0521A91A34E19300B40D8E /* TutorialCVC.h */,
+				5F0521AA1A34E19300B40D8E /* TutorialCVC.m */,
 				5FFDE86C19F69C36002A6720 /* SignUpVC.h */,
 				5FFDE86D19F69C36002A6720 /* SignUpVC.m */,
 				5FFDE86F19F69C42002A6720 /* LogInVC.h */,
@@ -481,6 +486,7 @@
 				5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */,
 				5FBFA0BC1A01A265004B9AAA /* User.m in Sources */,
 				5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */,
+				5F0521AB1A34E19300B40D8E /* TutorialCVC.m in Sources */,
 				5F366FCE1A1D26110083882D /* UIImage+RenderView.m in Sources */,
 				5F76F20D1A17983C0027BEB1 /* SettingsTVC.m in Sources */,
 				5FFDE86B19F69C23002A6720 /* WelcomeVC.m in Sources */,

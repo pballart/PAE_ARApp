@@ -45,7 +45,7 @@
     self.password_su_TF.leftViewMode = UITextFieldViewModeAlways;
     self.birthdayTextField.leftViewMode = UITextFieldViewModeAlways;
     [self initializeTextFieldInputView];
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void) initializeTextFieldInputView {

@@ -202,18 +202,27 @@
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="133" y="62" width="161" height="21"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="37500 / 100000 Gloopies!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-NH-UuR">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="133" y="106" width="173" height="18"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BEER MASTER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yiD-Rz-EnN">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="133" y="84" width="125" height="21"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -344,7 +353,8 @@
                                                             <exclude reference="DRh-Cq-UaK"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="5"/>
                                                         <mask key="constraints">
                                                             <include reference="DRh-Cq-UaK"/>
                                                         </mask>
@@ -374,12 +384,18 @@
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="267" y="23" width="45" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="XQk-EE-ipq">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="21"/>
                                                     <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="62" y="21" width="52" height="25"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -564,6 +580,11 @@
                                 <exclude reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="77j-cz-u6a"/>
+                                <exclude reference="Fcy-rN-zfT"/>
+                                <exclude reference="MeV-Q3-vUb"/>
+                                <exclude reference="o4g-dK-KQy"/>
+                                <exclude reference="nkU-0J-6FJ"/>
                                 <exclude reference="QZp-RU-CFn"/>
                                 <exclude reference="XHu-cX-TJf"/>
                                 <exclude reference="vlz-Ni-y7e"/>
@@ -578,11 +599,6 @@
                                 <exclude reference="eGg-Mq-pfu"/>
                                 <exclude reference="yPo-VX-4xY"/>
                                 <exclude reference="ygH-nb-t0m"/>
-                                <exclude reference="77j-cz-u6a"/>
-                                <exclude reference="Fcy-rN-zfT"/>
-                                <exclude reference="MeV-Q3-vUb"/>
-                                <exclude reference="o4g-dK-KQy"/>
-                                <exclude reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -594,6 +610,11 @@
                                 <include reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="77j-cz-u6a"/>
+                                <include reference="Fcy-rN-zfT"/>
+                                <include reference="MeV-Q3-vUb"/>
+                                <include reference="o4g-dK-KQy"/>
+                                <include reference="nkU-0J-6FJ"/>
                                 <include reference="QZp-RU-CFn"/>
                                 <include reference="XHu-cX-TJf"/>
                                 <include reference="vlz-Ni-y7e"/>
@@ -608,11 +629,6 @@
                                 <include reference="eGg-Mq-pfu"/>
                                 <include reference="yPo-VX-4xY"/>
                                 <include reference="ygH-nb-t0m"/>
-                                <include reference="77j-cz-u6a"/>
-                                <include reference="Fcy-rN-zfT"/>
-                                <include reference="MeV-Q3-vUb"/>
-                                <include reference="o4g-dK-KQy"/>
-                                <include reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                     </view>
