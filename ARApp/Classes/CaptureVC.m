@@ -39,8 +39,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.userInteractionEnabled = NO;
-    
     //Set the data source
     self.dataSource = [DataSource sharedDataSource];
 
@@ -50,7 +48,6 @@
     
     //Wait for the user to be set
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userHasBeenSet) name:@"USER_SET" object:nil];
-    [SVProgressHUD show];
     
     //Wait for the logout
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoggedOut) name:@"LOGOUT" object:nil];
@@ -73,7 +70,6 @@
 }
 
 -(void)userHasBeenSet {
-    self.view.userInteractionEnabled = YES;
     [SVProgressHUD dismiss];
 }
 

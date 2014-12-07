@@ -34,6 +34,7 @@
 @property (nonatomic, strong) User *user;
 @property (weak, nonatomic) IBOutlet UIView *beerProgressView;
 @property (weak, nonatomic) IBOutlet UIImageView *beerProgressImage;
+@property (weak, nonatomic) IBOutlet UILabel *emptyTableLabel;
 
 //Data Arrays
 @property (strong,  nonatomic) NSMutableArray *beers;
@@ -50,6 +51,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.beerProgressImage setHidden:YES];
     [self.collectionView setHidden:YES];
+    self.emptyTableLabel.hidden = YES;
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -71,7 +73,12 @@
                 [self.beers addObject:b];
             }
             [SVProgressHUD dismiss];
-            [self.tableView reloadData];
+            if ([self.beers count] > 0) {
+                [self.tableView reloadData];
+            } else {
+                self.emptyTableLabel.hidden = NO;
+            }
+            
         }
 //        else {
 //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];

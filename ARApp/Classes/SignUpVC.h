@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *name_su_TF;
 @property (weak, nonatomic) IBOutlet UITextField *email_su_TF;
 @property (weak, nonatomic) IBOutlet UITextField *password_su_TF;
-
+@property (weak, nonatomic) IBOutlet UITextField *birthdayTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *genderSegmentedControl;
 
 @end

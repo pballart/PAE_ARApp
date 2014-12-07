@@ -13,6 +13,7 @@
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
             <string>Roboto-Light</string>
+            <string>Roboto-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -458,6 +459,12 @@
                                     <outlet property="delegate" destination="XVH-2l-gKu" id="Mdw-Dc-4fM"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO BEERS YET. GO, CAPTURE!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV5-re-28N">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z5D-DJ-ybZ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.63921568630000003" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -522,8 +529,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.70588235294117641" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="SV5-re-28N" firstAttribute="centerY" secondItem="aiw-eo-Cge" secondAttribute="centerY" constant="-128" id="77j-cz-u6a">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="Z5D-DJ-ybZ" secondAttribute="trailing" id="7lg-Jr-S5F"/>
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="top" secondItem="8aJ-vo-ISA" secondAttribute="bottom" id="E4J-t9-42P"/>
+                            <constraint firstItem="SV5-re-28N" firstAttribute="height" secondItem="aiw-eo-Cge" secondAttribute="height" id="Fcy-rN-zfT"/>
+                            <constraint firstItem="SV5-re-28N" firstAttribute="centerX" secondItem="aiw-eo-Cge" secondAttribute="centerX" id="MeV-Q3-vUb"/>
                             <constraint firstItem="8aJ-vo-ISA" firstAttribute="top" secondItem="vJK-Cj-fcA" secondAttribute="bottom" constant="80" id="NYY-rT-6aa"/>
                             <constraint firstItem="j2H-bH-g8T" firstAttribute="leading" secondItem="NeT-gV-Xyf" secondAttribute="leading" id="QZp-RU-CFn">
                                 <variation key="widthClass=compact" constant="-1"/>
@@ -535,6 +547,7 @@
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="bottom" secondItem="q5a-wy-sVH" secondAttribute="top" id="Xa0-3h-Su0"/>
                             <constraint firstItem="aiw-eo-Cge" firstAttribute="leading" secondItem="NeT-gV-Xyf" secondAttribute="leading" id="eGg-Mq-pfu"/>
                             <constraint firstItem="q5a-wy-sVH" firstAttribute="top" secondItem="Z5D-DJ-ybZ" secondAttribute="bottom" id="nkU-0J-6FJ"/>
+                            <constraint firstItem="SV5-re-28N" firstAttribute="width" secondItem="aiw-eo-Cge" secondAttribute="width" id="o4g-dK-KQy"/>
                             <constraint firstAttribute="trailing" secondItem="8aJ-vo-ISA" secondAttribute="trailing" id="sLZ-3r-ro8"/>
                             <constraint firstItem="Z5D-DJ-ybZ" firstAttribute="leading" secondItem="NeT-gV-Xyf" secondAttribute="leading" id="t8S-Wq-sgo"/>
                             <constraint firstItem="j2H-bH-g8T" firstAttribute="top" secondItem="vJK-Cj-fcA" secondAttribute="bottom" id="vlz-Ni-y7e"/>
@@ -547,10 +560,10 @@
                                 <exclude reference="j2H-bH-g8T"/>
                                 <exclude reference="8aJ-vo-ISA"/>
                                 <exclude reference="aiw-eo-Cge"/>
+                                <exclude reference="SV5-re-28N"/>
                                 <exclude reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="nkU-0J-6FJ"/>
                                 <exclude reference="QZp-RU-CFn"/>
                                 <exclude reference="XHu-cX-TJf"/>
                                 <exclude reference="vlz-Ni-y7e"/>
@@ -565,6 +578,11 @@
                                 <exclude reference="eGg-Mq-pfu"/>
                                 <exclude reference="yPo-VX-4xY"/>
                                 <exclude reference="ygH-nb-t0m"/>
+                                <exclude reference="77j-cz-u6a"/>
+                                <exclude reference="Fcy-rN-zfT"/>
+                                <exclude reference="MeV-Q3-vUb"/>
+                                <exclude reference="o4g-dK-KQy"/>
+                                <exclude reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -572,10 +590,10 @@
                                 <include reference="j2H-bH-g8T"/>
                                 <include reference="8aJ-vo-ISA"/>
                                 <include reference="aiw-eo-Cge"/>
+                                <include reference="SV5-re-28N"/>
                                 <include reference="Z5D-DJ-ybZ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="nkU-0J-6FJ"/>
                                 <include reference="QZp-RU-CFn"/>
                                 <include reference="XHu-cX-TJf"/>
                                 <include reference="vlz-Ni-y7e"/>
@@ -590,6 +608,11 @@
                                 <include reference="eGg-Mq-pfu"/>
                                 <include reference="yPo-VX-4xY"/>
                                 <include reference="ygH-nb-t0m"/>
+                                <include reference="77j-cz-u6a"/>
+                                <include reference="Fcy-rN-zfT"/>
+                                <include reference="MeV-Q3-vUb"/>
+                                <include reference="o4g-dK-KQy"/>
+                                <include reference="nkU-0J-6FJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -611,6 +634,7 @@
                         <outlet property="beerProgressImage" destination="xNf-2Y-TAV" id="x06-qM-VTv"/>
                         <outlet property="beerProgressView" destination="Kg4-OM-kO6" id="yt8-Dm-2u3"/>
                         <outlet property="collectionView" destination="Z5D-DJ-ybZ" id="LzM-52-Kbh"/>
+                        <outlet property="emptyTableLabel" destination="SV5-re-28N" id="JkG-v4-RO4"/>
                         <outlet property="leagueLabel" destination="yiD-Rz-EnN" id="9Mk-jj-b8H"/>
                         <outlet property="nameLabel" destination="0XZ-Kd-Mp6" id="BLB-7V-vXM"/>
                         <outlet property="pointsLabel" destination="6WJ-NH-UuR" id="y9w-QH-yBn"/>

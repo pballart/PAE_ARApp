@@ -392,8 +392,12 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     }];
 }
 
-- (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
-            completion:(void(^)(NSDictionary *dict, NSError *error))block {
+- (void)signInWithEmail:(NSString *)email
+                   name:(NSString*)name
+               birthday:(NSNumber *)birthday
+                 gender:(NSNumber *)gender
+            andPassword:(NSString*)password
+             completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
@@ -407,6 +411,10 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     [objects addObject:password];
     [keys addObject:@"user"];
     [objects addObject:name];
+    [keys addObject:@"gender"];
+    [objects addObject:gender];
+    [keys addObject:@"birthday"];
+    [objects addObject:birthday];
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"register_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {

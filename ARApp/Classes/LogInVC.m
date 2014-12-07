@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "Configuration.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "WebVC.h"
 
 @interface LogInVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
@@ -54,7 +55,7 @@
 - (IBAction)logInButtonPressed:(UIButton *)sender {
     [SVProgressHUD show];
     [[DataSource sharedDataSource] logInWithEmail:self.emailTF.text andPassword:self.passwordTF.text completion:^(NSDictionary *dict, NSError *error) {
-        [SVProgressHUD dismiss];
+        
         if (!error) {
             User *user = [[User alloc] initUserWithDictionary:dict];
             [self userDidLogIn:user];
@@ -72,6 +73,7 @@
 }
 
 -(void)userDidLogIn:(User *)user {
+    [SVProgressHUD dismiss];
     [(AppDelegate *)[UIApplication sharedApplication].delegate setActualUser:user];
     PageContentVC *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
     [self.navigationController presentViewController:VC animated:YES completion:nil];
@@ -105,7 +107,9 @@
 #pragma mark - Navigation
 
 - (IBAction)openResetPasswordURL:(id)sender {
-    //TODO: implement
+    WebVC *webViewVC = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateViewControllerWithIdentifier:@"WebVC"];
+    webViewVC.url = @"http://www.takeagloop.com/recovery";
+    [self presentViewController:webViewVC animated:YES completion:nil];
 }
 
 @end

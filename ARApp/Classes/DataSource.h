@@ -21,21 +21,24 @@ extern NSString *API_BASE_URL;
                    completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)getBeerFromCatchoomWithIdentifier:(NSString *)identifier
-                completion:(void(^)(NSDictionary *dict, NSError *error))block;
+                               completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
-- (void)getInfoFromBeer:(NSString *)beerId andUser:(NSString *)userId
+- (void)getInfoFromBeer:(NSString *)beerId
+                andUser:(NSString *)userId
              completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)getBeersFromUser:(NSString *)userId
-             completion:(void(^)(NSDictionary *dict, NSError *error))block;
+              completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
-- (void)getOwnerInfoFromBeer:(NSString *)beerId andLeague:(NSString *)leagueId
+- (void)getOwnerInfoFromBeer:(NSString *)beerId
+                   andLeague:(NSString *)leagueId
                   completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 //Gloop!
 
-- (void)updateBeer:(NSString *)beerId withUser:(NSString *)userId
-                  completion:(void(^)(NSDictionary *dict, NSError *error))block;
+- (void)updateBeer:(NSString *)beerId
+          withUser:(NSString *)userId
+        completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 //Ranking methods
 
@@ -53,15 +56,20 @@ extern NSString *API_BASE_URL;
                    completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)getLeagueInfoWithLeagueIdentifier:(NSString *)identifier
-                  completion:(void(^)(NSDictionary *dict, NSError *error))block;
-
-- (void)getBadgetWithUserIdentifier:(NSString *)identifier
                                completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
-- (void)logInWithEmail:(NSString *)email andPassword:(NSString*)password
+- (void)getBadgetWithUserIdentifier:(NSString *)identifier
+                         completion:(void(^)(NSDictionary *dict, NSError *error))block;
+
+- (void)logInWithEmail:(NSString *)email
+           andPassword:(NSString*)password
             completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
-- (void)signInWithEmail:(NSString *)email name:(NSString*)name andPassword:(NSString*)password
+- (void)signInWithEmail:(NSString *)email
+                   name:(NSString*)name
+               birthday:(NSNumber *)birthday
+                 gender:(NSNumber *)gender
+            andPassword:(NSString*)password
              completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 @end
