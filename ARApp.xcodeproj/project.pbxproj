@@ -23,6 +23,8 @@
 		5F8C1EE919E8164200BBED83 /* PageContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EE819E8164200BBED83 /* PageContentVC.m */; };
 		5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C1EEE19E820DD00BBED83 /* RankingVC.m */; };
 		5F8C1EF419E82ED000BBED83 /* Beer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8C1EF219E82ED000BBED83 /* Beer.storyboard */; };
+		5F8DB65E1A3442E4009A2C05 /* BadgeCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8DB65D1A3442E4009A2C05 /* BadgeCVC.m */; };
+		5F8DB6611A34438A009A2C05 /* Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8DB6601A34438A009A2C05 /* Badge.m */; };
 		5F90960F1A165FCB004243E8 /* RankingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F90960E1A165FCB004243E8 /* RankingTVC.m */; };
 		5F9096111A166601004243E8 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F9096101A166601004243E8 /* Roboto-Bold.ttf */; };
 		5FA83C5419D1DC6B00A0DB71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA83C5319D1DC6B00A0DB71 /* main.m */; };
@@ -74,6 +76,10 @@
 		5F8C1EED19E820DD00BBED83 /* RankingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingVC.h; sourceTree = "<group>"; };
 		5F8C1EEE19E820DD00BBED83 /* RankingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingVC.m; sourceTree = "<group>"; };
 		5F8C1EF319E82ED000BBED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Beer.storyboard; sourceTree = "<group>"; };
+		5F8DB65C1A3442E4009A2C05 /* BadgeCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeCVC.h; sourceTree = "<group>"; };
+		5F8DB65D1A3442E4009A2C05 /* BadgeCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeCVC.m; sourceTree = "<group>"; };
+		5F8DB65F1A34438A009A2C05 /* Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Badge.h; sourceTree = "<group>"; };
+		5F8DB6601A34438A009A2C05 /* Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Badge.m; sourceTree = "<group>"; };
 		5F90960D1A165FCB004243E8 /* RankingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingTVC.h; sourceTree = "<group>"; };
 		5F90960E1A165FCB004243E8 /* RankingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingTVC.m; sourceTree = "<group>"; };
 		5F9096101A166601004243E8 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -170,6 +176,8 @@
 			children = (
 				5F8C1EEA19E8208D00BBED83 /* UserVC.h */,
 				5F06111C1A082FCE00973A01 /* UserVC.m */,
+				5F8DB65C1A3442E4009A2C05 /* BadgeCVC.h */,
+				5F8DB65D1A3442E4009A2C05 /* BadgeCVC.m */,
 				5F76F20B1A17983C0027BEB1 /* SettingsTVC.h */,
 				5F76F20C1A17983C0027BEB1 /* SettingsTVC.m */,
 			);
@@ -304,6 +312,8 @@
 				5FBFA0BE1A01A273004B9AAA /* Beer.m */,
 				5FAEC0BE1A0F93F2000C1D4E /* League.h */,
 				5FAEC0BF1A0F93F2000C1D4E /* League.m */,
+				5F8DB65F1A34438A009A2C05 /* Badge.h */,
+				5F8DB6601A34438A009A2C05 /* Badge.m */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -455,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F8DB6611A34438A009A2C05 /* Badge.m in Sources */,
 				5FFDE87119F69C42002A6720 /* LogInVC.m in Sources */,
 				5FA83C5719D1DC6B00A0DB71 /* AppDelegate.m in Sources */,
 				5F8C1EEF19E820DD00BBED83 /* RankingVC.m in Sources */,
@@ -463,6 +474,7 @@
 				5FAEC0BD1A0F8BD7000C1D4E /* BeerVC.m in Sources */,
 				5FBFA0BF1A01A273004B9AAA /* Beer.m in Sources */,
 				5FAEC0C01A0F93F2000C1D4E /* League.m in Sources */,
+				5F8DB65E1A3442E4009A2C05 /* BadgeCVC.m in Sources */,
 				5FFDE86E19F69C36002A6720 /* SignUpVC.m in Sources */,
 				5FAEC0BA1A0F7DC3000C1D4E /* NoMatchVC.m in Sources */,
 				5F00B4C219F15C8F00FA9CED /* DataSource.m in Sources */,

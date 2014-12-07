@@ -181,6 +181,12 @@
     if (!self.featuresAreShown) {
         self.featuresAreShown = YES;
         [self.plusLabel2 setText:@"-"];
+        NSString *alcohol;
+        if ([self.beer.alcohol isEqual:@-1]) {
+            alcohol = @"We do not have this information";
+        } else {
+            alcohol = [NSString stringWithFormat:@"%@ %%", self.beer.alcohol];
+        }
         NSString *myDescriptionHTML = [NSString stringWithFormat:@"<html> \n"
                                        "<head> \n"
                                        "<style type=\"text/css\"> \n"
@@ -188,7 +194,7 @@
                                        "</style> \n"
                                        "</head> \n"
                                        "<body>"
-                                       "<p><b>- Alcohol:</b> %@ %%</p>"
+                                       "<p><b>- Alcohol:</b> %@</p>"
                                        "<p><b>- Colour:</b> %@</p>"
                                        "<p><b>- Fermentation:</b> %@</p>"
                                        "<p><b>- Ingredients:</b> %@</p>"
@@ -197,7 +203,7 @@
                                        "</html>",
                                        @"Helvetica",
                                        @(20),
-                                       self.beer.alcohol, self.beer.colour, self.beer.fermentation, self.beer.ingredients, self.beer.type];
+                                       alcohol, self.beer.colour, self.beer.fermentation, self.beer.ingredients, self.beer.type];
         [self.featuresWebView loadHTMLString:myDescriptionHTML baseURL:nil];
 
     } else {

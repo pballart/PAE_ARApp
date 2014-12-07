@@ -11,10 +11,13 @@
 #import "AppDelegate.h"
 #import "PageContentVC.h"
 #import "BeerVC.h"
+#import "Badge.h"
+#import "BadgeCVC.h"
 #import "SettingsTVC.h"
 #import "RankingTVC.h"
 #import "DataSource.h"
 #import <pop/POP.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #define BEERS_BUTTON 0
 #define MEDALS_BUTTON 1
@@ -53,7 +56,7 @@
 {
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-
+    [SVProgressHUD show];
     self.user = [(AppDelegate *)[UIApplication sharedApplication].delegate actualUser];
     
     [self.beers removeAllObjects];
@@ -67,6 +70,7 @@
                 Beer *b = [[Beer alloc] initBeerWithDictionary:d];
                 [self.beers addObject:b];
             }
+            [SVProgressHUD dismiss];
             [self.tableView reloadData];
         }
 //        else {
@@ -77,7 +81,7 @@
     
     [[DataSource sharedDataSource] getLeagueInfoWithLeagueIdentifier:self.user.league.leagueId completion:^(NSDictionary *dict, NSError *error) {
         if (!error) {
-            NSLog(@"Received response: %@", dict);
+            //NSLog(@"Received response: %@", dict);
             [self applyLeagueInfoWithDict:[dict objectForKey:@"league"]];
         }
         //        else {
@@ -88,6 +92,20 @@
     
     //Get badges
     
+    [[DataSource sharedDataSource] getBadgetWithUserIdentifier:self.user.userId completion:^(NSDictionary *dict, NSError *error) {
+        if (!error) {
+            //NSLog(@"Received response: %@", dict);
+            for (NSDictionary *d in [dict objectForKey:@"badges"]) {
+                Badge *b = [[Badge alloc] initBadgeWithDictionary:d];
+                [self.medals addObject:b];
+            }
+            [self.collectionView reloadData];
+        }
+        //        else {
+        //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        //            [alert show];
+        //        }
+    }];
     
     self.nameLabel.text = [self.user.name uppercaseString];
 }
@@ -176,7 +194,15 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    BadgeCVC *cell = (BadgeCVC *)[collectionView dequeueReusableCellWithReuseIdentifier:@"userBadgeCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[BadgeCVC alloc] init];
+    }
+    
+    Badge *b = [self.medals objectAtIndex:indexPath.row];
+    [cell configureCellWithBadge:b];
+    
+    return cell;
 }
 
 
@@ -184,7 +210,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(collectionView.bounds.size.width/4, collectionView.bounds.size.width/4);
+    CGFloat width = collectionView.bounds.size.width/3-10;
+    return CGSizeMake(width, width);
 }
 
 

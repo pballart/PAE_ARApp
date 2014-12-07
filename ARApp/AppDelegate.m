@@ -36,7 +36,7 @@
                 User *user = [[User alloc] initUserWithDictionary:dict];
                 self.actualUser = user;
             } else {
-                NSLog(@"Error logging in");
+                NSLog(@"Error logging in: %@", error);
             }
         }];
     } else {

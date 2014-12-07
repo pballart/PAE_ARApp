@@ -39,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.userInteractionEnabled = NO;
+    
     //Set the data source
     self.dataSource = [DataSource sharedDataSource];
 
@@ -71,6 +73,7 @@
 }
 
 -(void)userHasBeenSet {
+    self.view.userInteractionEnabled = YES;
     [SVProgressHUD dismiss];
 }
 

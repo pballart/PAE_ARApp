@@ -15,6 +15,7 @@
 #import "UIImage+RenderView.h"
 #import "AppDelegate.h"
 #import "BeerVC.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface RankingVC ()
 
@@ -45,6 +46,7 @@
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
 
+    [SVProgressHUD show];
     [self loadDailyRanking];
     [self loadWeeklyRanking];
     [self loadTotalRanking];
@@ -64,6 +66,7 @@
                 [self.dayRank addObject:b];
             }
             self.actualRank = self.dayRank;
+            [SVProgressHUD dismiss];
             [self updateTable];
         }
     }];
