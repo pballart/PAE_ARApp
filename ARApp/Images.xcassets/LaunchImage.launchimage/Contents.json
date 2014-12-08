@@ -29,13 +29,14 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "iOS Simulator Screen Shot 08.12.2014 16.50.07.png",
       "scale" : "2x"
     },
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "IMG_0782.PNG",
+      "filename" : "iOS Simulator Screen Shot 08.12.2014 16.43.15.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -78,12 +79,14 @@
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
+      "filename" : "iOS Simulator Screen Shot 08.12.2014 16.50.07-1.png",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
+      "filename" : "iOS Simulator Screen Shot 08.12.2014 16.43.15-1.png",
       "subtype" : "retina4",
       "scale" : "2x"
     },
