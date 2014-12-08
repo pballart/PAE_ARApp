@@ -55,9 +55,7 @@
 
 -(void) loadDailyRanking {
     [[DataSource sharedDataSource] getRankingDailyWithcompletion:^(NSDictionary *dict, NSError *error) {
-        if (error) {
-            NSLog(@"Error getting ranking: %@", error);
-        } else {
+        if (!error) {
             [self.dayRank removeAllObjects];
             //NSLog(@"Ranking: %@", dict);
             NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
@@ -66,17 +64,18 @@
                 [self.dayRank addObject:b];
             }
             self.actualRank = self.dayRank;
-            [SVProgressHUD dismiss];
             [self updateTable];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
+        [SVProgressHUD dismiss];
     }];
 }
 
 -(void) loadWeeklyRanking {
     [[DataSource sharedDataSource] getRankingWeeklyWithcompletion:^(NSDictionary *dict, NSError *error) {
-        if (error) {
-            NSLog(@"Error getting ranking: %@", error);
-        } else {
+        if (!error) {
             [self.weekRank removeAllObjects];
             //NSLog(@"Ranking: %@", dict);
             NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
@@ -85,15 +84,16 @@
                 [self.weekRank addObject:b];
             }
             [self updateTable];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
     }];
 }
 
 -(void) loadTotalRanking {
     [[DataSource sharedDataSource] getRankingTotalWithcompletion:^(NSDictionary *dict, NSError *error) {
-        if (error) {
-            NSLog(@"Error getting ranking: %@", error);
-        } else {
+        if (!error) {
             [self.totalRank removeAllObjects];
             //NSLog(@"Ranking: %@", dict);
             NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
@@ -102,15 +102,16 @@
                 [self.totalRank addObject:b];
             }
             [self updateTable];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
     }];
 }
 
 -(void) loadUserRanking {
     [[DataSource sharedDataSource] getRankingTopTenUsersWithcompletion:^(NSDictionary *dict, NSError *error) {
-        if (error) {
-            NSLog(@"Error getting ranking: %@", error);
-        } else {
+        if (!error) {
             [self.userRank removeAllObjects];
             //NSLog(@"Ranking: %@", dict);
             NSArray *retrievedBeers = [dict objectForKey:@"ranking"];
@@ -119,6 +120,9 @@
                 [self.userRank addObject:u];
             }
             [self updateTable];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
     }];
 }
@@ -208,7 +212,7 @@
 - (IBAction)shareActualRanking:(UIBarButtonItem *)sender {
     UIImageView *screenShot = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     screenShot.image = [UIImage imageWithView:[(AppDelegate *)[[UIApplication sharedApplication] delegate] window]];
-    NSAssert(screenShot.image != nil, @"Error nil image");
+//    NSAssert(screenShot.image != nil, @"Error nil image");
     
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[screenShot.image] applicationActivities:nil];
     [self presentViewController:controller animated:YES completion:nil];

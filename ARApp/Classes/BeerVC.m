@@ -94,11 +94,10 @@
             if ([points integerValue] > 0) {
                 self.numGloopsLabel.text = [NSString stringWithFormat:@"%ld Gloops!", (long)[points integerValue]];
             }
-        }
-//        else {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        }else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 //            [alert show];
-//        }
+        }
     }];
     
     //Update user
@@ -108,7 +107,8 @@
             ((AppDelegate *)[UIApplication sharedApplication].delegate).actualUser = user;
             
         } else {
-            NSLog(@"Error updating user");
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
     }];
     

@@ -1,8 +1,10 @@
 CLANG_CXX_LANGUAGE_STANDARD = c++11
 CLANG_CXX_LIBRARY = libc++
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/CrashlyticsFramework"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/pop"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/pop"
-OTHER_LDFLAGS = -ObjC -l"Pods-ARApp-SDWebImage" -l"Pods-ARApp-SVProgressHUD" -l"Pods-ARApp-pop" -l"c++" -framework "ImageIO" -framework "QuartzCore"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CRToast" "${PODS_ROOT}/Headers/Public/CrashlyticsFramework" "${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/pop" $(SDKROOT)/usr/include/libz
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/GoogleAnalytics-iOS-SDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CRToast" -isystem "${PODS_ROOT}/Headers/Public/CrashlyticsFramework" -isystem "${PODS_ROOT}/Headers/Public/GoogleAnalytics-iOS-SDK" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = -ObjC -l"GoogleAnalyticsServices" -l"Pods-ARApp-CRToast" -l"Pods-ARApp-CrashlyticsFramework" -l"Pods-ARApp-GoogleAnalytics-iOS-SDK" -l"Pods-ARApp-SDWebImage" -l"Pods-ARApp-SVProgressHUD" -l"Pods-ARApp-pop" -l"c++" -l"sqlite3" -l"z" -framework "CFNetwork" -framework "CoreData" -framework "Crashlytics" -framework "Foundation" -framework "ImageIO" -framework "QuartzCore" -framework "SystemConfiguration" -framework "UIKit"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

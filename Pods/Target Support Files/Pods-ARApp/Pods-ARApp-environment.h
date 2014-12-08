@@ -6,6 +6,31 @@
 // project.
 
 
+// CRToast
+#define COCOAPODS_POD_AVAILABLE_CRToast
+#define COCOAPODS_VERSION_MAJOR_CRToast 0
+#define COCOAPODS_VERSION_MINOR_CRToast 0
+#define COCOAPODS_VERSION_PATCH_CRToast 7
+
+// CrashlyticsFramework
+#define COCOAPODS_POD_AVAILABLE_CrashlyticsFramework
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 2.2.5.2.
+
+// GoogleAnalytics-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_GoogleAnalytics_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_GoogleAnalytics_iOS_SDK 3
+#define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK 10
+#define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK 0
+
+// GoogleAnalytics-iOS-SDK/Core
+#define COCOAPODS_POD_AVAILABLE_GoogleAnalytics_iOS_SDK_Core
+#define COCOAPODS_VERSION_MAJOR_GoogleAnalytics_iOS_SDK_Core 3
+#define COCOAPODS_VERSION_MINOR_GoogleAnalytics_iOS_SDK_Core 10
+#define COCOAPODS_VERSION_PATCH_GoogleAnalytics_iOS_SDK_Core 0
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
@@ -22,7 +47,7 @@
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
-#define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
+#define COCOAPODS_VERSION_PATCH_SVProgressHUD 1
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop

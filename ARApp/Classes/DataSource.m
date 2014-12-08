@@ -56,17 +56,21 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(identifier!=nil, @"Identifier is nil");
-    [keys addObject:@"id"];
-    [objects addObject:identifier];
+//    NSAssert(identifier!=nil, @"Identifier is nil");
+    if (identifier) {
+        [keys addObject:@"id"];
+        [objects addObject:identifier];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirra_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -79,17 +83,21 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(identifier!=nil, @"Identifier is nil");
-    [keys addObject:@"idCatchoom"];
-    [objects addObject:identifier];
+//    NSAssert(identifier!=nil, @"Identifier is nil");
+    if (identifier) {
+        [keys addObject:@"idCatchoom"];
+        [objects addObject:identifier];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirraCatchoom_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -102,21 +110,25 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(beerId!=nil, @"BeerId is nil");
-    NSAssert(userId!=nil, @"UserId is nil");
+//    NSAssert(beerId!=nil, @"BeerId is nil");
+//    NSAssert(userId!=nil, @"UserId is nil");
     
-    [keys addObject:@"birra"];
-    [objects addObject:beerId];
-    [keys addObject:@"user"];
-    [objects addObject:userId];
+    if (beerId && userId) {
+        [keys addObject:@"birra"];
+        [objects addObject:beerId];
+        [keys addObject:@"user"];
+        [objects addObject:userId];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirraUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -129,18 +141,20 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(userId!=nil, @"UserId is nil");
-    
-    [keys addObject:@"user"];
-    [objects addObject:userId];
+//    NSAssert(userId!=nil, @"UserId is nil");
+    if (userId) {
+        [keys addObject:@"user"];
+        [objects addObject:userId];
+    }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBirresUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -153,21 +167,25 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(beerId!=nil, @"BeerId is nil");
-    NSAssert(leagueId!=nil, @"LeaguId is nil");
+//    NSAssert(beerId!=nil, @"BeerId is nil");
+//    NSAssert(leagueId!=nil, @"LeaguId is nil");
     
-    [keys addObject:@"birra"];
-    [objects addObject:beerId];
-    [keys addObject:@"league"];
-    [objects addObject:leagueId];
+    if (beerId && leagueId) {
+        [keys addObject:@"birra"];
+        [objects addObject:beerId];
+        [keys addObject:@"league"];
+        [objects addObject:leagueId];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getOwner_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -182,21 +200,25 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(beerId!=nil, @"BeerId is nil");
-    NSAssert(userId!=nil, @"LeaguId is nil");
+//    NSAssert(beerId!=nil, @"BeerId is nil");
+//    NSAssert(userId!=nil, @"LeaguId is nil");
     
-    [keys addObject:@"birraCatchoom"];
-    [objects addObject:beerId];
-    [keys addObject:@"user"];
-    [objects addObject:userId];
+    if (beerId && userId) {
+        [keys addObject:@"birraCatchoom"];
+        [objects addObject:beerId];
+        [keys addObject:@"user"];
+        [objects addObject:userId];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"update_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -216,10 +238,11 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -237,10 +260,11 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -258,10 +282,11 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -276,10 +301,11 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getUsersRanking_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -295,19 +321,22 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(identifier!=nil, @"Identifier is nil");
-    [keys addObject:@"user"];
-    [objects addObject:identifier];
-    [keys addObject:@"birres"];
-    [objects addObject:@1];
+//    NSAssert(identifier!=nil, @"Identifier is nil");
+    if (identifier) {
+        [keys addObject:@"user"];
+        [objects addObject:identifier];
+        [keys addObject:@"birres"];
+        [objects addObject:@1];
+    }
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getUser_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -320,18 +349,22 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(identifier!=nil, @"Identifier is nil");
+//    NSAssert(identifier!=nil, @"Identifier is nil");
     
-    [keys addObject:@"league"];
-    [objects addObject:identifier];
+    if (identifier) {
+        [keys addObject:@"league"];
+        [objects addObject:identifier];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getLeague_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -339,23 +372,27 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     }];
 }
 
-- (void)getBadgetWithUserIdentifier:(NSString *)identifier
+- (void)getBadgeWithUserIdentifier:(NSString *)identifier
                          completion:(void(^)(NSDictionary *dict, NSError *error))block {
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(identifier!=nil, @"Identifier is nil");
+//    NSAssert(identifier!=nil, @"Identifier is nil");
     
-    [keys addObject:@"user"];
-    [objects addObject:identifier];
+    if (identifier) {
+        [keys addObject:@"user"];
+        [objects addObject:identifier];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"getBadges_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -368,22 +405,26 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(email!=nil, @"Email is nil");
-    NSAssert(password!=nil, @"Password is nil");
+//    NSAssert(email!=nil, @"Email is nil");
+//    NSAssert(password!=nil, @"Password is nil");
     
-    [keys addObject:@"email"];
-    [objects addObject:email];
-    [keys addObject:@"password"];
-    [objects addObject:password];
+    if (email && password) {
+        [keys addObject:@"email"];
+        [objects addObject:email];
+        [keys addObject:@"password"];
+        [objects addObject:password];
+    }
+    
     
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"login_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
 
@@ -401,55 +442,32 @@ NSString *API_BASE_URL = @"http://147.83.39.196/gloop/Core/";
     NSMutableArray *keys = [[NSMutableArray alloc] initWithObjects:@"help",nil];
     NSMutableArray *objects = [[NSMutableArray alloc] initWithObjects:@"0",nil];
     
-    NSAssert(email!=nil, @"Email is nil");
-    NSAssert(password!=nil, @"Password is nil");
-    NSAssert(name!=nil, @"Name is nil");
+//    NSAssert(email!=nil, @"Email is nil");
+//    NSAssert(password!=nil, @"Password is nil");
+//    NSAssert(name!=nil, @"Name is nil");
     
-    [keys addObject:@"email"];
-    [objects addObject:email];
-    [keys addObject:@"password"];
-    [objects addObject:password];
-    [keys addObject:@"user"];
-    [objects addObject:name];
-    [keys addObject:@"gender"];
-    [objects addObject:gender];
-    [keys addObject:@"birthday"];
-    [objects addObject:birthday];
+    if (email && password && name && gender && birthday) {
+        [keys addObject:@"email"];
+        [objects addObject:email];
+        [keys addObject:@"password"];
+        [objects addObject:password];
+        [keys addObject:@"user"];
+        [objects addObject:name];
+        [keys addObject:@"gender"];
+        [objects addObject:gender];
+        [keys addObject:@"birthday"];
+        [objects addObject:birthday];
+    }
+    
     
     NSDictionary *dict = [[NSDictionary alloc] initWithObjects:objects forKeys:keys];
     [self.operationManager POST:@"register_1.php" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *dict = responseObject;
-        if ([[dict objectForKey:@"error"] isEqual:@0]) {
+        NSInteger errorCode = [[dict objectForKey:@"error"] integerValue];
+        if (errorCode == 0) {
             block(dict, nil);
         } else {
-//            NSInteger num = [[dict objectForKey:@"error"] integerValue];
-//            switch (num) {
-//                case 1:
-//                {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                    [alert show];
-//                }
-//                case 2:
-//                {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                    [alert show];
-//                }
-//                case 3:
-//                {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                    [alert show];
-//                }
-//                case 4:
-//                {
-//                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"Something went wrong" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-//                    [alert show];
-//                }
-//                    break;
-//                    
-//                default:
-//                    break;
-//            }
-            NSError *error = [[NSError alloc] initWithDomain:@"Server error" code:1 userInfo:nil];
+            NSError *error = [[NSError alloc] initWithDomain:@"Error" code:errorCode userInfo:dict];
             block(nil, error);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

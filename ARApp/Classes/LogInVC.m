@@ -52,14 +52,13 @@
 - (IBAction)logInButtonPressed:(UIButton *)sender {
     [SVProgressHUD show];
     [[DataSource sharedDataSource] logInWithEmail:self.emailTF.text andPassword:self.passwordTF.text completion:^(NSDictionary *dict, NSError *error) {
-        
         if (!error) {
             User *user = [[User alloc] initUserWithDictionary:dict];
             [self userDidLogIn:user];
             NSLog(@"Logged in!");
         } else {
-            NSLog(@"Error logging in: %@", error);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error logging in" message:[NSString stringWithFormat:@"Please make sure your credentials are correct"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [SVProgressHUD dismiss];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
         }
     }];

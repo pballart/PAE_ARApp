@@ -154,7 +154,7 @@
                 beerVC.params = dict;
                 [self presentViewController:beerVC animated:YES completion:nil];
             } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert show];
             }
             [SVProgressHUD dismiss];

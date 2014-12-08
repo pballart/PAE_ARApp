@@ -24,16 +24,16 @@
 -(void) configureCellAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            self.imageView.image = [UIImage imageNamed:@"tutorial1.png"];
+            self.imageView.image = [UIImage imageNamed:@"tutorial1.jpg"];
             break;
         case 1:
-            self.imageView.image = [UIImage imageNamed:@"tutorial2.png"];
+            self.imageView.image = [UIImage imageNamed:@"tutorial2.jpg"];
             break;
         case 2:
-            self.imageView.image = [UIImage imageNamed:@"tutorial3.png"];
+            self.imageView.image = [UIImage imageNamed:@"tutorial3.jpg"];
             break;
         case 3:
-            self.imageView.image = [UIImage imageNamed:@"tutorial4.png"];
+            self.imageView.image = [UIImage imageNamed:@"tutorial4.jpg"];
             break;
         default:
             break;

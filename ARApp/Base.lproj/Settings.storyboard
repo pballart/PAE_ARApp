@@ -26,7 +26,7 @@
             <objects>
                 <tableViewController id="in6-1D-ROx" customClass="SettingsTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BDX-5Y-PYj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -94,8 +94,8 @@
                                                     <exclude reference="rPt-G8-F54"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="jgj-Ks-ycX"/>
                                                     <exclude reference="gq0-ni-hMx"/>
+                                                    <exclude reference="jgj-Ks-ycX"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -103,8 +103,8 @@
                                                     <include reference="rPt-G8-F54"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="jgj-Ks-ycX"/>
                                                     <include reference="gq0-ni-hMx"/>
+                                                    <include reference="jgj-Ks-ycX"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -307,9 +307,9 @@
                                                     <exclude reference="JUi-kZ-I43"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="oIO-HP-oyt"/>
-                                                    <exclude reference="Khp-NY-m4c"/>
                                                     <exclude reference="BCA-lq-VLY"/>
+                                                    <exclude reference="Khp-NY-m4c"/>
+                                                    <exclude reference="oIO-HP-oyt"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -317,9 +317,9 @@
                                                     <include reference="JUi-kZ-I43"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="oIO-HP-oyt"/>
-                                                    <exclude reference="Khp-NY-m4c"/>
                                                     <include reference="BCA-lq-VLY"/>
+                                                    <exclude reference="Khp-NY-m4c"/>
+                                                    <include reference="oIO-HP-oyt"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -411,7 +411,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="LOGOUT" id="OYr-h1-PL0">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Logout" id="fqO-MQ-87a">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Logout" id="fqO-MQ-87a">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fqO-MQ-87a" id="cRr-TZ-Fl9">
                                             <autoresizingMask key="autoresizingMask"/>

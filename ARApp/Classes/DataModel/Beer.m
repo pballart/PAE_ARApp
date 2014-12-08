@@ -14,7 +14,6 @@
     self = [self init];
     if(self) {
         self.name = [dictionary objectForKey:@"name"];
-        //NSAssert(self.name, @"Beer name is null");
         self.beerId = [dictionary objectForKey:@"id"];
         self.beerInfo = [dictionary objectForKey:@"info"];
         self.beerImageURL = [dictionary objectForKey:@"img"];

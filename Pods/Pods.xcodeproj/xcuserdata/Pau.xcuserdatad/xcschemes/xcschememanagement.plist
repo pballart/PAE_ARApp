@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-ARApp-CRToast.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ARApp-CrashlyticsFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-ARApp-GoogleAnalytics-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ARApp-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>015946CD4A681EDAE2D07C06</key>
+		<key>3F10E52CE9CF4D21E5F0FC14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3239534EC67C625D64200412</key>
+		<key>7C64BBE652A5827A009FF831</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3B0042AB0447D92AE41DE3C0</key>
+		<key>9D9CE5784A2A2F637EB12283</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>80A535C12E0B1041E55D9D5E</key>
+		<key>AA6735F98C3323B8C0A037D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6BAC54D41EECC019ACE28C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C86EAD03413750C505EC959D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F39B8744B9C05207F9A17D0C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

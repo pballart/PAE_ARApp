@@ -82,14 +82,13 @@
     NSNumber *dinoTime = [NSNumber numberWithDouble:[self.birthDate timeIntervalSince1970]];
     NSNumber *gender = [NSNumber numberWithInteger:self.genderSegmentedControl.selectedSegmentIndex+1];
     [[DataSource sharedDataSource] signInWithEmail:self.email_su_TF.text name:self.name_su_TF.text birthday:dinoTime gender:gender andPassword:self.password_su_TF.text completion:^(NSDictionary *dict, NSError *error){
-        [SVProgressHUD dismiss];
         if (!error) {
             User *user = [[User alloc] initUserWithDictionary:dict];
             [self userDidLogIn:user];
             NSLog(@"Signed up and logged in!");
         } else {
-            NSLog(@"Error signing up: %@", error);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error signing up" message:[NSString stringWithFormat:@"User may already exist. Also check that password has minimum 6 characters and that you are over legal age."] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [SVProgressHUD dismiss];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
         }
     }];

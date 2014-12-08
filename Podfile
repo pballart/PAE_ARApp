@@ -6,7 +6,8 @@ target "ARApp" do
 pod 'SVProgressHUD', '~> 1.0'
 pod 'SDWebImage', '~>3.6'
 pod 'pop', '~> 1.0'
-#pod 'AFNetworking', '~> 2.4'
-
+pod 'CRToast', '~> 0.0.7'
+pod 'GoogleAnalytics-iOS-SDK', '~> 3.10'
+pod 'CrashlyticsFramework', '~> 2.2'
 end
 

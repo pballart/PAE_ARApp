@@ -58,7 +58,7 @@ extern NSString *API_BASE_URL;
 - (void)getLeagueInfoWithLeagueIdentifier:(NSString *)identifier
                                completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
-- (void)getBadgetWithUserIdentifier:(NSString *)identifier
+- (void)getBadgeWithUserIdentifier:(NSString *)identifier
                          completion:(void(^)(NSDictionary *dict, NSError *error))block;
 
 - (void)logInWithEmail:(NSString *)email

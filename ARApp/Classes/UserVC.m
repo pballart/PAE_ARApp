@@ -72,34 +72,32 @@
                 Beer *b = [[Beer alloc] initBeerWithDictionary:d];
                 [self.beers addObject:b];
             }
-            [SVProgressHUD dismiss];
             if ([self.beers count] > 0) {
                 [self.tableView reloadData];
             } else {
                 self.emptyTableLabel.hidden = NO;
             }
             
-        }
-//        else {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 //            [alert show];
-//        }
+        }
+        [SVProgressHUD dismiss];
     }];
     
     [[DataSource sharedDataSource] getLeagueInfoWithLeagueIdentifier:self.user.league.leagueId completion:^(NSDictionary *dict, NSError *error) {
         if (!error) {
             //NSLog(@"Received response: %@", dict);
             [self applyLeagueInfoWithDict:[dict objectForKey:@"league"]];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
-        //        else {
-        //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        //            [alert show];
-        //        }
     }];
     
     //Get badges
     
-    [[DataSource sharedDataSource] getBadgetWithUserIdentifier:self.user.userId completion:^(NSDictionary *dict, NSError *error) {
+    [[DataSource sharedDataSource] getBadgeWithUserIdentifier:self.user.userId completion:^(NSDictionary *dict, NSError *error) {
         if (!error) {
             //NSLog(@"Received response: %@", dict);
             for (NSDictionary *d in [dict objectForKey:@"badges"]) {
@@ -107,11 +105,10 @@
                 [self.medals addObject:b];
             }
             [self.collectionView reloadData];
+        } else {
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error.userInfo objectForKey:@"message"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//            [alert show];
         }
-        //        else {
-        //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ups..." message:@"The server encountered an error. Please contact Oriol." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        //            [alert show];
-        //        }
     }];
     
     self.nameLabel.text = [self.user.name uppercaseString];
