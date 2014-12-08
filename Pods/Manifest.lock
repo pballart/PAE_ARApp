@@ -1,0 +1,29 @@
+PODS:
+  - CrashlyticsFramework (2.2.5.2)
+  - CRToast (0.0.7)
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.10)
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
+  - pop (1.0.7)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
+  - SVProgressHUD (1.1.1)
+
+DEPENDENCIES:
+  - CrashlyticsFramework (~> 2.2)
+  - CRToast (~> 0.0.7)
+  - GoogleAnalytics-iOS-SDK (~> 3.10)
+  - pop (~> 1.0)
+  - SDWebImage (~> 3.6)
+  - SVProgressHUD (~> 1.0)
+
+SPEC CHECKSUMS:
+  CrashlyticsFramework: 4e91082f3019bea7e718e1b67b0a3b56729dbc5d
+  CRToast: f9f2c4b29776d68ba24c4d621cba59a83fea921b
+  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  SVProgressHUD: 11ef69ab2582c097479e76905ea916470371fc58
+
+COCOAPODS: 0.35.0

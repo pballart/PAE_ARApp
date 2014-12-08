@@ -23,9 +23,9 @@
 #import <Foundation/Foundation.h>
 #import "CatchoomCloudRecognition.h"
 
-#if TARGET_IPHONE_SIMULATOR && !CATCHOOM_SDK_FWK
-#error We are sorry but the CatchoomSDK does not provide support for the simulator. Compile your project for an iOS device.
-#endif
+//#if TARGET_IPHONE_SIMULATOR && !CATCHOOM_SDK_FWK
+//#error We are sorry but the CatchoomSDK does not provide support for the simulator. Compile your project for an iOS device.
+//#endif
 
 @protocol CatchoomSDKProtocol;
 
