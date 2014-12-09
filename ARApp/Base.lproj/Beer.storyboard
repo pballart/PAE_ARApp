@@ -84,7 +84,8 @@
                                         <exclude reference="JU6-je-zRa"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="146" y="425" width="109" height="30"/>
                                     <mask key="constraints">
                                         <include reference="Bic-RC-k34"/>
                                         <include reference="JU6-je-zRa"/>
@@ -109,7 +110,8 @@
                                         <exclude reference="k9g-LJ-ZfQ"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="47" y="300" width="307" height="105"/>
                                     <mask key="constraints">
                                         <exclude reference="Nab-Hd-8PK"/>
                                         <exclude reference="k9g-LJ-ZfQ"/>
@@ -144,18 +146,18 @@
                                 <exclude reference="GDf-c7-z0l"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DbR-ZY-KA8"/>
-                                <exclude reference="HvH-pq-cEZ"/>
-                                <exclude reference="Qic-ik-qQb"/>
-                                <exclude reference="CdI-1m-qP6"/>
-                                <exclude reference="SBF-ZD-5fV"/>
+                                <exclude reference="x62-BV-hx0"/>
                                 <exclude reference="FJO-fj-lAz"/>
                                 <exclude reference="d4p-xm-pLp"/>
                                 <exclude reference="hr6-qD-jig"/>
                                 <exclude reference="wlb-Ce-X5j"/>
                                 <exclude reference="5W8-rf-gGp"/>
                                 <exclude reference="EJE-yj-uSH"/>
-                                <exclude reference="x62-BV-hx0"/>
+                                <exclude reference="DbR-ZY-KA8"/>
+                                <exclude reference="HvH-pq-cEZ"/>
+                                <exclude reference="Qic-ik-qQb"/>
+                                <exclude reference="CdI-1m-qP6"/>
+                                <exclude reference="SBF-ZD-5fV"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -166,18 +168,18 @@
                                 <include reference="GDf-c7-z0l"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="DbR-ZY-KA8"/>
-                                <include reference="HvH-pq-cEZ"/>
-                                <include reference="Qic-ik-qQb"/>
-                                <include reference="CdI-1m-qP6"/>
-                                <include reference="SBF-ZD-5fV"/>
+                                <include reference="x62-BV-hx0"/>
                                 <include reference="FJO-fj-lAz"/>
                                 <include reference="d4p-xm-pLp"/>
                                 <include reference="hr6-qD-jig"/>
                                 <include reference="wlb-Ce-X5j"/>
                                 <include reference="5W8-rf-gGp"/>
                                 <include reference="EJE-yj-uSH"/>
-                                <include reference="x62-BV-hx0"/>
+                                <include reference="DbR-ZY-KA8"/>
+                                <include reference="HvH-pq-cEZ"/>
+                                <include reference="Qic-ik-qQb"/>
+                                <include reference="CdI-1m-qP6"/>
+                                <include reference="SBF-ZD-5fV"/>
                             </mask>
                         </variation>
                     </view>
@@ -198,215 +200,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-md-msJ" userLabel="View-points">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="beer_points_background" translatesAutoresizingMaskIntoConstraints="NO" id="lve-OV-iYk">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nice Gloop!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-EZ-eQ5">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="59" id="Hto-8a-pg4"/>
-                                            <constraint firstAttribute="width" constant="251" id="Phz-MS-fEu"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Hto-8a-pg4"/>
-                                                <exclude reference="Phz-MS-fEu"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="Hto-8a-pg4"/>
-                                                <include reference="Phz-MS-fEu"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gloop_foam" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-7O-tTS">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="0vO-VB-NLp"/>
-                                            <constraint firstAttribute="height" constant="200" id="pdn-EZ-Kcw"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="0vO-VB-NLp"/>
-                                                <exclude reference="pdn-EZ-Kcw"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="0vO-VB-NLp"/>
-                                                <include reference="pdn-EZ-Kcw"/>
-                                            </mask>
-                                        </variation>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloopies!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2EM-OS-weD">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="129" id="hSA-RV-qoF"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="24"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="hSA-RV-qoF"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="hSA-RV-qoF"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="N3v-co-FeX">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="PpQ-8E-MNF"/>
-                                            <constraint firstAttribute="width" constant="129" id="nKM-1W-GWy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="PpQ-8E-MNF"/>
-                                                <exclude reference="nKM-1W-GWy"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="PpQ-8E-MNF"/>
-                                                <include reference="nKM-1W-GWy"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-oZ-cJR">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="2C1-mk-d4h"/>
-                                            <constraint firstAttribute="width" constant="30" id="fMz-Ld-XpN"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="2C1-mk-d4h"/>
-                                                <exclude reference="fMz-Ld-XpN"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="2C1-mk-d4h"/>
-                                                <include reference="fMz-Ld-XpN"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are the new owner!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGG-OM-Kpe">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="251" id="9ta-FI-iCw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="9ta-FI-iCw"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="9ta-FI-iCw"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="2EM-OS-weD" firstAttribute="top" secondItem="O6u-7O-tTS" secondAttribute="bottom" constant="-87" id="3DL-TS-Oyq"/>
-                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="top" secondItem="FQg-oZ-cJR" secondAttribute="bottom" constant="-100" id="CTO-UK-PBy"/>
-                                    <constraint firstItem="N3v-co-FeX" firstAttribute="leading" secondItem="FQg-oZ-cJR" secondAttribute="trailing" constant="-4" id="DA3-4c-aQx"/>
-                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="leading" secondItem="FQg-oZ-cJR" secondAttribute="trailing" constant="-60" id="F0S-iV-ode"/>
-                                    <constraint firstItem="DGG-OM-Kpe" firstAttribute="top" secondItem="O6u-7O-tTS" secondAttribute="bottom" constant="16" id="FWV-bj-nKz"/>
-                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="top" secondItem="uHI-EZ-eQ5" secondAttribute="bottom" constant="12" id="H7i-9p-FoH"/>
-                                    <constraint firstItem="lve-OV-iYk" firstAttribute="leading" secondItem="DsP-md-msJ" secondAttribute="leading" constant="-5" id="H9P-qm-aGz"/>
-                                    <constraint firstAttribute="trailing" secondItem="lve-OV-iYk" secondAttribute="trailing" constant="-5" id="H9U-hF-usT"/>
-                                    <constraint firstItem="lve-OV-iYk" firstAttribute="top" secondItem="DsP-md-msJ" secondAttribute="top" constant="-5" id="Pst-xK-EdK"/>
-                                    <constraint firstItem="lve-OV-iYk" firstAttribute="centerY" secondItem="uHI-EZ-eQ5" secondAttribute="centerY" constant="141.5" id="Qjy-3Q-LcI"/>
-                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="centerY" secondItem="lve-OV-iYk" secondAttribute="centerY" id="W7A-SM-1oa"/>
-                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="centerX" secondItem="lve-OV-iYk" secondAttribute="centerX" id="cIj-IX-iWS"/>
-                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="centerX" secondItem="DGG-OM-Kpe" secondAttribute="centerX" constant="-0.5" id="d4C-3p-ERn"/>
-                                    <constraint firstItem="lve-OV-iYk" firstAttribute="centerX" secondItem="uHI-EZ-eQ5" secondAttribute="centerX" constant="-0.5" id="fCV-8s-VoY"/>
-                                    <constraint firstAttribute="bottom" secondItem="lve-OV-iYk" secondAttribute="bottom" constant="-5" id="ndC-Wq-fsC"/>
-                                    <constraint firstItem="2EM-OS-weD" firstAttribute="leading" secondItem="O6u-7O-tTS" secondAttribute="trailing" constant="-144" id="ozW-ON-I0m"/>
-                                    <constraint firstItem="2EM-OS-weD" firstAttribute="top" secondItem="N3v-co-FeX" secondAttribute="bottom" constant="13" id="ycW-Jq-yUC"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="uHI-EZ-eQ5"/>
-                                        <exclude reference="O6u-7O-tTS"/>
-                                        <exclude reference="2EM-OS-weD"/>
-                                        <exclude reference="N3v-co-FeX"/>
-                                        <exclude reference="FQg-oZ-cJR"/>
-                                        <exclude reference="DGG-OM-Kpe"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="3DL-TS-Oyq"/>
-                                        <exclude reference="ozW-ON-I0m"/>
-                                        <exclude reference="ycW-Jq-yUC"/>
-                                        <exclude reference="FWV-bj-nKz"/>
-                                        <exclude reference="DA3-4c-aQx"/>
-                                        <exclude reference="CTO-UK-PBy"/>
-                                        <exclude reference="F0S-iV-ode"/>
-                                        <exclude reference="H7i-9p-FoH"/>
-                                        <exclude reference="W7A-SM-1oa"/>
-                                        <exclude reference="cIj-IX-iWS"/>
-                                        <exclude reference="d4C-3p-ERn"/>
-                                        <exclude reference="H9P-qm-aGz"/>
-                                        <exclude reference="H9U-hF-usT"/>
-                                        <exclude reference="Pst-xK-EdK"/>
-                                        <exclude reference="Qjy-3Q-LcI"/>
-                                        <exclude reference="fCV-8s-VoY"/>
-                                        <exclude reference="ndC-Wq-fsC"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="lve-OV-iYk"/>
-                                        <include reference="uHI-EZ-eQ5"/>
-                                        <include reference="O6u-7O-tTS"/>
-                                        <include reference="2EM-OS-weD"/>
-                                        <include reference="N3v-co-FeX"/>
-                                        <include reference="FQg-oZ-cJR"/>
-                                        <include reference="DGG-OM-Kpe"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="3DL-TS-Oyq"/>
-                                        <include reference="ozW-ON-I0m"/>
-                                        <include reference="ycW-Jq-yUC"/>
-                                        <include reference="FWV-bj-nKz"/>
-                                        <include reference="DA3-4c-aQx"/>
-                                        <include reference="CTO-UK-PBy"/>
-                                        <include reference="F0S-iV-ode"/>
-                                        <include reference="H7i-9p-FoH"/>
-                                        <include reference="W7A-SM-1oa"/>
-                                        <include reference="cIj-IX-iWS"/>
-                                        <include reference="d4C-3p-ERn"/>
-                                        <include reference="H9P-qm-aGz"/>
-                                        <include reference="H9U-hF-usT"/>
-                                        <include reference="Pst-xK-EdK"/>
-                                        <include reference="Qjy-3Q-LcI"/>
-                                        <include reference="fCV-8s-VoY"/>
-                                        <include reference="ndC-Wq-fsC"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="IuX-Kl-r0H">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
@@ -530,7 +323,8 @@
                                                                         <exclude reference="kdF-sv-XzE"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="widthClass=compact">
+                                                                <variation key="widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="118" y="24" width="266" height="23"/>
                                                                     <mask key="constraints">
                                                                         <include reference="kdF-sv-XzE"/>
                                                                     </mask>
@@ -541,18 +335,27 @@
                                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="12"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <variation key="widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="118" y="39" width="266" height="23"/>
+                                                                </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgw-9e-dlC">
                                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="12"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <variation key="widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="118" y="56" width="266" height="23"/>
+                                                                </variation>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME BIRRA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAl-mM-WKS">
                                                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="20"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
+                                                                <variation key="widthClass=compact" misplaced="YES">
+                                                                    <rect key="frame" x="118" y="6" width="266" height="24"/>
+                                                                </variation>
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -817,17 +620,26 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="35"/>
                                                         <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="8" y="8" width="231" height="41"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed7-tD-Pku">
                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="35"/>
                                                         <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="370" y="8" width="22" height="41"/>
+                                                        </variation>
                                                     </label>
                                                     <webView opaque="NO" contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1O-iN-sgH">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <dataDetectorType key="dataDetectorTypes"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="19" y="50" width="360" height="4"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="delegate" destination="uS3-T0-LFz" id="7fY-DE-XU7"/>
                                                         </connections>
@@ -961,17 +773,26 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="35"/>
                                                         <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="8" y="8" width="175" height="41"/>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci0-uS-vK2">
                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="35"/>
                                                         <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="370" y="8" width="22" height="41"/>
+                                                        </variation>
                                                     </label>
                                                     <webView opaque="NO" contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhd-Y5-sTh">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <dataDetectorType key="dataDetectorTypes"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="19" y="50" width="360" height="4"/>
+                                                        </variation>
                                                         <connections>
                                                             <outlet property="delegate" destination="uS3-T0-LFz" id="NAV-uL-PGd"/>
                                                         </connections>
@@ -1095,6 +916,9 @@
                                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="35"/>
                                                         <color key="textColor" red="1" green="0.96862745100000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="8" y="8" width="151" height="47"/>
+                                                        </variation>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaR-DK-z8D">
                                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1343,6 +1167,217 @@
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DsP-md-msJ" userLabel="View-points">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="beer_points_background" translatesAutoresizingMaskIntoConstraints="NO" id="lve-OV-iYk">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nice Gloop!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-EZ-eQ5">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="59" id="Hto-8a-pg4"/>
+                                            <constraint firstAttribute="width" constant="251" id="Phz-MS-fEu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Hto-8a-pg4"/>
+                                                <exclude reference="Phz-MS-fEu"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="Hto-8a-pg4"/>
+                                                <include reference="Phz-MS-fEu"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gloop_foam" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-7O-tTS">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="0vO-VB-NLp"/>
+                                            <constraint firstAttribute="height" constant="200" id="pdn-EZ-Kcw"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0vO-VB-NLp"/>
+                                                <exclude reference="pdn-EZ-Kcw"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="0vO-VB-NLp"/>
+                                                <include reference="pdn-EZ-Kcw"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloopies!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2EM-OS-weD">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="129" id="hSA-RV-qoF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="24"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="hSA-RV-qoF"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="156" y="513" width="129" height="28"/>
+                                            <mask key="constraints">
+                                                <include reference="hSA-RV-qoF"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="N3v-co-FeX">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="PpQ-8E-MNF"/>
+                                            <constraint firstAttribute="width" constant="129" id="nKM-1W-GWy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="PpQ-8E-MNF"/>
+                                                <exclude reference="nKM-1W-GWy"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="PpQ-8E-MNF"/>
+                                                <include reference="nKM-1W-GWy"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQg-oZ-cJR">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="2C1-mk-d4h"/>
+                                            <constraint firstAttribute="width" constant="30" id="fMz-Ld-XpN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="30"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2C1-mk-d4h"/>
+                                                <exclude reference="fMz-Ld-XpN"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="2C1-mk-d4h"/>
+                                                <include reference="fMz-Ld-XpN"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are the new owner!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGG-OM-Kpe">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="251" id="9ta-FI-iCw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="9ta-FI-iCw"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="75" y="616" width="251" height="94"/>
+                                            <mask key="constraints">
+                                                <include reference="9ta-FI-iCw"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2EM-OS-weD" firstAttribute="top" secondItem="O6u-7O-tTS" secondAttribute="bottom" constant="-87" id="3DL-TS-Oyq"/>
+                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="top" secondItem="FQg-oZ-cJR" secondAttribute="bottom" constant="-100" id="CTO-UK-PBy"/>
+                                    <constraint firstItem="N3v-co-FeX" firstAttribute="leading" secondItem="FQg-oZ-cJR" secondAttribute="trailing" constant="-4" id="DA3-4c-aQx"/>
+                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="leading" secondItem="FQg-oZ-cJR" secondAttribute="trailing" constant="-60" id="F0S-iV-ode"/>
+                                    <constraint firstItem="DGG-OM-Kpe" firstAttribute="top" secondItem="O6u-7O-tTS" secondAttribute="bottom" constant="16" id="FWV-bj-nKz"/>
+                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="top" secondItem="uHI-EZ-eQ5" secondAttribute="bottom" constant="12" id="H7i-9p-FoH"/>
+                                    <constraint firstItem="lve-OV-iYk" firstAttribute="leading" secondItem="DsP-md-msJ" secondAttribute="leading" constant="-5" id="H9P-qm-aGz"/>
+                                    <constraint firstAttribute="trailing" secondItem="lve-OV-iYk" secondAttribute="trailing" constant="-5" id="H9U-hF-usT"/>
+                                    <constraint firstItem="lve-OV-iYk" firstAttribute="top" secondItem="DsP-md-msJ" secondAttribute="top" constant="-5" id="Pst-xK-EdK"/>
+                                    <constraint firstItem="lve-OV-iYk" firstAttribute="centerY" secondItem="uHI-EZ-eQ5" secondAttribute="centerY" constant="141.5" id="Qjy-3Q-LcI"/>
+                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="centerY" secondItem="lve-OV-iYk" secondAttribute="centerY" id="W7A-SM-1oa"/>
+                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="centerX" secondItem="lve-OV-iYk" secondAttribute="centerX" id="cIj-IX-iWS"/>
+                                    <constraint firstItem="O6u-7O-tTS" firstAttribute="centerX" secondItem="DGG-OM-Kpe" secondAttribute="centerX" constant="-0.5" id="d4C-3p-ERn"/>
+                                    <constraint firstItem="lve-OV-iYk" firstAttribute="centerX" secondItem="uHI-EZ-eQ5" secondAttribute="centerX" constant="-0.5" id="fCV-8s-VoY"/>
+                                    <constraint firstAttribute="bottom" secondItem="lve-OV-iYk" secondAttribute="bottom" constant="-5" id="ndC-Wq-fsC"/>
+                                    <constraint firstItem="2EM-OS-weD" firstAttribute="leading" secondItem="O6u-7O-tTS" secondAttribute="trailing" constant="-144" id="ozW-ON-I0m"/>
+                                    <constraint firstItem="2EM-OS-weD" firstAttribute="top" secondItem="N3v-co-FeX" secondAttribute="bottom" constant="13" id="ycW-Jq-yUC"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="uHI-EZ-eQ5"/>
+                                        <exclude reference="O6u-7O-tTS"/>
+                                        <exclude reference="2EM-OS-weD"/>
+                                        <exclude reference="N3v-co-FeX"/>
+                                        <exclude reference="FQg-oZ-cJR"/>
+                                        <exclude reference="DGG-OM-Kpe"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="3DL-TS-Oyq"/>
+                                        <exclude reference="ozW-ON-I0m"/>
+                                        <exclude reference="ycW-Jq-yUC"/>
+                                        <exclude reference="FWV-bj-nKz"/>
+                                        <exclude reference="DA3-4c-aQx"/>
+                                        <exclude reference="CTO-UK-PBy"/>
+                                        <exclude reference="F0S-iV-ode"/>
+                                        <exclude reference="H7i-9p-FoH"/>
+                                        <exclude reference="W7A-SM-1oa"/>
+                                        <exclude reference="cIj-IX-iWS"/>
+                                        <exclude reference="d4C-3p-ERn"/>
+                                        <exclude reference="H9P-qm-aGz"/>
+                                        <exclude reference="H9U-hF-usT"/>
+                                        <exclude reference="Pst-xK-EdK"/>
+                                        <exclude reference="Qjy-3Q-LcI"/>
+                                        <exclude reference="fCV-8s-VoY"/>
+                                        <exclude reference="ndC-Wq-fsC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="lve-OV-iYk"/>
+                                        <include reference="uHI-EZ-eQ5"/>
+                                        <include reference="O6u-7O-tTS"/>
+                                        <include reference="2EM-OS-weD"/>
+                                        <include reference="N3v-co-FeX"/>
+                                        <include reference="FQg-oZ-cJR"/>
+                                        <include reference="DGG-OM-Kpe"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="3DL-TS-Oyq"/>
+                                        <include reference="ozW-ON-I0m"/>
+                                        <include reference="ycW-Jq-yUC"/>
+                                        <include reference="FWV-bj-nKz"/>
+                                        <include reference="DA3-4c-aQx"/>
+                                        <include reference="CTO-UK-PBy"/>
+                                        <include reference="F0S-iV-ode"/>
+                                        <include reference="H7i-9p-FoH"/>
+                                        <include reference="W7A-SM-1oa"/>
+                                        <include reference="cIj-IX-iWS"/>
+                                        <include reference="d4C-3p-ERn"/>
+                                        <include reference="H9P-qm-aGz"/>
+                                        <include reference="H9U-hF-usT"/>
+                                        <include reference="Pst-xK-EdK"/>
+                                        <include reference="Qjy-3Q-LcI"/>
+                                        <include reference="fCV-8s-VoY"/>
+                                        <include reference="ndC-Wq-fsC"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1393,9 +1428,9 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="DsP-md-msJ"/>
                                 <include reference="IuX-Kl-r0H"/>
                                 <include reference="ZbF-6X-ffR"/>
+                                <include reference="DsP-md-msJ"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="dTq-UD-FsR"/>
